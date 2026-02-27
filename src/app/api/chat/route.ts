@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import OpenAI from 'openai'
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
+export const dynamic = 'force-dynamic'
 
 const SYSTEM_PROMPT = `You are the RP & Associates AI assistant — a helpful, professional, and friendly representative for RP & Associates, a leading custom promotional products company based in Los Angeles, California.
 
@@ -59,6 +59,8 @@ export async function POST(req: NextRequest) {
         { status: 500 }
       )
     }
+
+    const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
 
     const completion = await openai.chat.completions.create({
       model: 'gpt-4o-mini',
