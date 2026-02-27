@@ -1,0 +1,1938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RP &amp; Associates - Custom Promotional Products &amp; Marketing Solutions</title>
+<meta name="description" content="RP & Associates - Custom design, manufacturing, warehousing & distribution of promotional products. Over 25 years of experience serving major brands.">
+<link rel="icon" href="http://www.rpandassociates.com/images/RP_Logo_Small.jpg" type="image/jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+/* ===== CSS CUSTOM PROPERTIES ===== */
+:root{
+  --primary:#0029cc;--primary-dark:#001a8a;--primary-light:#4466ff;--primary-glow:rgba(0,41,204,.35);
+  --gold:#C9A84C;--gold-light:#DFC06A;--gold-dark:#A68B30;--gold-glow:rgba(201,168,76,.3);
+  --accent-red:#b91c1c;--accent-red-light:#dc2626;--accent-red-dark:#991b1b;
+  --text-dark:#060610;--text-body:#1a1a2e;--text-muted:#4a4a64;--text-light:#7a7a96;
+  --bg-white:#ffffff;--bg-light:#f5f6fb;--bg-section:#eaecf5;--bg-dark:#06060e;--bg-footer:#04040a;
+  --glass:rgba(255,255,255,.55);--glass-border:rgba(255,255,255,.18);--glass-dark:rgba(6,6,14,.8);
+  --shadow-sm:0 2px 8px rgba(0,0,0,.05),0 1px 2px rgba(0,0,0,.04);
+  --shadow-md:0 16px 48px rgba(0,0,0,.1),0 4px 12px rgba(0,0,0,.06);
+  --shadow-lg:0 32px 72px rgba(0,0,0,.16),0 8px 24px rgba(0,0,0,.08);
+  --shadow-primary:0 16px 48px rgba(0,41,204,.2);--shadow-gold:0 12px 36px rgba(201,168,76,.25);
+  --radius-sm:12px;--radius-md:16px;--radius-lg:24px;--radius-xl:32px;--radius-pill:50px;
+  --ease:cubic-bezier(.4,0,.2,1);--ease-spring:cubic-bezier(.22,1,.36,1);--ease-bounce:cubic-bezier(.68,-.55,.27,1.55);
+  --font-heading:'Plus Jakarta Sans',sans-serif;--font-body:'Inter',sans-serif;
+  --header-h:72px;
+}
+
+/* ===== RESET & BASE ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;scroll-padding-top:var(--header-h)}
+body{font-family:var(--font-body);color:var(--text-body);background:var(--bg-light);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);font-weight:700;line-height:1.15;letter-spacing:-.03em}
+::selection{background:rgba(0,51,255,.15);color:var(--primary-dark)}
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--bg-light)}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--primary),var(--primary-light));border-radius:4px}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
+a{text-decoration:none;color:inherit;transition:color .3s var(--ease)}
+img{max-width:100%;height:auto;display:block}
+ul{list-style:none}
+button,input,textarea,select{font-family:inherit;font-size:inherit;border:none;outline:none}
+.container{max-width:1280px;margin:0 auto;padding:0 24px}
+
+/* ===== ANIMATION CLASSES ===== */
+@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(0,35,204,.3)}70%{box-shadow:0 0 0 12px rgba(0,35,204,0)}}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+@keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes countPulse{0%{transform:scale(1)}50%{transform:scale(1.05)}100%{transform:scale(1)}}
+@keyframes lineGrow{from{width:0}to{width:100%}}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s var(--ease),transform .65s var(--ease-spring)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-40px);transition:opacity .7s var(--ease),transform .7s var(--ease-spring)}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(40px);transition:opacity .7s var(--ease),transform .7s var(--ease-spring)}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+.reveal-scale{opacity:0;transform:scale(.92);transition:opacity .55s var(--ease),transform .55s var(--ease-spring)}
+.reveal-scale.visible{opacity:1;transform:scale(1)}
+.stagger-1{transition-delay:.05s}.stagger-2{transition-delay:.1s}.stagger-3{transition-delay:.15s}
+.stagger-4{transition-delay:.2s}.stagger-5{transition-delay:.25s}.stagger-6{transition-delay:.3s}
+
+/* ===== TOP BAR ===== */
+.top-bar{background:#060610;color:#fff;padding:10px 0;font-size:.76rem;position:relative;z-index:1001;letter-spacing:.3px}
+.top-bar .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px}
+.top-bar a{color:#bbb;transition:color .3s var(--ease)}
+.top-bar a:hover{color:#fff}
+.top-bar-left{display:flex;align-items:center;gap:20px}
+.top-bar-right{display:flex;align-items:center;gap:14px}
+.top-bar i{margin-right:5px;color:var(--primary-light)}
+
+/* ===== HEADER ===== */
+.header{background:rgba(255,255,255,.7);position:sticky;top:0;z-index:1000;transition:box-shadow .3s var(--ease),background .3s var(--ease);box-shadow:none;backdrop-filter:blur(24px) saturate(1.6);-webkit-backdrop-filter:blur(24px) saturate(1.6);border-bottom:1px solid rgba(0,0,0,.04)}
+.header.scrolled{box-shadow:0 4px 24px rgba(0,0,0,.06);background:rgba(255,255,255,.92);border-bottom-color:rgba(0,0,0,.06)}
+.header .container{display:flex;align-items:center;justify-content:space-between;padding-top:6px;padding-bottom:6px}
+.header-logo img{height:58px;transition:height .3s var(--ease);object-fit:contain}
+.header.scrolled .header-logo img{height:42px}
+
+/* NAV */
+.main-nav{display:flex;align-items:center;gap:0}
+.main-nav>li{position:relative}
+.main-nav>li>a{display:block;padding:16px 11px;font-size:.78rem;font-weight:600;color:var(--text-body);text-transform:uppercase;letter-spacing:.6px;transition:all .3s var(--ease);position:relative;white-space:nowrap}
+.main-nav>li>a::after{content:'';position:absolute;bottom:8px;left:50%;width:0;height:2.5px;background:linear-gradient(90deg,var(--primary),var(--primary-light));transition:all .3s var(--ease);transform:translateX(-50%);border-radius:2px}
+.main-nav>li:hover>a{color:var(--primary)}
+.main-nav>li:hover>a::after{width:55%}
+.main-nav>li>a .fa-chevron-down{font-size:.55rem;margin-left:3px;transition:transform .3s var(--ease);opacity:.6}
+.main-nav>li:hover>a .fa-chevron-down{transform:rotate(180deg);opacity:1}
+
+/* DROPDOWN */
+.dropdown{position:absolute;top:100%;left:0;min-width:260px;max-height:420px;overflow-y:auto;background:rgba(255,255,255,.95);backdrop-filter:blur(32px) saturate(1.6);-webkit-backdrop-filter:blur(32px) saturate(1.6);box-shadow:0 24px 64px rgba(0,0,0,.12),0 0 0 1px rgba(0,0,0,.04);border-radius:0 0 var(--radius-md) var(--radius-md);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s var(--ease),transform .25s var(--ease-spring),visibility .2s;z-index:999;border-top:2px solid var(--primary)}
+.dropdown::-webkit-scrollbar{width:5px}
+.dropdown::-webkit-scrollbar-thumb{background:#ccc;border-radius:5px}
+.main-nav>li:hover>.dropdown{opacity:1;visibility:visible;transform:translateY(0)}
+.dropdown li a{display:block;padding:10px 18px;font-size:.8rem;color:#444;transition:all .2s var(--ease);border-bottom:1px solid #f5f5f5}
+.dropdown li:last-child a{border-bottom:none}
+.dropdown li a:hover{background:linear-gradient(90deg,#eef2ff,#f8f9ff);color:var(--primary);padding-left:24px}
+
+/* HEADER CTA */
+.header-cta{display:flex;align-items:center;gap:14px}
+.btn-quote{display:inline-flex;align-items:center;gap:8px;padding:11px 24px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:#fff;font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;border-radius:var(--radius-pill);transition:transform .25s var(--ease-spring),box-shadow .25s var(--ease);cursor:pointer;white-space:nowrap;box-shadow:var(--shadow-gold);border:1px solid rgba(255,255,255,.15)}
+.btn-quote:hover{background:linear-gradient(135deg,var(--gold-light),var(--gold));transform:translateY(-2px);box-shadow:0 10px 28px rgba(212,168,75,.3)}
+.header-phone{font-size:.82rem;font-weight:600;color:var(--text-body);white-space:nowrap}
+.header-phone i{color:var(--primary);margin-right:5px}
+.header-search-btn{background:none;cursor:pointer;font-size:1rem;color:#555;padding:8px;transition:all .3s var(--ease);border:none;border-radius:50%}
+.header-search-btn:hover{color:var(--primary);background:rgba(0,35,204,.06)}
+
+/* HAMBURGER */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;z-index:1002;background:none;border:none}
+.hamburger span{display:block;width:24px;height:2.5px;background:var(--text-body);border-radius:3px;transition:all .3s var(--ease)}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px)}
+
+/* MOBILE NAV */
+.mobile-nav-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.6);z-index:998;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.mobile-nav{display:block;position:fixed;top:0;right:-340px;width:320px;max-width:85vw;height:100%;background:var(--bg-white);z-index:999;overflow-y:auto;transition:right .4s var(--ease-spring);padding:80px 0 30px;box-shadow:-8px 0 40px rgba(0,0,0,.2)}
+.mobile-nav.open{right:0}
+.mobile-nav>ul>li>a,.mobile-nav>ul>li>.mobile-dropdown-toggle>a{display:block;padding:13px 24px;font-size:.9rem;color:var(--text-body);border-bottom:1px solid #eee;font-weight:600}
+.mobile-nav>ul>li>a:hover{background:#f0f4ff;color:var(--primary)}
+.mobile-dropdown-toggle{display:flex;justify-content:space-between;align-items:center;cursor:pointer;border-bottom:1px solid #eee}
+.mobile-dropdown-toggle i{padding:13px 20px;color:#999;transition:transform .3s var(--ease);font-size:.7rem}
+.mobile-sub{display:none;background:#f8f9fc}
+.mobile-sub.open{display:block}
+.mobile-sub li a{display:block;padding:10px 24px 10px 40px;font-size:.82rem;color:#555;border-bottom:1px solid #f0f0f0}
+.mobile-sub li a:hover{color:var(--primary);background:#eef2ff}
+
+/* SEARCH OVERLAY */
+.search-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.9);z-index:2000;display:none;align-items:center;justify-content:center;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.search-overlay.active{display:flex}
+.search-overlay form{width:90%;max-width:700px;position:relative}
+.search-overlay input{width:100%;padding:20px 60px 20px 24px;font-size:1.2rem;border-radius:var(--radius-pill);border:3px solid var(--primary);background:var(--bg-white)}
+.search-overlay button[type="submit"]{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:linear-gradient(135deg,var(--primary),var(--primary-light));color:#fff;width:48px;height:48px;border-radius:50%;cursor:pointer;font-size:1rem;transition:all .3s var(--ease)}
+.search-overlay button[type="submit"]:hover{background:linear-gradient(135deg,var(--primary-light),var(--primary));transform:translateY(-50%) scale(1.05)}
+.search-close{position:absolute;top:30px;right:40px;color:#fff;font-size:2rem;cursor:pointer;transition:transform .3s var(--ease);background:none;border:none;line-height:1}
+.search-close:hover{transform:rotate(90deg)}
+
+/* ===== HERO CAROUSEL ===== */
+.hero{position:relative;width:100%;overflow:hidden;background:#060610}
+.hero-track{display:flex;transition:transform .55s cubic-bezier(.25,.46,.45,.94);will-change:transform}
+.hero-slide{min-width:100%;position:relative}
+.hero-slide img{width:100%;display:block;object-fit:cover}
+.hero-overlay{position:absolute;inset:0;z-index:5;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px 20px;background:linear-gradient(180deg,rgba(4,4,12,.7) 0%,rgba(4,4,12,.3) 35%,rgba(4,4,12,.5) 70%,rgba(4,4,12,.8) 100%);pointer-events:none}
+.hero-overlay-content{max-width:820px;pointer-events:all}
+.hero-overlay-content h1{font-size:clamp(2rem,5.5vw,3.6rem);color:#fff;font-weight:800;line-height:1.08;margin-bottom:24px;letter-spacing:-.04em;background:linear-gradient(135deg,#fff 40%,var(--gold-light) 90%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 4px 24px rgba(0,0,0,.4))}
+.hero-overlay-content p{color:rgba(255,255,255,.85);font-size:clamp(1rem,2vw,1.18rem);margin-bottom:36px;font-weight:400;text-shadow:0 2px 12px rgba(0,0,0,.5);max-width:580px;margin-left:auto;margin-right:auto;line-height:1.75;letter-spacing:.01em}
+.hero-overlay-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.hero-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;font-size:.88rem;font-weight:700;border-radius:var(--radius-pill);transition:transform .25s var(--ease-spring),box-shadow .25s var(--ease);text-transform:uppercase;letter-spacing:.8px;cursor:pointer;border:none}
+.hero-btn-primary{background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:#fff;box-shadow:0 8px 32px rgba(212,168,75,.4);border:1px solid rgba(255,255,255,.2)}
+.hero-btn-primary:hover{background:linear-gradient(135deg,var(--gold-light),var(--gold));transform:translateY(-3px);box-shadow:0 12px 36px rgba(212,168,75,.4)}
+.hero-btn-secondary{background:rgba(255,255,255,.08);color:#fff;border:1.5px solid rgba(255,255,255,.3);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.hero-btn-secondary:hover{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.5);transform:translateY(-3px)}
+.hero-arrows{position:absolute;top:50%;width:100%;display:flex;justify-content:space-between;padding:0 20px;transform:translateY(-50%);pointer-events:none;z-index:10}
+.hero-arrow{pointer-events:all;width:52px;height:52px;background:rgba(255,255,255,.12);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:#fff;transition:transform .2s var(--ease-spring),background .2s var(--ease);border:2px solid rgba(255,255,255,.25);box-shadow:0 4px 20px rgba(0,0,0,.2);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.hero-arrow:hover{background:var(--primary);color:#fff;border-color:var(--primary);transform:scale(1.1)}
+.hero-dots{position:absolute;bottom:22px;width:100%;display:flex;justify-content:center;gap:10px;z-index:10}
+.hero-dot{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;transition:all .35s var(--ease);border:2px solid rgba(255,255,255,.6)}
+.hero-dot.active{background:var(--primary);border-color:#fff;transform:scale(1.25);box-shadow:0 0 12px rgba(0,35,204,.5)}
+
+/* ===== CTA BANNERS ===== */
+.cta-banner{padding:48px 0;text-align:center;position:relative;overflow:hidden}
+.cta-banner-red{background:linear-gradient(135deg,var(--accent-red) 0%,var(--accent-red-light) 50%,var(--accent-red-dark) 100%)}
+.cta-banner-red::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.04) 0%,transparent 60%);pointer-events:none}
+.cta-banner-dark{background:linear-gradient(135deg,#222,#1a1a1a,#222)}
+.cta-banner-dark::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(0,35,204,.06) 0%,transparent 60%);pointer-events:none}
+.cta-banner p{color:#fff;font-size:1.35rem;font-weight:700;margin-bottom:20px;text-shadow:0 2px 8px rgba(0,0,0,.3);position:relative;z-index:1;letter-spacing:-.01em}
+.cta-banner .btn-cta{display:inline-flex;align-items:center;gap:8px;padding:15px 36px;background:#fff;color:var(--accent-red);font-weight:700;border-radius:var(--radius-pill);font-size:.92rem;transition:transform .25s var(--ease-spring),box-shadow .25s var(--ease);box-shadow:0 6px 25px rgba(0,0,0,.2);position:relative;z-index:1;letter-spacing:.3px}
+.cta-banner-dark .btn-cta{color:var(--text-dark)}
+.cta-banner .btn-cta:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(0,0,0,.2)}
+
+/* ===== CATALOGS ===== */
+.catalogs-section{padding:100px 0;background:var(--bg-white)}
+.section-title{text-align:center;margin-bottom:64px}
+.section-title h2{font-size:clamp(2rem,4.5vw,3rem);color:var(--text-dark);margin-bottom:16px;font-weight:800;letter-spacing:-.05em;line-height:1.1}
+.section-title p{color:var(--text-muted);font-size:1.02rem;max-width:520px;margin:0 auto;letter-spacing:.01em;line-height:1.75}
+.section-title .accent-line{width:56px;height:3.5px;background:linear-gradient(90deg,var(--gold),var(--gold-light));margin:20px auto 0;border-radius:4px}
+.catalogs-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.catalog-btn{display:flex;align-items:center;justify-content:center;text-align:center;padding:20px 14px;background:var(--bg-dark);color:#fff;font-size:.74rem;font-weight:600;border-radius:var(--radius-md);transition:transform .25s var(--ease-spring),box-shadow .25s var(--ease);min-height:64px;letter-spacing:.6px;box-shadow:var(--shadow-sm);line-height:1.3;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.06)}
+.catalog-btn::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.06),transparent);transition:left .7s var(--ease)}
+.catalog-btn:hover::before{left:100%}
+.catalog-btn:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);background:var(--primary)}
+
+/* ===== SERVICES ===== */
+.services-section{padding:110px 0;background:linear-gradient(180deg,#e8ecf8 0%,#dde2f4 50%,#e8ecf8 100%);position:relative}
+.services-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 20%,rgba(0,35,204,.04) 0%,transparent 50%),radial-gradient(ellipse at 80% 80%,rgba(77,111,255,.04) 0%,transparent 50%);pointer-events:none}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;position:relative;z-index:1}
+.service-card{text-align:center;padding:56px 36px;background:rgba(255,255,255,.65);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm);transition:transform .3s var(--ease-spring),box-shadow .3s var(--ease);border:1px solid rgba(255,255,255,.7);backdrop-filter:blur(24px) saturate(1.4);-webkit-backdrop-filter:blur(24px) saturate(1.4)}
+.service-card:hover{transform:translateY(-10px);box-shadow:var(--shadow-lg)}
+.service-icon-wrap{width:88px;height:88px;margin:0 auto 24px;border-radius:24px;background:linear-gradient(135deg,var(--primary),var(--primary-light));display:flex;align-items:center;justify-content:center;transition:transform .3s var(--ease-spring);box-shadow:0 12px 32px rgba(0,41,204,.2)}
+.service-card:hover .service-icon-wrap{transform:scale(1.06) rotate(-2deg)}
+.service-card img{width:44px;height:44px;object-fit:contain;filter:brightness(0) invert(1)}
+.service-card h3{font-size:1.35rem;color:var(--text-dark);margin-bottom:12px;letter-spacing:-.02em;font-weight:800}
+.service-card p{color:var(--text-muted);font-size:.9rem;line-height:1.85}
+
+/* ===== PRODUCTS GRID ===== */
+.products-section{padding:110px 0;background:var(--bg-white)}
+.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.product-card{position:relative;border-radius:var(--radius-lg);overflow:hidden;background:var(--bg-white);box-shadow:var(--shadow-sm);transition:transform .3s var(--ease-spring),box-shadow .3s var(--ease);cursor:pointer;display:block;border:1px solid rgba(0,0,0,.06)}
+.product-card:hover{transform:translateY(-10px);box-shadow:var(--shadow-lg)}
+.product-card-img{position:relative;overflow:hidden;aspect-ratio:4/3;background:#ecedf3}
+.product-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+.product-card:hover .product-card-img img{transform:scale(1.06)}
+.product-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(4,4,12,.9) 0%,rgba(0,20,100,.25) 45%,transparent 100%);opacity:0;transition:opacity .3s var(--ease);display:flex;align-items:flex-end;justify-content:center;padding:24px}
+.product-card:hover .product-card-overlay{opacity:1}
+.product-card-overlay span{color:#fff;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;display:flex;align-items:center;gap:8px;padding:10px 22px;background:rgba(255,255,255,.1);backdrop-filter:blur(8px);border-radius:var(--radius-pill);border:1px solid rgba(255,255,255,.15)}
+.product-card-overlay span i{margin-left:0;font-size:.65rem}
+.product-badge{position:absolute;top:16px;left:16px;z-index:3;padding:6px 16px;border-radius:var(--radius-pill);font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fff;background:linear-gradient(135deg,var(--gold),var(--gold-dark));box-shadow:0 6px 20px rgba(201,168,76,.35);border:1px solid rgba(255,255,255,.2)}
+.product-card-info{padding:20px 22px;display:flex;align-items:center;justify-content:space-between}
+.product-card-info h3{font-size:.94rem;font-weight:700;color:var(--text-dark);transition:color .2s var(--ease)}
+.product-card:hover .product-card-info h3{color:var(--primary)}
+.product-card-info .arrow-icon{width:32px;height:32px;border-radius:50%;background:var(--bg-section);display:flex;align-items:center;justify-content:center;font-size:.7rem;color:var(--text-muted);transition:transform .2s var(--ease-spring),background .2s var(--ease),color .2s var(--ease);flex-shrink:0}
+.product-card:hover .product-card-info .arrow-icon{background:var(--primary);color:#fff;transform:translateX(3px)}
+
+/* ===== BANNERS ===== */
+.banners-section{padding:100px 0;background:var(--bg-section)}
+.banners-grid{display:grid;grid-template-columns:1fr;gap:20px}
+.banner-card{position:relative;border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .3s var(--ease),box-shadow .3s var(--ease);border:1px solid rgba(0,0,0,.04)}
+.banner-card:hover{transform:scale(1.01);box-shadow:var(--shadow-lg)}
+.banner-card img{width:100%;display:block;transition:transform .6s var(--ease)}
+.banner-card:hover img{transform:scale(1.03)}
+
+/* ===== PROCESS STEPS ===== */
+.process-section{padding:110px 0;background:var(--bg-white);position:relative;overflow:hidden}
+.process-section::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 50% 0%,rgba(0,35,204,.03) 0%,transparent 60%);pointer-events:none}
+.process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;position:relative}
+.process-connector{position:absolute;top:70px;left:20%;right:20%;height:3px;z-index:0;overflow:hidden;border-radius:3px;background:linear-gradient(90deg,transparent,#dde4ff,var(--primary),#dde4ff,transparent)}
+.process-connector::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--primary-light),var(--primary),var(--primary-light));background-size:200% 100%;animation:shimmer 3s linear infinite;opacity:.5}
+.process-step{text-align:center;position:relative;z-index:1}
+.process-step-card{background:var(--bg-white);border-radius:var(--radius-xl);padding:44px 28px 36px;transition:transform .25s var(--ease-spring),box-shadow .25s var(--ease);border:1px solid rgba(0,0,0,.04);box-shadow:var(--shadow-sm)}
+.process-step-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg)}
+.process-step-num{width:56px;height:56px;background:linear-gradient(135deg,var(--primary),var(--primary-light));color:#fff;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:1.25rem;font-weight:800;margin:0 auto 20px;box-shadow:0 10px 28px rgba(0,41,204,.25);position:relative}
+.process-step img{width:68px;height:68px;margin:0 auto 16px;object-fit:contain}
+.process-step h3{font-size:1.18rem;color:var(--text-dark);margin-bottom:10px}
+.process-step p{color:var(--text-muted);font-size:.88rem;max-width:300px;margin:0 auto;line-height:1.75}
+
+/* ===== ABOUT ===== */
+.about-section{padding:120px 0;background:var(--bg-section)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.about-img{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);position:sticky;top:100px}
+.about-img img{width:100%;display:block}
+.about-content h2{font-size:2.4rem;color:var(--text-dark);margin-bottom:8px;letter-spacing:-.04em}
+.about-content h2 .accent-line{width:56px;height:4px;background:linear-gradient(90deg,var(--gold),var(--gold-light));display:block;margin-top:16px;border-radius:4px}
+.about-content p{color:var(--text-body);font-size:.95rem;line-height:1.9;margin-bottom:18px}
+.about-content h3{font-size:1.55rem;color:var(--text-dark);margin:32px 0 16px;position:relative;padding-left:18px;letter-spacing:-.02em}
+.about-content h3::before{content:'';position:absolute;left:0;top:4px;bottom:4px;width:4px;background:linear-gradient(180deg,var(--gold),var(--gold-light));border-radius:4px}
+
+/* STATS */
+.about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:40px 0;padding:0}
+.stat-item{text-align:center;padding:28px 16px;background:linear-gradient(135deg,rgba(0,41,204,.04),rgba(68,102,255,.06));border-radius:var(--radius-lg);border:1px solid rgba(0,41,204,.06)}
+.stat-number{font-family:var(--font-heading);font-size:2.6rem;font-weight:900;color:var(--primary);line-height:1;margin-bottom:6px;letter-spacing:-.03em}
+.stat-label{font-size:.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:1.5px;font-weight:700}
+
+/* ===== QUOTE FORM ===== */
+.quote-section{padding:120px 0;background:linear-gradient(135deg,var(--primary) 0%,#000d4d 100%);position:relative;overflow:hidden}
+.quote-section::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.03) 0%,transparent 50%)}
+.quote-section::after{content:'';position:absolute;bottom:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(77,111,255,.15) 0%,transparent 60%);pointer-events:none}
+.quote-grid{display:grid;grid-template-columns:1fr 360px;gap:50px;align-items:start;position:relative;z-index:1}
+.quote-form{background:rgba(255,255,255,.92);backdrop-filter:blur(32px) saturate(1.4);-webkit-backdrop-filter:blur(32px) saturate(1.4);border-radius:var(--radius-xl);padding:52px;box-shadow:0 32px 80px rgba(0,0,0,.15),0 0 0 1px rgba(255,255,255,.4);border:1px solid rgba(255,255,255,.5)}
+.quote-form h2{font-size:2rem;color:var(--text-dark);margin-bottom:6px;letter-spacing:-.03em}
+.quote-form .subtitle{color:var(--text-muted);font-size:.88rem;margin-bottom:32px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.form-group{display:flex;flex-direction:column;position:relative}
+.form-group.full{grid-column:1/-1}
+.form-group label{font-size:.72rem;font-weight:700;color:var(--text-muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:.7px;transition:all .3s var(--ease)}
+.form-group input,.form-group textarea{padding:15px 18px;border:1.5px solid #dfe2ea;border-radius:var(--radius-sm);font-size:.9rem;transition:border-color .2s var(--ease),box-shadow .2s var(--ease);background:rgba(248,249,253,.8)}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--primary);background:var(--bg-white);box-shadow:0 0 0 4px rgba(0,41,204,.08)}
+.form-group input:focus+label,.form-group textarea:focus+label{color:var(--primary)}
+.form-group textarea{resize:vertical;min-height:110px}
+.btn-submit{width:100%;padding:17px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:#fff;font-size:.92rem;font-weight:700;border-radius:var(--radius-pill);cursor:pointer;transition:transform .25s var(--ease-spring),box-shadow .25s var(--ease);text-transform:uppercase;letter-spacing:1.2px;margin-top:14px;border:none;position:relative;overflow:hidden}
+.btn-submit::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent);transition:left .6s var(--ease)}
+.btn-submit:hover::before{left:100%}
+.btn-submit:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(212,168,75,.3)}
+.btn-submit.success{background:linear-gradient(135deg,#22c55e,#16a34a) !important}
+.quote-sidebar{color:#fff}
+.quote-sidebar h3{font-size:1.5rem;margin-bottom:30px;font-weight:700}
+.quote-sidebar .contact-item{display:flex;align-items:flex-start;gap:14px;margin-bottom:28px;padding:16px;background:rgba(255,255,255,.06);border-radius:var(--radius-sm);border:1px solid rgba(255,255,255,.08);transition:all .3s var(--ease)}
+.quote-sidebar .contact-item:hover{background:rgba(255,255,255,.1);transform:translateX(4px)}
+.quote-sidebar .contact-item i{font-size:1.2rem;margin-top:4px;color:rgba(255,255,255,.7);min-width:20px;text-align:center}
+.quote-sidebar .contact-item p{font-size:.9rem;line-height:1.7;color:rgba(255,255,255,.88)}
+.quote-sidebar .contact-item a{color:#fff;text-decoration:underline;text-decoration-color:rgba(255,255,255,.4);transition:text-decoration-color .3s var(--ease)}
+.quote-sidebar .contact-item a:hover{text-decoration-color:#fff}
+.quote-sidebar .contact-item strong{display:block;color:#fff;margin-bottom:2px;font-size:.82rem;text-transform:uppercase;letter-spacing:.5px}
+
+/* ===== FOOTER ===== */
+.footer{background:linear-gradient(180deg,#0a0a14 0%,#040408 100%);color:#ccc;padding:100px 0 0}
+.footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.2fr;gap:40px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.08)}
+.footer-col h4{color:#fff;font-size:.88rem;font-weight:700;margin-bottom:20px;text-transform:uppercase;letter-spacing:1.5px;position:relative;padding-bottom:12px}
+.footer-col h4::after{content:'';position:absolute;bottom:0;left:0;width:30px;height:2px;background:linear-gradient(90deg,var(--primary),var(--primary-light));border-radius:2px}
+.footer-col p,.footer-col li,.footer-col a{font-size:.85rem;line-height:1.8;color:#888}
+.footer-col a{transition:all .3s var(--ease)}
+.footer-col a:hover{color:#fff;padding-left:2px}
+.footer-col ul li{margin-bottom:4px}
+.footer-logo img{height:48px;margin-bottom:14px;filter:brightness(1.1)}
+.footer-social{display:flex;gap:10px;margin-top:18px}
+.footer-social a{width:40px;height:40px;background:rgba(255,255,255,.06);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#888;font-size:.9rem;transition:transform .25s var(--ease-spring),background .25s var(--ease),color .2s var(--ease);border:1px solid rgba(255,255,255,.08)}
+.footer-social a:hover{background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:#fff;transform:translateY(-3px);box-shadow:0 6px 20px rgba(212,168,75,.25);border-color:var(--gold)}
+.newsletter-form{display:flex;gap:0;margin-top:14px;border-radius:var(--radius-sm);overflow:hidden;border:1px solid rgba(255,255,255,.1)}
+.newsletter-form input{flex:1;padding:12px 14px;border:none;background:rgba(255,255,255,.05);color:#fff;font-size:.82rem}
+.newsletter-form input::placeholder{color:#666}
+.newsletter-form button{padding:12px 20px;background:linear-gradient(135deg,var(--primary),var(--primary-light));color:#fff;font-weight:700;font-size:.78rem;cursor:pointer;transition:all .3s var(--ease);border:none;white-space:nowrap}
+.newsletter-form button:hover{background:linear-gradient(135deg,var(--primary-light),var(--primary))}
+.footer-bottom{text-align:center;padding:24px 0;font-size:.8rem;color:#555}
+.footer-bottom .powered{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:10px;font-size:.82rem;color:#666;letter-spacing:.5px}
+.footer-bottom .powered a{color:var(--primary-light);font-weight:700;letter-spacing:1px;transition:all .3s var(--ease);position:relative}
+.footer-bottom .powered a:hover{color:#fff;text-shadow:0 0 20px rgba(77,111,255,.6)}
+.footer-bottom .powered .merktop-logo{display:inline-flex;align-items:center;gap:6px;padding:6px 18px;background:linear-gradient(135deg,rgba(212,168,75,.1),rgba(212,168,75,.05));border:1px solid rgba(212,168,75,.2);border-radius:var(--radius-pill);transition:transform .25s var(--ease-spring),background .25s var(--ease)}
+.footer-bottom .powered .merktop-logo:hover{background:linear-gradient(135deg,rgba(212,168,75,.18),rgba(212,168,75,.1));border-color:rgba(212,168,75,.4);box-shadow:0 0 30px rgba(212,168,75,.15);transform:translateY(-2px)}
+.footer-bottom .powered .merktop-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px rgba(212,168,75,.6);animation:pulse 2s infinite}
+
+/* ===== SMOOTH TRANSITIONS & PERFORMANCE ===== */
+@keyframes borderGlow{0%,100%{border-color:rgba(77,111,255,.08)}50%{border-color:rgba(77,111,255,.18)}}
+.hero-track,.header,.ai-chat-panel,.back-to-top{will-change:transform}
+*{-webkit-tap-highlight-color:transparent}
+
+/* CLEAN — subtle header bottom line */
+.header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 10%,rgba(0,51,255,.08) 50%,transparent 90%)}
+
+/* CLEAN — stat gradient text */
+.stat-number{background:linear-gradient(135deg,var(--primary),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* CLEAN — subtle footer top line */
+.footer::before{content:'';display:block;height:1px;background:linear-gradient(90deg,transparent 10%,rgba(212,168,75,.25) 50%,transparent 90%)}
+
+/* CLEAN — smooth service card hover */
+.service-card{position:relative;overflow:hidden}
+
+/* SMOOTH — global link & interactive smoothness */
+button,a,.product-card,.service-card,.catalog-btn,.banner-card,.process-step-card,.hero-arrow,.hero-dot,.ai-chat-btn{-webkit-transform:translateZ(0);transform:translateZ(0)}
+
+/* ===== BACK TO TOP ===== */
+.back-to-top{position:fixed;bottom:28px;right:28px;padding:12px 18px;background:rgba(255,255,255,.7);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);color:var(--text-dark);border-radius:var(--radius-pill);display:flex;align-items:center;gap:6px;font-size:.75rem;font-weight:600;letter-spacing:.5px;cursor:pointer;opacity:0;visibility:hidden;transition:opacity .3s var(--ease),transform .3s var(--ease-spring),visibility .3s;z-index:900;border:1px solid rgba(0,0,0,.06);box-shadow:var(--shadow-md);font-family:var(--font-heading)}
+.back-to-top.visible{opacity:1;visibility:visible}
+.back-to-top:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.12);background:rgba(255,255,255,.9)}
+
+/* ===== RESPONSIVE — TABLET LANDSCAPE ===== */
+@media(max-width:1200px){
+  .container{padding:0 20px}
+  .main-nav>li>a{padding:16px 8px;font-size:.72rem}
+  .catalogs-grid{grid-template-columns:repeat(4,1fr);gap:10px}
+  .products-grid{grid-template-columns:repeat(3,1fr);gap:18px}
+}
+
+/* ===== RESPONSIVE — TABLET PORTRAIT ===== */
+@media(max-width:1024px){
+  .main-nav{display:none}
+  .hamburger{display:flex}
+  .catalogs-grid{grid-template-columns:repeat(3,1fr)}
+  .products-grid{grid-template-columns:repeat(2,1fr);gap:16px}
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .about-img{position:static;max-width:600px;margin:0 auto}
+  .quote-grid{grid-template-columns:1fr;gap:40px}
+  .quote-sidebar{padding:0}
+  .footer-grid{grid-template-columns:repeat(2,1fr);gap:30px}
+  .services-grid{gap:20px}
+  .service-card{padding:40px 24px}
+  .hero-overlay-content{max-width:600px}
+  .section-title{margin-bottom:44px}
+  .section-title h2::before,.section-title h2::after{display:none}
+}
+
+/* ===== RESPONSIVE — MOBILE LARGE ===== */
+@media(max-width:768px){
+  :root{--header-h:60px}
+  .top-bar{display:none}
+  .header .container{padding-top:8px;padding-bottom:8px}
+  .header-logo img{height:40px}
+  .header-phone{display:none}
+  .catalogs-grid{grid-template-columns:repeat(2,1fr);gap:8px}
+  .catalog-btn{min-height:52px;font-size:.7rem;padding:14px 10px}
+  .services-grid{grid-template-columns:1fr;gap:16px}
+  .service-card{padding:36px 24px;border-radius:var(--radius-lg)}
+  .products-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .product-card{border-radius:var(--radius-md)}
+  .product-card-info{padding:12px 14px}
+  .product-card-info h3{font-size:.82rem}
+  .banners-grid{grid-template-columns:1fr}
+  .banner-card{border-radius:var(--radius-md)}
+  .process-grid{grid-template-columns:1fr;gap:20px}
+  .process-connector{display:none}
+  .process-step-card{padding:28px 20px}
+  .form-row{grid-template-columns:1fr;gap:10px}
+  .form-group input,.form-group textarea{padding:12px 14px;font-size:.88rem}
+  .footer-grid{grid-template-columns:1fr;gap:28px;text-align:center}
+  .footer-col h4::after{margin:8px auto 0}
+  .footer-social{justify-content:center}
+  .newsletter-form{max-width:320px;margin:14px auto 0}
+  .footer-bottom .powered{flex-wrap:wrap;justify-content:center}
+  .hero-arrows{padding:0 12px}
+  .hero-arrow{width:40px;height:40px;font-size:.82rem}
+  .hero-dots{bottom:14px;gap:8px}
+  .hero-dot{width:10px;height:10px}
+  .hero-overlay-btns{gap:10px}
+  .hero-btn{padding:12px 24px;font-size:.78rem;letter-spacing:.5px}
+  .quote-form{padding:28px 20px;border-radius:var(--radius-lg)}
+  .quote-form h2{font-size:1.5rem}
+  .cta-banner{padding:28px 0}
+  .cta-banner p{font-size:1.05rem;padding:0 16px;margin-bottom:14px}
+  .about-content h2{font-size:1.6rem}
+  .about-content h3{font-size:1.25rem}
+  .about-stats{grid-template-columns:repeat(3,1fr);gap:10px;margin:24px 0}
+  .stat-item{padding:20px 10px}
+  .stat-number{font-size:1.6rem}
+  .stat-label{font-size:.65rem;letter-spacing:1px}
+  .back-to-top{bottom:20px;right:16px;padding:10px 14px;font-size:.7rem}
+}
+
+/* ===== RESPONSIVE — MOBILE SMALL ===== */
+@media(max-width:480px){
+  .container{padding:0 16px}
+  .catalogs-grid{grid-template-columns:1fr 1fr;gap:6px}
+  .catalog-btn{min-height:48px;font-size:.68rem;padding:12px 8px;border-radius:var(--radius-sm)}
+  .products-grid{grid-template-columns:1fr;gap:14px}
+  .product-card-img{aspect-ratio:16/9}
+  .cta-banner p{font-size:.92rem}
+  .cta-banner .btn-cta{font-size:.76rem;padding:12px 20px}
+  .header-cta .btn-quote span{display:none}
+  .btn-quote{padding:10px 14px}
+  .about-grid{gap:28px}
+  .about-stats{grid-template-columns:repeat(3,1fr);gap:6px}
+  .stat-item{padding:16px 8px}
+  .stat-number{font-size:1.3rem}
+  .stat-label{font-size:.6rem}
+  .services-section{padding:60px 0}
+  .products-section{padding:60px 0}
+  .banners-section{padding:60px 0}
+  .process-section{padding:60px 0}
+  .about-section{padding:60px 0}
+  .quote-section{padding:60px 0}
+  .section-title{margin-bottom:36px}
+  .quote-sidebar .contact-item{padding:12px;margin-bottom:16px}
+  .mobile-nav{width:100vw;max-width:100vw;padding:70px 0 24px}
+  .wave-divider{height:24px}
+}
+
+/* ===== RESPONSIVE — VERY SMALL ===== */
+@media(max-width:360px){
+  .catalogs-grid{grid-template-columns:1fr}
+  .about-stats{grid-template-columns:1fr;gap:12px}
+  .hero-overlay-btns{flex-direction:column;align-items:center}
+  .hero-btn{width:100%;justify-content:center}
+  .form-group input,.form-group textarea{padding:11px 12px;font-size:.85rem}
+  .quote-form{padding:24px 16px}
+}
+
+/* ===== LANDSCAPE PHONES ===== */
+@media(max-height:500px) and (orientation:landscape){
+  .hero{max-height:70vh}
+  .hero-slide img{max-height:70vh;object-fit:cover}
+  .hero-overlay-content h1{font-size:1.4rem;margin-bottom:10px}
+  .hero-overlay-content p{font-size:.82rem;margin-bottom:16px}
+  .hero-btn{padding:10px 20px;font-size:.72rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== TOP BAR ===== -->
+<div class="top-bar">
+  <div class="container">
+    <div class="top-bar-left">
+      <a href="tel:3103729709"><i class="fas fa-phone"></i> (310) 372-9709</a>
+      <a href="mailto:info@rpassociates.us"><i class="fas fa-envelope"></i> info@rpassociates.us</a>
+    </div>
+    <div class="top-bar-right">
+      <a href="https://twitter.com/search?q=grubtubcompany" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.linkedin.com/company/rp-and-associates/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://www.instagram.com/grubtubcompany/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== HEADER ===== -->
+<header class="header" id="header">
+  <div class="container">
+    <a href="#" class="header-logo">
+      <img src="http://www.rpandassociates.com/images/RP_Logo_Small.jpg" alt="RP and Associates Logo" width="180" height="60">
+    </a>
+
+    <nav aria-label="Main navigation">
+      <ul class="main-nav">
+        <!-- HOME -->
+        <li>
+          <a href="#">Home <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="http://www.customandunique.com" target="_blank" rel="noopener">Custom &amp; Unique Catalog</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Product Videos</a></li>
+            <li><a href="#quote">Request a Sample</a></li>
+            <li><a href="#quote">Request a Quote</a></li>
+            <li><a href="#">Subscribe to News &amp; Updates</a></li>
+            <li><a href="http://rpandassociates.com/search-inventory-domestic">Search Inventory</a></li>
+            <li><a href="#">In-Stock Items</a></li>
+          </ul>
+        </li>
+        <!-- BARWARE -->
+        <li>
+          <a href="#">Barware <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown">
+            <li><a href="#">Shakers</a></li>
+            <li><a href="#">Straws</a></li>
+            <li><a href="#">Flasks</a></li>
+            <li><a href="#">Air Light</a></li>
+            <li><a href="#">Bar Mats</a></li>
+            <li><a href="#">Bottle Glorifiers</a></li>
+            <li><a href="#">Bottle Opener</a></li>
+            <li><a href="#">Condiment Holders</a></li>
+            <li><a href="#">Condiment Trays</a></li>
+            <li><a href="#">Cork Coasters</a></li>
+            <li><a href="#">Custom Stir Rods</a></li>
+            <li><a href="#">Custom Silicon Ice Trays</a></li>
+            <li><a href="#">Flight Tray Paddles</a></li>
+            <li><a href="#">Growlers</a></li>
+            <li><a href="#">Ice Buckets</a></li>
+            <li><a href="#">Key Chain Bottle Opener</a></li>
+            <li><a href="#">Mini Hat Bottle Toppers</a></li>
+            <li><a href="#">Maraca Cocktail Shakers</a></li>
+            <li><a href="#">Napkin Caddies</a></li>
+            <li><a href="#">Serving Trays</a></li>
+            <li><a href="#">Squeeze Jigger</a></li>
+            <li><a href="#">Wine Pourer</a></li>
+            <li><a href="#">Wrist Band Koozie</a></li>
+          </ul>
+        </li>
+        <!-- BEVERAGE BAGS -->
+        <li>
+          <a href="#">Beverage Bags <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown">
+            <li><a href="#">Aluminum Bag</a></li>
+            <li><a href="#">O Ring Bag</a></li>
+            <li><a href="#">1.5 Gallon</a></li>
+            <li><a href="#">Bag with Box</a></li>
+            <li><a href="#">Beverage Pouch</a></li>
+            <li><a href="#">Bag Sleeves</a></li>
+            <li><a href="#">Generic Bags</a></li>
+            <li><a href="#">Carbonated Bag</a></li>
+            <li><a href="#">Infusion Jar Bag</a></li>
+            <li><a href="#">Coffee Bag</a></li>
+            <li><a href="#">Foldable Yard</a></li>
+            <li><a href="#">Wide Mouth</a></li>
+            <li><a href="#">Bag with Spigot</a></li>
+            <li><a href="#">Milk Bags</a></li>
+            <li><a href="#">Pocket Mug</a></li>
+            <li><a href="#">Polar Pouch</a></li>
+            <li><a href="#">Custom Lids</a></li>
+            <li><a href="#">Sangria Bag</a></li>
+            <li><a href="#">Soup Bags</a></li>
+            <li><a href="#">Ice Cream Pouches</a></li>
+          </ul>
+        </li>
+        <!-- DRINKWARE -->
+        <li>
+          <a href="#">Drinkware <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown">
+            <li><a href="#">Plastic Drinkware</a></li>
+            <li><a href="#">Disposable Cups</a></li>
+            <li><a href="#">Glassware</a></li>
+            <li><a href="#">Party Balls</a></li>
+            <li><a href="#">Shot Glasses</a></li>
+            <li><a href="#">Aluminum Cans</a></li>
+            <li><a href="#">Aluminum Cups</a></li>
+            <li><a href="#">Beer Stein</a></li>
+            <li><a href="#">Beertail</a></li>
+            <li><a href="#">Blinking Drinkware</a></li>
+            <li><a href="#">Cantail</a></li>
+            <li><a href="#">Coconut Cup</a></li>
+            <li><a href="#">Coffee Sleeves</a></li>
+            <li><a href="#">Drink Holder</a></li>
+            <li><a href="#">Enamel Mug</a></li>
+            <li><a href="#">Ornament Tumbler</a></li>
+            <li><a href="#">Party Cup</a></li>
+            <li><a href="#">Pineapple Mug</a></li>
+            <li><a href="#">Steel Cups</a></li>
+            <li><a href="#">The Cuff</a></li>
+            <li><a href="#">The Orb</a></li>
+            <li><a href="#">Tiki Mugs</a></li>
+            <li><a href="#">Tin Can Cups</a></li>
+            <li><a href="#">Tire Mug</a></li>
+            <li><a href="#">Winebox</a></li>
+            <li><a href="#">Ugly Christmas Sweater Insulators</a></li>
+            <li><a href="#">Oktober Fest</a></li>
+          </ul>
+        </li>
+        <!-- GLACIER BAGS -->
+        <li>
+          <a href="#">Glacier Bags <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown">
+            <li><a href="#">6-Pack</a></li>
+            <li><a href="#">Single Bottle</a></li>
+            <li><a href="#">Dog Bags</a></li>
+            <li><a href="#">Watering Bags</a></li>
+            <li><a href="#">Giant Ice Bucket Bag</a></li>
+            <li><a href="#">Big Globe Bag</a></li>
+            <li><a href="#">Ice Bucket Bag</a></li>
+            <li><a href="#">How it's being used</a></li>
+            <li><a href="#">Reusable Bulk Food Bags</a></li>
+            <li><a href="#">Wet/Dry Bag Plus</a></li>
+            <li><a href="#">Wine Buddy</a></li>
+          </ul>
+        </li>
+        <!-- GRUB TUBS -->
+        <li>
+          <a href="#">Grub Tubs <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown">
+            <li><a href="#">Acrylic Styrene</a></li>
+            <li><a href="#">Bamboo</a></li>
+            <li><a href="#">Clear</a></li>
+            <li><a href="#">Oval</a></li>
+            <li><a href="#">Round</a></li>
+            <li><a href="#">Squared</a></li>
+            <li><a href="#">3D Model</a></li>
+          </ul>
+        </li>
+        <!-- MULE MUGS -->
+        <li>
+          <a href="#">Mule Mugs <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown">
+            <li><a href="#">Acrylic Classic/Mini/Stackable</a></li>
+            <li><a href="#">Floating Artisan/Punch/Classic</a></li>
+            <li><a href="#">Mini Acrylic/Artisan/Stainless Steel</a></li>
+            <li><a href="#">Artisan</a></li>
+            <li><a href="#">Bolted</a></li>
+            <li><a href="#">Classic</a></li>
+            <li><a href="#">Classic Dutch</a></li>
+            <li><a href="#">Colorful</a></li>
+            <li><a href="#">Custom Design</a></li>
+            <li><a href="#">Giant/Shareable</a></li>
+            <li><a href="#">Hammered</a></li>
+            <li><a href="#">Hammered Highball</a></li>
+            <li><a href="#">Punch</a></li>
+            <li><a href="#">Pure Copper</a></li>
+            <li><a href="#">Riveted</a></li>
+            <li><a href="#">Russian</a></li>
+          </ul>
+        </li>
+        <!-- VAPs & More -->
+        <li>
+          <a href="#">VAPs &amp; More <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown">
+            <li><a href="#">Value Added Packaging</a></li>
+            <li><a href="#">Closeout Sale</a></li>
+            <li><a href="#">Custom Coolers</a></li>
+            <li><a href="#">6 Pack Carrier</a></li>
+            <li><a href="#">Catering Trays</a></li>
+            <li><a href="#">Custom 50ml Displays</a></li>
+            <li><a href="#">Ice Cream &amp; Snack Bowls</a></li>
+            <li><a href="#">Electronics</a></li>
+            <li><a href="#">Light-Up Labels</a></li>
+            <li><a href="#">Popcorn Boxes</a></li>
+            <li><a href="#">Tote Bags</a></li>
+            <li><a href="#">Other Products</a></li>
+            <li><a href="#">Healthcare</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="header-cta">
+      <button class="header-search-btn" id="searchToggle" aria-label="Open search"><i class="fas fa-search"></i></button>
+      <span class="header-phone"><i class="fas fa-phone"></i> (310) 372-9709</span>
+      <a href="#quote" class="btn-quote"><i class="fas fa-file-alt"></i> <span>REQUEST A QUOTE</span></a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle mobile menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search">
+  <button class="search-close" id="searchClose" aria-label="Close search">&times;</button>
+  <form action="http://rpandassociates.com/search-inventory-domestic" method="get">
+    <input type="text" placeholder="Search products, catalogs, and more..." aria-label="Search products">
+    <button type="submit" aria-label="Submit search"><i class="fas fa-search"></i></button>
+  </form>
+</div>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav-overlay" id="mobileOverlay"></div>
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+  <ul>
+    <li>
+      <div class="mobile-dropdown-toggle" data-target="mob-home">
+        <a href="#">Home</a><i class="fas fa-chevron-down"></i>
+      </div>
+      <ul class="mobile-sub" id="mob-home">
+        <li><a href="#about">About Us</a></li>
+        <li><a href="http://www.customandunique.com" target="_blank" rel="noopener">Custom &amp; Unique Catalog</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">Product Videos</a></li>
+        <li><a href="#quote">Request a Sample</a></li>
+        <li><a href="#quote">Request a Quote</a></li>
+        <li><a href="#">Subscribe to News &amp; Updates</a></li>
+        <li><a href="http://rpandassociates.com/search-inventory-domestic">Search Inventory</a></li>
+        <li><a href="#">In-Stock Items</a></li>
+      </ul>
+    </li>
+    <li>
+      <div class="mobile-dropdown-toggle" data-target="mob-barware">
+        <a href="#">Barware</a><i class="fas fa-chevron-down"></i>
+      </div>
+      <ul class="mobile-sub" id="mob-barware">
+        <li><a href="#">Shakers</a></li><li><a href="#">Straws</a></li><li><a href="#">Flasks</a></li><li><a href="#">Air Light</a></li><li><a href="#">Bar Mats</a></li><li><a href="#">Bottle Glorifiers</a></li><li><a href="#">Bottle Opener</a></li><li><a href="#">Condiment Holders</a></li><li><a href="#">Condiment Trays</a></li><li><a href="#">Cork Coasters</a></li><li><a href="#">Custom Stir Rods</a></li><li><a href="#">Custom Silicon Ice Trays</a></li><li><a href="#">Flight Tray Paddles</a></li><li><a href="#">Growlers</a></li><li><a href="#">Ice Buckets</a></li><li><a href="#">Key Chain Bottle Opener</a></li><li><a href="#">Mini Hat Bottle Toppers</a></li><li><a href="#">Maraca Cocktail Shakers</a></li><li><a href="#">Napkin Caddies</a></li><li><a href="#">Serving Trays</a></li><li><a href="#">Squeeze Jigger</a></li><li><a href="#">Wine Pourer</a></li><li><a href="#">Wrist Band Koozie</a></li>
+      </ul>
+    </li>
+    <li>
+      <div class="mobile-dropdown-toggle" data-target="mob-bevbags">
+        <a href="#">Beverage Bags</a><i class="fas fa-chevron-down"></i>
+      </div>
+      <ul class="mobile-sub" id="mob-bevbags">
+        <li><a href="#">Aluminum Bag</a></li><li><a href="#">O Ring Bag</a></li><li><a href="#">1.5 Gallon</a></li><li><a href="#">Bag with Box</a></li><li><a href="#">Beverage Pouch</a></li><li><a href="#">Bag Sleeves</a></li><li><a href="#">Generic Bags</a></li><li><a href="#">Carbonated Bag</a></li><li><a href="#">Infusion Jar Bag</a></li><li><a href="#">Coffee Bag</a></li><li><a href="#">Foldable Yard</a></li><li><a href="#">Wide Mouth</a></li><li><a href="#">Bag with Spigot</a></li><li><a href="#">Milk Bags</a></li><li><a href="#">Pocket Mug</a></li><li><a href="#">Polar Pouch</a></li><li><a href="#">Custom Lids</a></li><li><a href="#">Sangria Bag</a></li><li><a href="#">Soup Bags</a></li><li><a href="#">Ice Cream Pouches</a></li>
+      </ul>
+    </li>
+    <li>
+      <div class="mobile-dropdown-toggle" data-target="mob-drinkware">
+        <a href="#">Drinkware</a><i class="fas fa-chevron-down"></i>
+      </div>
+      <ul class="mobile-sub" id="mob-drinkware">
+        <li><a href="#">Plastic Drinkware</a></li><li><a href="#">Disposable Cups</a></li><li><a href="#">Glassware</a></li><li><a href="#">Party Balls</a></li><li><a href="#">Shot Glasses</a></li><li><a href="#">Aluminum Cans</a></li><li><a href="#">Aluminum Cups</a></li><li><a href="#">Beer Stein</a></li><li><a href="#">Beertail</a></li><li><a href="#">Blinking Drinkware</a></li><li><a href="#">Cantail</a></li><li><a href="#">Coconut Cup</a></li><li><a href="#">Coffee Sleeves</a></li><li><a href="#">Drink Holder</a></li><li><a href="#">Enamel Mug</a></li><li><a href="#">Ornament Tumbler</a></li><li><a href="#">Party Cup</a></li><li><a href="#">Pineapple Mug</a></li><li><a href="#">Steel Cups</a></li><li><a href="#">The Cuff</a></li><li><a href="#">The Orb</a></li><li><a href="#">Tiki Mugs</a></li><li><a href="#">Tin Can Cups</a></li><li><a href="#">Tire Mug</a></li><li><a href="#">Winebox</a></li><li><a href="#">Ugly Christmas Sweater Insulators</a></li><li><a href="#">Oktober Fest</a></li>
+      </ul>
+    </li>
+    <li>
+      <div class="mobile-dropdown-toggle" data-target="mob-glacier">
+        <a href="#">Glacier Bags</a><i class="fas fa-chevron-down"></i>
+      </div>
+      <ul class="mobile-sub" id="mob-glacier">
+        <li><a href="#">6-Pack</a></li><li><a href="#">Single Bottle</a></li><li><a href="#">Dog Bags</a></li><li><a href="#">Watering Bags</a></li><li><a href="#">Giant Ice Bucket Bag</a></li><li><a href="#">Big Globe Bag</a></li><li><a href="#">Ice Bucket Bag</a></li><li><a href="#">How it's being used</a></li><li><a href="#">Reusable Bulk Food Bags</a></li><li><a href="#">Wet/Dry Bag Plus</a></li><li><a href="#">Wine Buddy</a></li>
+      </ul>
+    </li>
+    <li>
+      <div class="mobile-dropdown-toggle" data-target="mob-grub">
+        <a href="#">Grub Tubs</a><i class="fas fa-chevron-down"></i>
+      </div>
+      <ul class="mobile-sub" id="mob-grub">
+        <li><a href="#">Acrylic Styrene</a></li><li><a href="#">Bamboo</a></li><li><a href="#">Clear</a></li><li><a href="#">Oval</a></li><li><a href="#">Round</a></li><li><a href="#">Squared</a></li><li><a href="#">3D Model</a></li>
+      </ul>
+    </li>
+    <li>
+      <div class="mobile-dropdown-toggle" data-target="mob-mule">
+        <a href="#">Mule Mugs</a><i class="fas fa-chevron-down"></i>
+      </div>
+      <ul class="mobile-sub" id="mob-mule">
+        <li><a href="#">Acrylic Classic/Mini/Stackable</a></li><li><a href="#">Floating Artisan/Punch/Classic</a></li><li><a href="#">Mini Acrylic/Artisan/Stainless Steel</a></li><li><a href="#">Artisan</a></li><li><a href="#">Bolted</a></li><li><a href="#">Classic</a></li><li><a href="#">Classic Dutch</a></li><li><a href="#">Colorful</a></li><li><a href="#">Custom Design</a></li><li><a href="#">Giant/Shareable</a></li><li><a href="#">Hammered</a></li><li><a href="#">Hammered Highball</a></li><li><a href="#">Punch</a></li><li><a href="#">Pure Copper</a></li><li><a href="#">Riveted</a></li><li><a href="#">Russian</a></li>
+      </ul>
+    </li>
+    <li>
+      <div class="mobile-dropdown-toggle" data-target="mob-vaps">
+        <a href="#">VAPs &amp; More</a><i class="fas fa-chevron-down"></i>
+      </div>
+      <ul class="mobile-sub" id="mob-vaps">
+        <li><a href="#">Value Added Packaging</a></li><li><a href="#">Closeout Sale</a></li><li><a href="#">Custom Coolers</a></li><li><a href="#">6 Pack Carrier</a></li><li><a href="#">Catering Trays</a></li><li><a href="#">Custom 50ml Displays</a></li><li><a href="#">Ice Cream &amp; Snack Bowls</a></li><li><a href="#">Electronics</a></li><li><a href="#">Light-Up Labels</a></li><li><a href="#">Popcorn Boxes</a></li><li><a href="#">Tote Bags</a></li><li><a href="#">Other Products</a></li><li><a href="#">Healthcare</a></li>
+      </ul>
+    </li>
+    <li><a href="#quote" style="background:#0023cc;color:#fff;font-weight:700;text-align:center;display:block;margin:16px 20px;border-radius:8px;padding:14px">REQUEST A QUOTE</a></li>
+    <li><a href="tel:3103729709" style="text-align:center;color:#0023cc;font-weight:600"><i class="fas fa-phone" style="margin-right:8px"></i>(310) 372-9709</a></li>
+  </ul>
+</nav>
+
+<!-- ===== SECTION 2: HERO CAROUSEL ===== -->
+<section class="hero" id="hero" aria-label="Featured products slideshow">
+  <div class="hero-track" id="heroTrack">
+    <div class="hero-slide"><img src="http://www.rpandassociates.com/images/SlidersHP/3-Piece-Shakers.png" alt="3-Piece Shakers" loading="eager"></div>
+    <div class="hero-slide"><img src="http://www.rpandassociates.com/images/SlidersHP/baseball-items-generic-slider.png" alt="Baseball Items" loading="lazy"></div>
+    <div class="hero-slide"><img src="http://www.rpandassociates.com/images/SlidersHP/drinkware-generic-logos-slider.png" alt="Drinkware Generic Logos" loading="lazy"></div>
+    <div class="hero-slide"><img src="http://www.rpandassociates.com/images/SlidersHP/Custom-Shaker-Tops2.png" alt="Custom Shaker Tops" loading="lazy"></div>
+    <div class="hero-slide"><img src="http://www.rpandassociates.com/images/SlidersHP/foldable-yards-slider-generic-logos.png" alt="Foldable Yards" loading="lazy"></div>
+    <div class="hero-slide"><img src="http://www.rpandassociates.com/images/grub-tub-slider-generic-logos.png" alt="Grub Tub" loading="lazy"></div>
+  </div>
+  <div class="hero-overlay">
+    <div class="hero-overlay-content">
+      <p>Over 35 years of award-winning design, manufacturing, warehousing &amp; distribution for the world's leading brands.</p>
+      <div class="hero-overlay-btns">
+        <a href="#quote" class="hero-btn hero-btn-primary"><i class="fas fa-file-alt"></i> Request a Quote</a>
+        <a href="#products" class="hero-btn hero-btn-secondary"><i class="fas fa-th-large"></i> Browse Products</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-arrows">
+    <button class="hero-arrow" id="heroPrev" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></button>
+    <button class="hero-arrow" id="heroNext" aria-label="Next slide"><i class="fas fa-chevron-right"></i></button>
+  </div>
+  <div class="hero-dots" id="heroDots">
+    <span class="hero-dot active" data-index="0"></span>
+    <span class="hero-dot" data-index="1"></span>
+    <span class="hero-dot" data-index="2"></span>
+    <span class="hero-dot" data-index="3"></span>
+    <span class="hero-dot" data-index="4"></span>
+    <span class="hero-dot" data-index="5"></span>
+  </div>
+</section>
+
+<!-- WAVE DIVIDER -->
+<svg class="wave-divider" viewBox="0 0 1440 60" preserveAspectRatio="none" style="display:block;width:100%;height:40px;margin-top:-1px"><path d="M0,30 C360,60 720,0 1080,30 C1260,45 1380,20 1440,30 L1440,60 L0,60Z" fill="#fff" opacity=".6"/><path d="M0,40 C480,10 960,50 1440,35 L1440,60 L0,60Z" fill="var(--bg-white,#fff)"/></svg>
+
+<!-- ===== SECTION 3: CTA BANNER 1 (Red) ===== -->
+<section class="cta-banner cta-banner-red reveal">
+  <div class="container">
+    <p>You can view our Custom Products Online at CustomAndUnique.com</p>
+    <a href="http://www.customandunique.com" target="_blank" rel="noopener" class="btn-cta"><i class="fas fa-external-link-alt"></i> Click Here to View Our Custom Products Catalog</a>
+  </div>
+</section>
+
+<!-- ===== SECTION 4: CATALOGS ===== -->
+<section class="catalogs-section" id="catalogs">
+  <div class="container">
+    <div class="section-title reveal">
+      <h2>Browse Our Catalogs</h2>
+      <p>Explore our full range of custom promotional products</p>
+      <div class="accent-line"></div>
+    </div>
+    <div class="catalogs-grid">
+      <a href="https://issuu.com/rpandassociates/docs/rp-and-associates-plastic-yard-cups?e=7897226/65042338" target="_blank" rel="noopener" class="catalog-btn reveal stagger-1">Plastic Catalog</a>
+      <a href="https://issuu.com/rpandassociates/docs/rp-customproducts?e=7897226/65042454" target="_blank" rel="noopener" class="catalog-btn reveal stagger-2">Custom Products</a>
+      <a href="https://issuu.com/rpandassociates/docs/rp_barware_catalog?fr=sOTQ2MDE0Njc1MQ" target="_blank" rel="noopener" class="catalog-btn reveal stagger-3">Barware Catalog</a>
+      <a href="https://issuu.com/rpandassociates/docs/rp_bags_presentation?e=7897226/62081268" target="_blank" rel="noopener" class="catalog-btn reveal stagger-4">RP Bags Program</a>
+      <a href="http://issuu.com/rpandassociates/docs/stainless_steel_products_catalog-2?e=7897226/46091016" target="_blank" rel="noopener" class="catalog-btn reveal stagger-5">Stainless Steel Products Catalog</a>
+      <a href="https://issuu.com/rpandassociates/docs/rp_stadium_cups_catalog?fr=sNzg5OTE0Njc1MQ" target="_blank" rel="noopener" class="catalog-btn reveal stagger-1">Plastic Cups Catalog</a>
+      <a href="https://issuu.com/rpandassociates/docs/wood_and_cardboard_catalog_and_cust?e=7897226/45631587" target="_blank" rel="noopener" class="catalog-btn reveal stagger-2">Packaging &amp; VAPs Catalog</a>
+      <a href="https://issuu.com/rpandassociates/docs/glassware_catalog_-_new_compressed?fr=sNTkwYTE0Njc1MQ" target="_blank" rel="noopener" class="catalog-btn reveal stagger-3">Glassware Catalog 1</a>
+      <a href="https://issuu.com/rpandassociates/docs/bar_glassware_from_joy_1_?fr=sMWExNTE0Njc1MQ" target="_blank" rel="noopener" class="catalog-btn reveal stagger-4">Wine Glassware Catalog</a>
+      <a href="https://issuu.com/rpandassociates/docs/whiskey_glass_presentation-compressed?fr=sZDdhMzE0Njc1MQ" target="_blank" rel="noopener" class="catalog-btn reveal stagger-5">Whiskey Glassware Catalog</a>
+      <a href="https://issuu.com/rpandassociates/docs/rp_and_associates_takeaway_packaging_catalog_compr?fr=sMzIyODE0Njc1MQ" target="_blank" rel="noopener" class="catalog-btn reveal stagger-1">Takeaway Packaging Catalog</a>
+      <a href="https://issuu.com/rpandassociates/docs/rp-melamine-products-catalog?e=7897226/65042590" target="_blank" rel="noopener" class="catalog-btn reveal stagger-2">Melamine Products</a>
+      <a href="https://issuu.com/rpandassociates/docs/pr_cooler_boxes_catalogue_compressed?fr=sNWM0NTE0Njc1MQ" target="_blank" rel="noopener" class="catalog-btn reveal stagger-3">Custom Coolers Catalog</a>
+      <a href="https://issuu.com/rpandassociates/docs/rp___associates_-_tiki_mugs_catlaog?e=0" target="_blank" rel="noopener" class="catalog-btn reveal stagger-4">Tiki Mugs Catalog</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 5: CTA BANNER 2 (Dark) ===== -->
+<section class="cta-banner cta-banner-dark reveal">
+  <div class="container">
+    <p>Did you know we have over a million items we can brand with your logo?</p>
+    <a href="http://rpandassociates.com/search-inventory-domestic" class="btn-cta"><i class="fas fa-search"></i> Click Here to Search Our Domestic Inventory</a>
+  </div>
+</section>
+
+<!-- ===== SECTION 6: SERVICES ===== -->
+<section class="services-section" id="services">
+  <div class="container">
+    <div class="section-title reveal">
+      <h2>What We Do</h2>
+      <p>Full-service custom promotional product solutions</p>
+      <div class="accent-line"></div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal stagger-1">
+        <div class="service-icon-wrap">
+          <img src="http://www.rpandassociates.com/images/kallyas_images/icons/services_box/ico-01.png" alt="Custom Design icon" loading="lazy" width="52" height="52">
+        </div>
+        <h3>Custom Design</h3>
+        <p>Our in-house design team creates unique, eye-catching promotional products tailored to your brand identity and marketing goals.</p>
+      </div>
+      <div class="service-card reveal stagger-2">
+        <div class="service-icon-wrap">
+          <img src="http://www.rpandassociates.com/images/kallyas_images/icons/services_box/ico-02.png" alt="Custom Manufacturing icon" loading="lazy" width="52" height="52">
+        </div>
+        <h3>Custom Manufacturing</h3>
+        <p>From concept to production, we manufacture high-quality custom products with precision and attention to detail.</p>
+      </div>
+      <div class="service-card reveal stagger-3">
+        <div class="service-icon-wrap">
+          <img src="http://www.rpandassociates.com/images/kallyas_images/icons/services_box/ico-03.png" alt="Warehousing and Distribution icon" loading="lazy" width="52" height="52">
+        </div>
+        <h3>Warehousing &amp; Distribution</h3>
+        <p>Complete warehousing and distribution services to ensure your products are stored safely and delivered on time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAVE DIVIDER -->
+<svg class="wave-divider" viewBox="0 0 1440 60" preserveAspectRatio="none" style="display:block;width:100%;height:40px;margin-top:-1px;background:linear-gradient(180deg,#e8edf8,transparent)"><path d="M0,20 C360,50 720,10 1080,35 C1260,45 1380,25 1440,30 L1440,60 L0,60Z" fill="var(--bg-white,#fff)"/></svg>
+
+<!-- ===== SECTION 7: ALL 37 PRODUCT BOXES ===== -->
+<section class="products-section" id="products">
+  <div class="container">
+    <div class="section-title reveal">
+      <h2>Our Products</h2>
+      <p>Custom promotional products for every industry</p>
+      <div class="accent-line"></div>
+    </div>
+    <div class="products-grid">
+
+      <!-- 1. Sports Shakers -->
+      <a href="http://www.rpandassociates.com/drinkware/helmet-shaker" class="product-card reveal-scale">
+        <div class="product-card-img">
+          <span class="product-badge">Barware</span>
+          <img src="http://www.rpandassociates.com/images/SlidersHP/Custom-Shaker-Tops.png" alt="Sports Shakers" loading="lazy">
+          <div class="product-card-overlay"><span>View Product <i class="fas fa-arrow-right"></i></span></div>
+        </div>
+        <div class="product-card-info"><h3>Sports Shakers</h3><span class="arrow-icon"><i class="fas fa-arrow-right"></i></span></div>
+      </a>
+
+      <!-- 2. Sports Hat Bowls -->
+      <a href="http://www.rpandassociates.com/packaging/" class="product-card reveal-scale">
+        <div class="product-card-img">
+          <span class="product-badge">Packaging</span>
+          <img src="http://www.rpandassociates.com/images/sportsbowls-2.jpg" alt="Sports Hat Bowls" loading="lazy">
+          <div class="product-card-overlay"><span>View Product <i class="fas fa-arrow-right"></i></span></div>
+        </div>
+        <div class="product-card-info"><h3>Sports Hat Bowls</h3><span class="arrow-icon"><i class="fas fa-arrow-right"></i></span></div>
+      </a>
+
+      <!-- 3. Sports Party Balls -->
+      <a href="http://www.rpandassociates.com/drinkware/sport-party-balls" class="product-card reveal-scale">
+        <div class="product-card-img">
+          <span class="product-badge">Drinkware</span>
+          <img src="http://www.rpandassociates.com/images/custompartyballs-min-2.jpg" alt="Sports Party Balls" loading="lazy">
+          <div class="product-card-overlay"><span>View Product <i class="fas fa-arrow-right"></i></span></div>
+        </div>
+        <div class="product-card-info"><h3>Sports Party Balls</h3><span class="arrow-icon"><i class="fas fa-arrow-right"></i></span></div>
+      </a>
+
+      <!-- 4. Grub Tub -->
+      <a href="http://www.rpandassociates.com/other-products/grub-tub-all-shapes" class="product-card reveal-scale">
+        <div class="product-card-img">
+          <span class="product-badge">Grub Tubs</span>
+          <img src="http://www.rpandassociates.com/images/SlidersHP/Grub-Tubs2.png" alt="Grub Tub" loading="lazy">
+          <div class="product-card-overlay"><span>View Product <i class="fas fa-arrow-right"></i></span></div>
+        </div>
+        <div class="product-card-info"><h3>Grub Tub</h3><span class="arrow-icon"><i class="fas fa-arrow-right"></i></span></div>
+      </a>
+
+      <!-- 5. Foldable Jars -->
+      <a href="http://www.rpandassociates.com/beverage-bags/foldable-yard" class="product-card reveal-scale">
+        <div class="product-card-img">
+          <span class="product-badge">Beverage Bags</span>
+          <img src="http://www.rpandassociates.com/images/SlidersHP/foldable-yards-slider-generic-logos.png" alt="Foldable Jars" loading="lazy">
+          <div class="product-card-overlay"><span>View Product <i class="fas fa-arrow-right"></i></span></div>
+        </div>
+        <div class="product-card-info"><h3>Foldable Jars</h3><span class="arrow-icon"><i class="fas fa-arrow-right"></i></span></div>
+      </a>
+
+      <!-- 6. Glacier Bag (6 Pack) -->
+      <a href="http://www.rpandassociates.com/drinkware/glacier-drink-pack" class="product-card reveal-scale">
+        <div class="product-card-img">
+          <span class="product-badge">Glacier Bags</span>
+          <img src="http://www.rpandassociates.com/images/6PackGlacierBag-min.jpg" alt="Glacier Bag 6 Pack" loading="lazy">
+          <div class="product-card-overlay"><span>View Product <i class="fas fa-arrow-right"></i></span></div>
+        </div>
+        <div class="product-card-info"><h3>Glacier Bag (6 Pack)</h3><span class="arrow-icon"><i class="fas fa-arrow-right"></i></span></div>
+      </a>
+
+      <!-- 7. Glacier Bag (Single Bottle) -->
+      <a href="http://www.rpandassociates.com/packaging/glacier-bottle-vap-gift-bag" class="product-card reveal-scale">
+        <div class="product-card-img">
+          <span class="product-badge">Glacier Bags</span>
+          <img src="http://www.rpandassociates.com/images/ina-glacier-bag-single-bottle-champagne.jpg" alt="Glacier Bag Single Bottle" loading="lazy">
+          <div class="product-card-overlay"><span>View Product <i class="fas fa-arrow-right"></i></span></div>
+        </div>
+        <div class="product-card-info"><h3>Glacier Bag (Single Bottle)</h3><span class="arrow-icon"><i class="fas fa-arrow-right"></i></span></div>
+      </a>
+
+      <!-- 8. Beverage Bags -->
+      <a href="http://www.rpandassociates.com/drinkware/beverage-bag" class="product-card reveal-scale">
+        <div class="product-card-img">
+          <span class="product-badge">Beverage Bags</span>
+          <img src="http://www.rpandassociates.com/images/half-and-full-gallon-beverage-bags.png" alt="Beverage Bags" loading="lazy">
+          <div class="product-card-overlay"><span>View Product <i class="fas fa-arrow-right"></i></span></div>
+        </div>
+        <div class="product-card-info"><h3>Beverage Bags</h3><span class="arrow-icon"><i class="fas fa-arrow-right"></i></span></div>
+      </a>
+
+      <!-- 9. Tiki Mugs -->
+      <a href="http://www.rpandassociates.com/drinkware/tiki-mugs" class="product-card reveal-scale">
+        <div class="product-card-img">
+          <span class="product-badge">Drinkware</span>
+          <img src="http://www.rpandassociates.com/images/tiki-mugs-banner.jpg" alt="Tiki Mugs" loading="lazy">
+          <div class="product-card-overlay"><span>View Product <i class="fas fa-arrow-right"></i></span></div>
+        </div>
+        <div class="product-card-info"><h3>Tiki Mugs</h3><span class="arrow-icon"><i class="fas fa-arrow-right"></i></span></div>
+      </a>
+
+      <!-- 10. Stackable Plastic Mason Jars -->
+      <a href="http://www.rpandassociates.com/drinkware/mason-jars-plastic" class="product-card reveal-scale">
+        <div class="product-card-img">
+          <span class="product-badge">Drinkware</span>
+          <img src="http://www.rpandassociates.com/images/StackableMasonJars-2.jpg" alt="Stackable Plastic Mason Jars" loading="lazy">
+          <div class="product-card-overlay"><span>View Product <i class="fas fa-arrow-right"></i></span></div>
+        </div>
+        <div class="product-card-info"><h3>Stackable Plastic Mason Jars</h3><span class="arrow-icon"><i class="fas fa-arrow-right"></i></span></div>
+      </a>
+
+      <!-- 11. Glass Mason Jars -->
+      <a href="http://www.rpandassociates.com/drinkware/mason-jars-glass" class="product-card reveal-scale">
+        <div class="product-card-img">
+          <span class="product-badge">Drinkware</span>
+          <img src="http://www.rpandassociates.com/images/glass-mason-jar-new-banner-2018-rp.jpg" alt="Glass Mason Jars" loading="lazy">
+          <div class="product-card-overlay"><span>View Product <i class="fas fa-arrow-right"></i></span></div>
+        </div>
+        <div class="product-card-info"><h3>Glass Mason Jars</h3><span class="arrow-icon"><i class="fas fa-arrow-right"></i></span></div>
+      </a>
+
+      <!-- 12. Party Cups -->
+      <a href="http://www.rpandassociates.com/drinkware/party-cup" class="product-card reveal-scale">
+        <div class="product-card-img">
+          <span class="product-badge">Drinkware</span>
+          <img src="http://www.rpandassociates.com/images/party-cup-new-banner.jpeg" alt="Party Cups" loading="lazy">
+          <div class="product-card-overlay"><span>View Product <i class="fas fa-arrow-right"></i></span></div>
+        </div>
+        <div class="product-card-info"><h3>Party Cups</h3><span class="arrow-icon"><i class="fas fa-arrow-right"></i></span></div>
+      </a>
+
+      <!-- 13. Party Orb -->
+      <a href="http://www.rpandassociates.com/packaging/party-orb" class="product-card reveal-scale">
+        <div class="product-card-img">
+          <span class="product-badge">Packaging</span>
+          <img src="http://www.rpandassociates.com/images/Banner-Party-Orb.jpg" alt="Party Orb" loading="lazy">
+          <div class="product-card-overlay"><span>View Product <i class="fas fa-arrow-right"></i></span></div>
+        </div>
+        <div class="product-card-info"><h3>Party Orb</h3><span class="arrow-icon"><i class="fas fa-arrow-right"></i></span></div>
+      </a>
+
+      <!-- 14. Moscow Mule Mugs -->
+      <a href="http://www.rpandassociates.com/drinkware/copper-moscow-mule-mugs/" class="product-card reveal-scale">
+        <div class="product-card-img">
+          <span class="product-badge">Mule Mugs</span>
+          <img src="http://www.rpandassociates.com/images/Moscow-Mule-Mugs-All-Banner.jpg" alt="Moscow Mule Mugs" loading="lazy">
+          <div class="product-card-overlay"><span>View Product <i class="fas fa-arrow-right"></i></span></div>
+        </div>
+        <div class="product-card-info"><h3>Moscow Mule Mugs</h3><span class="arrow-icon"><i class="fas fa-arrow-right"></i></span></div>
+      </a>
+
+      <!-- 15. Punch Moscow Mule -->
+      <a href="http://www.rpandassociates.com/drinkware/punch-moscow-mule-mug" class="product-card reveal-scale">
+        <div class="product-card-img">
+          <span class="product-badge">Mule Mugs</span>
+          <img src="http://www.rpandassociates.com/images/punch-moscow-mule-new-banner.jpeg" alt="Punch Moscow Mule" loading="lazy">
+          <div class="product-card-overlay"><span>View Product <i class="fas fa-arrow-right"></i></span></div>
+        </div>
+        <div class="product-card-info"><h3>Punch Moscow Mule</h3><span class="arrow-icon"><i class="fas fa-arrow-right"></i></span></div>
+      </a>
+
+      <!-- 16. Classic Moscow Mule -->
+      <a href="http://www.rpandassociates.com/drinkware/classic-copper-moscow-mule-mug" class="product-card reveal-scale">
+        <div class="product-card-img">
+          <span class="product-badge">Mule Mugs</span>
+          <img src="http://www.rpandassociates.com/images/2018-classic-moscow-mule-mug-banner.jpg" alt="Classic Moscow Mule" loading="lazy">
+          <div class="product-card-overlay"><span>View Product <i class="fas fa-arrow-right"></i></span></div>
+        </div>
+        <div class="product-card-info"><h3>Classic Moscow Mule</h3><span class="arrow-icon"><i class="fas fa-arrow-right"></i></span></div>
+      </a>
+
+      <!-- 17. Artisan Moscow Mule -->
+      <a href="http://www.rpandassociates.com/drinkware/artisan-copper-moscow-mule-mug" class="product-card reveal-scale">
+        <div class="product-card-img">
+          <span class="product-badge">Mule Mugs</span>
+          <img src="http://www.rpandassociates.com/images/artisan-moscow-mule-new-banner.jpeg" alt="Artisan Moscow Mule" loading="lazy">
+          <div class="product-card-overlay"><span>View Product <i class="fas fa-arrow-right"></i></span></div>
+        </div>
+        <div class="product-card-info"><h3>Artisan Moscow Mule</h3><span class="arrow-icon"><i class="fas fa-arrow-right"></i></span></div>
+      </a>
+
+      <!-- 18. Stanley Bolted Moscow Mule -->
+      <a href="http://www.rpandassociates.com/drinkware/bolted-copper-moscow-mule-mug" class="product-card reveal-scale">
+        <div class="product-card-img">
+          <span class="product-badge">Mule Mugs</span>
+          <img src="http://www.rpandassociates.com/images/stanley-bolted-moscow-mule-mug-new-banner.jpg" alt="Stanley Bolted Moscow Mule" loading="lazy">
+          <div class="product-card-overlay"><span>View Product <i class="fas fa-arrow-right"></i></span></div>
+        </div>
+        <div class="product-card-info"><h3>Stanley Bolted Moscow Mule</h3><span class="arrow-icon"><i class="fas fa-arrow-right"></i></span></div>
+      </a>
+
+      <!-- 19. Russian Moscow Mule -->
+      <a href="http://www.rpandassociates.com/drinkware/russian-copper-moscow-mule-mug" class="product-card reveal-scale">
+        <div class="product-card-img">
+          <span class="product-badge">Mule Mugs</span>
+          <img src="http://www.rpandassociates.com/images/2018-russian-moscow-mule-mug.jpg" alt="Russian Moscow Mule" loading="lazy">
+          <div class="product-card-overlay"><span>View Product <i class="fas fa-arrow-right"></i></span></div>
+        </div>
+        <div class="product-card-info"><h3>Russian Moscow Mule</h3><span class="arrow-icon"><i class="fas fa-arrow-right"></i></span></div>
+      </a>
+
+      <!-- 20. Enamel Mug -->
+      <a href="http://www.rpandassociates.com/enamel-mug" class="product-card reveal-scale">
+        <div class="product-card-img">
+          <span class="product-badge">Drinkware</span>
+          <img src="http://www.rpandassociates.com/images/Banner-Enamel-Mug.jpg" alt="Enamel Mug" loading="lazy">
+          <div class="product-card-overlay"><span>View Product <i class="fas fa-arrow-right"></i></span></div>
+        </div>
+        <div class="product-card-info"><h3>Enamel Mug</h3><span class="arrow-icon"><i class="fas fa-arrow-right"></i></span></div>
+      </a>
+
+      <!-- 21. Beverage Pouch -->
+      <a href="http://www.rpandassociates.com/drinkware/beverage-pouch" class="product-card reveal-scale">
+        <div class="product-card-img">
+          <span class="product-badge">Beverage Bags</span>
+          <img src="http://www.rpandassociates.com/images/Banner-Beverage-Pouch.jpg" alt="Beverage Pouch" loading="lazy">
+          <div class="product-card-overlay"><span>View Product <i class="fas fa-arrow-right"></i></span></div>
+        </div>
+        <div class="product-card-info"><h3>Beverage Pouch</h3><span class="arrow-icon"><i class="fas fa-arrow-right"></i></span></div>
+      </a>
+
+      <!-- 22. Tin Can Cup -->
+      <a href="http://www.rpandassociates.com/drinkware/tin-can-cups-2" class="product-card reveal-scale">
+        <div class="product-card-img">
+          <span class="product-badge">Drinkware</span>
+          <img src="http://www.rpandassociates.com/images/banner-cup-tin-can.jpg" alt="Tin Can Cup" loading="lazy">
+          <div class="product-card-overlay"><span>View Product <i class="fas fa-arrow-right"></i></span></div>
+        </div>
+        <div class="product-card-info"><h3>Tin Can Cup</h3><span class="arrow-icon"><i class="fas fa-arrow-right"></i></span></div>
+      </a>
+
+      <!-- 23. Air Lights -->
+      <a href="http://www.rpandassociates.com/barware/air-light" class="product-card reveal-scale">
+        <div class="product-card-img">
+          <span class="product-badge">Barware</span>
+          <img src="http://www.rpandassociates.com/images/Air-Lights-Banner-New.jpg" alt="Air Lights" loading="lazy">
+          <div class="product-card-overlay"><span>View Product <i class="fas fa-arrow-right"></i></span></div>
+        </div>
+        <div class="product-card-info"><h3>Air Lights</h3><span class="arrow-icon"><i class="fas fa-arrow-right"></i></span></div>
+      </a>
+
+      <!-- 24. Pint Glass -->
+      <a href="http://www.rpandassociates.com/drinkware/pint-glass" class="product-card reveal-scale">
+        <div class="product-card-img">
+          <span class="product-badge">Drinkware</span>
+          <img src="http://www.rpandassociates.com/images/custom-pint-glass-banner.png" alt="Pint Glass" loading="lazy">
+          <div class="product-card-overlay"><span>View Product <i class="fas fa-arrow-right"></i></span></div>
+        </div>
+        <div class="product-card-info"><h3>Pint Glass</h3><span class="arrow-icon"><i class="fas fa-arrow-right"></i></span></div>
+      </a>
+
+      <!-- 25. Crystal Shot Glass -->
+      <a href="http://www.rpandassociates.com/drinkware/crystal-shot-glass" class="product-card reveal-scale">
+        <div class="product-card-img">
+          <span class="product-badge">Drinkware</span>
+          <img src="http://www.rpandassociates.com/images/Crystal-Shot-Glass.jpg" alt="Crystal Shot Glass" loading="lazy">
+          <div class="product-card-overlay"><span>View Product <i class="fas fa-arrow-right"></i></span></div>
+        </div>
+        <div class="product-card-info"><h3>Crystal Shot Glass</h3><span class="arrow-icon"><i class="fas fa-arrow-right"></i></span></div>
+      </a>
+
+      <!-- 26. Links Shot Glass -->
+      <a href="http://www.rpandassociates.com/drinkware/links-shot-glass" class="product-card reveal-scale">
+        <div class="product-card-img">
+          <span class="product-badge">Drinkware</span>
+          <img src="http://www.rpandassociates.com/images/Links-Shot-glass-banner.jpg" alt="Links Shot Glass" loading="lazy">
+          <div class="product-card-overlay"><span>View Product <i class="fas fa-arrow-right"></i></span></div>
+        </div>
+        <div class="product-card-info"><h3>Links Shot Glass</h3><span class="arrow-icon"><i class="fas fa-arrow-right"></i></span></div>
+      </a>
+
+      <!-- 27. Custom Bottle Glorifiers -->
+      <a href="http://www.rpandassociates.com/barware/bottle-glorifiers" class="product-card reveal-scale">
+        <div class="product-card-img">
+          <span class="product-badge">Barware</span>
+          <img src="http://www.rpandassociates.com/images/Custom-Bottle-Glorifiers_banner.png" alt="Custom Bottle Glorifiers" loading="lazy">
+          <div class="product-card-overlay"><span>View Product <i class="fas fa-arrow-right"></i></span></div>
+        </div>
+        <div class="product-card-info"><h3>Custom Bottle Glorifiers</h3><span class="arrow-icon"><i class="fas fa-arrow-right"></i></span></div>
+      </a>
+
+      <!-- 28. Custom Value Added Packaging -->
+      <a href="http://www.rpandassociates.com/packaging/custom-liquor-packaging-gift-sets-value-added-packaging" class="product-card reveal-scale">
+        <div class="product-card-img">
+          <span class="product-badge">VAPs</span>
+          <img src="http://www.rpandassociates.com/images/Vaps-custom-packaging-banner.jpg" alt="Custom Value Added Packaging" loading="lazy">
+          <div class="product-card-overlay"><span>View Product <i class="fas fa-arrow-right"></i></span></div>
+        </div>
+        <div class="product-card-info"><h3>Custom Value Added Packaging</h3><span class="arrow-icon"><i class="fas fa-arrow-right"></i></span></div>
+      </a>
+
+      <!-- 29. Melamine Silverware Trays -->
+      <a href="http://www.rpandassociates.com/other-products/melamine-silverware-tray" class="product-card reveal-scale">
+        <div class="product-card-img">
+          <span class="product-badge">Specialty</span>
+          <img src="http://www.rpandassociates.com/images/Melamine-Silverware-tray-banner.jpg" alt="Melamine Silverware Trays" loading="lazy">
+          <div class="product-card-overlay"><span>View Product <i class="fas fa-arrow-right"></i></span></div>
+        </div>
+        <div class="product-card-info"><h3>Melamine Silverware Trays</h3><span class="arrow-icon"><i class="fas fa-arrow-right"></i></span></div>
+      </a>
+
+      <!-- 30. Pineapple Mug -->
+      <a href="http://www.rpandassociates.com/drinkware/pineapple-mug" class="product-card reveal-scale">
+        <div class="product-card-img">
+          <span class="product-badge">Drinkware</span>
+          <img src="http://www.rpandassociates.com/images/Pineapple-Mug-Banner.jpg" alt="Pineapple Mug" loading="lazy">
+          <div class="product-card-overlay"><span>View Product <i class="fas fa-arrow-right"></i></span></div>
+        </div>
+        <div class="product-card-info"><h3>Pineapple Mug</h3><span class="arrow-icon"><i class="fas fa-arrow-right"></i></span></div>
+      </a>
+
+      <!-- 31. Double Wall Tumbler -->
+      <a href="http://www.rpandassociates.com/drinkware/double-wall-tumbler" class="product-card reveal-scale">
+        <div class="product-card-img">
+          <span class="product-badge">Drinkware</span>
+          <img src="http://www.rpandassociates.com/images/Double-Wall-Tumbler.jpg" alt="Double Wall Tumbler" loading="lazy">
+          <div class="product-card-overlay"><span>View Product <i class="fas fa-arrow-right"></i></span></div>
+        </div>
+        <div class="product-card-info"><h3>Double Wall Tumbler</h3><span class="arrow-icon"><i class="fas fa-arrow-right"></i></span></div>
+      </a>
+
+      <!-- 32. Ornament Tumbler -->
+      <a href="http://www.rpandassociates.com/drinkware/ornament-tumbler" class="product-card reveal-scale">
+        <div class="product-card-img">
+          <span class="product-badge">Drinkware</span>
+          <img src="http://www.rpandassociates.com/images/Ornament-Tumbler.png" alt="Ornament Tumbler" loading="lazy">
+          <div class="product-card-overlay"><span>View Product <i class="fas fa-arrow-right"></i></span></div>
+        </div>
+        <div class="product-card-info"><h3>Ornament Tumbler</h3><span class="arrow-icon"><i class="fas fa-arrow-right"></i></span></div>
+      </a>
+
+      <!-- 33. 3-Piece Cocktail Shaker -->
+      <a href="http://www.rpandassociates.com/barware/cocktail-shaker-3-piece" class="product-card reveal-scale">
+        <div class="product-card-img">
+          <span class="product-badge">Barware</span>
+          <img src="http://www.rpandassociates.com/images/3-piece-cocktail-shaker-banner.jpg" alt="3-Piece Cocktail Shaker" loading="lazy">
+          <div class="product-card-overlay"><span>View Product <i class="fas fa-arrow-right"></i></span></div>
+        </div>
+        <div class="product-card-info"><h3>3-Piece Cocktail Shaker</h3><span class="arrow-icon"><i class="fas fa-arrow-right"></i></span></div>
+      </a>
+
+      <!-- 34. 4-In-1 Tropical Shaker -->
+      <a href="http://www.rpandassociates.com/barware/tropical-shaker" class="product-card reveal-scale">
+        <div class="product-card-img">
+          <span class="product-badge">Barware</span>
+          <img src="http://www.rpandassociates.com/images/tropical-shaker-banner.png" alt="4-In-1 Tropical Shaker" loading="lazy">
+          <div class="product-card-overlay"><span>View Product <i class="fas fa-arrow-right"></i></span></div>
+        </div>
+        <div class="product-card-info"><h3>4-In-1 Tropical Shaker</h3><span class="arrow-icon"><i class="fas fa-arrow-right"></i></span></div>
+      </a>
+
+      <!-- 35. No Funnel Flask -->
+      <a href="http://www.rpandassociates.com/barware/einstein-flask" class="product-card reveal-scale">
+        <div class="product-card-img">
+          <span class="product-badge">Barware</span>
+          <img src="http://www.rpandassociates.com/images/No-Funnel-Flask.png" alt="No Funnel Flask" loading="lazy">
+          <div class="product-card-overlay"><span>View Product <i class="fas fa-arrow-right"></i></span></div>
+        </div>
+        <div class="product-card-info"><h3>No Funnel Flask</h3><span class="arrow-icon"><i class="fas fa-arrow-right"></i></span></div>
+      </a>
+
+      <!-- 36. Wooden Displays -->
+      <a href="http://www.rpandassociates.com/other-products/display-racks" class="product-card reveal-scale">
+        <div class="product-card-img">
+          <span class="product-badge">Displays</span>
+          <img src="http://www.rpandassociates.com/images/WoodenDisplays-min-2.jpg" alt="Wooden Displays" loading="lazy">
+          <div class="product-card-overlay"><span>View Product <i class="fas fa-arrow-right"></i></span></div>
+        </div>
+        <div class="product-card-info"><h3>Wooden Displays</h3><span class="arrow-icon"><i class="fas fa-arrow-right"></i></span></div>
+      </a>
+
+      <!-- 37. Metal Displays -->
+      <a href="http://www.rpandassociates.com/other-products/display-racks" class="product-card reveal-scale">
+        <div class="product-card-img">
+          <span class="product-badge">Displays</span>
+          <img src="http://www.rpandassociates.com/images/MetalDisplays-min-2.jpg" alt="Metal Displays" loading="lazy">
+          <div class="product-card-overlay"><span>View Product <i class="fas fa-arrow-right"></i></span></div>
+        </div>
+        <div class="product-card-info"><h3>Metal Displays</h3><span class="arrow-icon"><i class="fas fa-arrow-right"></i></span></div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 8: MORE UNIQUE & POPULAR PRODUCTS BANNERS ===== -->
+<section class="banners-section" id="popular">
+  <div class="container">
+    <div class="section-title reveal">
+      <h2>More Unique &amp; Popular Products</h2>
+      <p>Featured products trusted by leading brands worldwide</p>
+      <div class="accent-line"></div>
+    </div>
+    <div class="banners-grid">
+      <!-- 1 -->
+      <div class="banner-card reveal">
+        <img src="http://www.rpandassociates.com/images/Glacier-Bag-Retail-Packaging-Banner.jpg" alt="Glacier Bag Retail Packaging" loading="lazy">
+      </div>
+      <!-- 2 -->
+      <div class="banner-card reveal">
+        <img src="http://www.rpandassociates.com/images/Vap-2019-2.png" alt="Custom Value Added Packaging" loading="lazy">
+      </div>
+      <!-- 3 -->
+      <div class="banner-card reveal">
+        <img src="http://www.rpandassociates.com/images/2019-Grub-Tub-Banner.jpg" alt="Grub Tub" loading="lazy">
+      </div>
+      <!-- 4 -->
+      <div class="banner-card reveal">
+        <img src="http://www.rpandassociates.com/images/Glass-Mason-Jar-Banner-Home-Page.jpg" alt="Glass Mason Jars" loading="lazy">
+      </div>
+      <!-- 5 -->
+      <div class="banner-card reveal">
+        <img src="http://www.rpandassociates.com/images/Pineapple-Mug-Banner.jpg" alt="Pineapple Mug" loading="lazy">
+      </div>
+      <!-- 6 -->
+      <div class="banner-card reveal">
+        <img src="http://www.rpandassociates.com/images/banners/Melamine-Silverware-tray-banner.jpg" alt="Melamine Silverware Tray" loading="lazy">
+      </div>
+      <!-- 7 -->
+      <div class="banner-card reveal">
+        <img src="http://www.rpandassociates.com/images/2019-Custom-Shaker-Banner.jpg" alt="Custom Top Shakers" loading="lazy">
+      </div>
+      <!-- 8 -->
+      <div class="banner-card reveal">
+        <img src="http://www.rpandassociates.com/images/banners/3-piece-cocktail-shaker-banner.jpg" alt="Cocktail Shaker 3-Piece" loading="lazy">
+      </div>
+      <!-- 9 -->
+      <div class="banner-card reveal">
+        <img src="http://www.rpandassociates.com/images/foldable-yards-banner.jpg" alt="Foldable Yards" loading="lazy">
+      </div>
+      <!-- 10 -->
+      <div class="banner-card reveal">
+        <img src="http://www.rpandassociates.com/images/banners/Party-Cup-Banner.jpg" alt="Party Cup" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 9: PROCESS STEPS ===== -->
+<section class="process-section" id="process">
+  <div class="container">
+    <div class="section-title reveal">
+      <h2>Custom Packaging &amp; VAPs in 3 Steps...</h2>
+      <p>From concept to delivery, we handle everything</p>
+      <div class="accent-line"></div>
+    </div>
+    <div class="process-grid">
+      <div class="process-connector" aria-hidden="true"></div>
+      <div class="process-step reveal stagger-1">
+        <div class="process-step-card">
+          <div class="process-step-num">1</div>
+          <img src="http://www.rpandassociates.com/images/kallyas_images/icons/steps/ico-plan.png" alt="Custom Design and Planning" loading="lazy" width="68" height="68">
+          <h3>Custom Design &amp; Planning</h3>
+          <p>We work closely with you to understand your brand and create a custom design that meets your objectives.</p>
+        </div>
+      </div>
+      <div class="process-step reveal stagger-2">
+        <div class="process-step-card">
+          <div class="process-step-num">2</div>
+          <img src="http://www.rpandassociates.com/images/kallyas_images/icons/steps/ico-designdev.png" alt="Develop and Manufacture" loading="lazy" width="68" height="68">
+          <h3>Develop &amp; Manufacture</h3>
+          <p>Our manufacturing team brings your design to life with precision craftsmanship and quality materials.</p>
+        </div>
+      </div>
+      <div class="process-step reveal stagger-3">
+        <div class="process-step-card">
+          <div class="process-step-num">3</div>
+          <img src="http://www.rpandassociates.com/images/kallyas_images/icons/steps/ico-launch.png" alt="Warehousing and Delivery" loading="lazy" width="68" height="68">
+          <h3>Warehousing &amp; Delivery</h3>
+          <p>We store and distribute your products efficiently, ensuring timely delivery to your destinations.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 10: ABOUT US ===== -->
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img reveal-left">
+        <img src="http://rparesources.com/images-and-banners/New-Office.JPG" alt="RP and Associates Office" loading="lazy">
+      </div>
+      <div class="about-content reveal-right">
+        <h2>About RP &amp; Associates<span class="accent-line"></span></h2>
+
+        <p>Innovation grabs attention. Taking your brand to the next level requires dedication. At RP &amp; Associates, we think outside of the box so you don't have to. For over 25 years, we have made it our mission to develop unique marketing campaigns and custom promotional pieces to elevate companies to new heights with revenue and recognition. Our in-house design team has made magic for countless major brands, including Disney, Caesar's Entertainment, Patron, Jack Daniel's, MaCallan and more. Let us do the same for you.</p>
+
+        <p>Unique promotional material and brand awareness are incredibly valuable assets for any company, large or small. At RP &amp; Associates, we custom design unique and innovative products for each of our clients to ensure that they are able to gather new consumers, spread brand awareness, and increase their revenue. Our brand building marketing products place your business name and logo in front of the customer to keep your company fresh in their minds. Whether you need a small promotional piece or large-scale marketing solution, we can create a product or idea that will stand out amongst the competition.</p>
+
+        <p>In the spirit industry we create award winning packaging and unique premiums to increase the shelf impact of gift-sets and value added packaging. We also create patented products that allow you to up-sell your beverages on-premise in creative ways that expand your brand's image. In the restaurant industry we create tailored programs that allow restaurant chains to gain additionally revenues by increasing average ticket value, party-size, frequency, and trial.</p>
+
+        <div class="about-stats reveal">
+          <div class="stat-item">
+            <div class="stat-number" data-target="35">0</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-target="1000">0</div>
+            <div class="stat-label">Products Designed</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-target="500">0</div>
+            <div class="stat-label">Brands Served</div>
+          </div>
+        </div>
+
+        <h3>History</h3>
+
+        <p>Richard M. Pola founded RP &amp; Associates in 1988. His dream began in his home where he was selling embroidered hats and silk-screened T-shirts. Through the years he worked tirelessly building his company and providing the highest quality products to his customers. His dedication has impacted and changed the lives of his family, friends, employees and customers.</p>
+
+        <p>As RP &amp; Associates celebrates our 30th anniversary, we look forward to many more upcoming years. We continue to build our solid reputation for being the very best at providing custom-designed promotional products and effective marketing solutions. Our clientele include leaders in the restaurant, sports &amp; entertainment and spirits &amp; beverage industries.</p>
+
+        <p>We offer a seasoned and experienced senior leader team. RP &amp; Associates has delivered our custom promotional items to thousands of satisfied clients. When you work with us, you are working with the industry leader.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 11: REQUEST A QUOTE FORM ===== -->
+<section class="quote-section" id="quote">
+  <div class="container">
+    <div class="quote-grid">
+      <div class="quote-form reveal">
+        <h2>Request a Quote</h2>
+        <p class="subtitle">Fill out the form below and we'll get back to you promptly.</p>
+        <form action="#" method="post" id="quoteForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name *</label>
+              <input type="text" id="firstName" name="firstName" required placeholder="First Name">
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name *</label>
+              <input type="text" id="lastName" name="lastName" required placeholder="Last Name">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="company">Company *</label>
+              <input type="text" id="company" name="company" required placeholder="Company">
+            </div>
+            <div class="form-group">
+              <label for="title">Title</label>
+              <input type="text" id="title" name="title" placeholder="Title">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required placeholder="Email">
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone *</label>
+              <input type="tel" id="phone" name="phone" required placeholder="Phone">
+            </div>
+          </div>
+          <div class="form-group full" style="margin-bottom:16px">
+            <label for="products">Products of Interest</label>
+            <textarea id="products" name="products" placeholder="Tell us about the products you're interested in..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Submit Request <i class="fas fa-paper-plane"></i></button>
+        </form>
+      </div>
+      <div class="quote-sidebar reveal-right">
+        <h3>Get in Touch</h3>
+        <div class="contact-item">
+          <i class="fas fa-phone-alt"></i>
+          <div>
+            <strong>Phone</strong>
+            <p><a href="tel:3103729709">(310) 372-9709</a></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <strong>Email</strong>
+            <p><a href="mailto:info@rpassociates.us">info@rpassociates.us</a></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <strong>Address</strong>
+            <p>RP &amp; Associates<br>2205 Pacific Coast Highway<br>Hermosa Beach, CA 90254</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-clock"></i>
+          <div>
+            <strong>Business Hours</strong>
+            <p>Monday - Friday: 9am - 5pm PST</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 12: FOOTER ===== -->
+<footer class="footer" id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a href="#" class="footer-logo">
+          <img src="http://www.rpandassociates.com/images/RP_Logo_Small.jpg" alt="RP and Associates Logo" loading="lazy">
+        </a>
+        <p style="margin-top:12px">Custom design, manufacturing, warehousing &amp; distribution of promotional products for over 25 years.</p>
+        <div class="footer-social">
+          <a href="https://twitter.com/search?q=grubtubcompany" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.linkedin.com/company/rp-and-associates/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/grubtubcompany/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p style="margin-top:10px;font-size:.8rem;color:#888">Follow us on Social Media</p>
+      </div>
+      <div class="footer-col">
+        <h4>More Info</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#catalogs">Catalogs</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#quote">Request a Quote</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Get in Touch</h4>
+        <ul>
+          <li><i class="fas fa-phone" style="margin-right:8px;color:#4d6fff;font-size:.75rem"></i><a href="tel:3103729709">T (310) 372-9709</a></li>
+          <li><i class="fas fa-envelope" style="margin-right:8px;color:#4d6fff;font-size:.75rem"></i><a href="mailto:info@rpassociates.us">Email: info@rpassociates.us</a></li>
+          <li style="margin-top:12px;color:#999">RP &amp; Associates</li>
+          <li style="color:#999">2205 Pacific Coast Highway</li>
+          <li style="color:#999">Hermosa Beach, CA 90254</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Newsletter</h4>
+        <p>Subscribe to our news &amp; updates to stay informed about our latest products and promotions.</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Your email address" aria-label="Email for newsletter">
+          <button type="button">Subscribe</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 RP &amp; Associates. All Rights Reserved. Custom Promotional Products Since 1988.</p>
+      <div class="powered">
+        <span>Powered by</span>
+        <a href="#" class="merktop-logo">
+          <span class="merktop-dot"></span>
+          <span>MERKTOP</span>
+          <span style="font-weight:300;opacity:.6">2026</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- BACK TO TOP -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i> TOP</button>
+
+<!-- ===== AI CHAT WIDGET ===== -->
+<div class="ai-chat-btn" id="aiChatBtn" aria-label="Open AI Assistant">
+  <div class="ai-chat-btn-pulse"></div>
+  <i class="fas fa-robot"></i>
+</div>
+<div class="ai-chat-panel" id="aiChatPanel">
+  <div class="ai-chat-header">
+    <div class="ai-chat-header-left">
+      <div class="ai-chat-avatar"><i class="fas fa-robot"></i></div>
+      <div>
+        <div class="ai-chat-name">RP Assistant</div>
+        <div class="ai-chat-status"><span class="ai-status-dot"></span> Online</div>
+      </div>
+    </div>
+    <button class="ai-chat-close" id="aiChatClose" aria-label="Close chat"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="ai-chat-messages" id="aiChatMessages"></div>
+  <div class="ai-chat-input-wrap">
+    <input type="text" id="aiChatInput" placeholder="Type your message..." autocomplete="off">
+    <button id="aiChatSend" aria-label="Send message"><i class="fas fa-paper-plane"></i></button>
+  </div>
+</div>
+
+<style>
+/* ===== AI CHAT WIDGET STYLES ===== */
+.ai-chat-btn{position:fixed;bottom:100px;right:28px;width:60px;height:60px;background:linear-gradient(135deg,var(--primary),var(--gold));border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:950;color:#fff;font-size:1.4rem;transition:transform .35s cubic-bezier(.16,1,.3,1),opacity .3s ease,box-shadow .3s ease;box-shadow:0 8px 32px rgba(0,51,255,.3)}
+.ai-chat-btn:hover{transform:scale(1.1);box-shadow:0 12px 40px rgba(0,51,255,.4)}
+.ai-chat-btn-pulse{position:absolute;inset:-4px;border-radius:50%;border:2px solid var(--gold);animation:chatPulse 2s infinite;pointer-events:none}
+@keyframes chatPulse{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.4);opacity:0}}
+.ai-chat-btn.hidden{opacity:0;pointer-events:none;transform:scale(.7);transition:opacity .15s ease,transform .2s ease}
+
+.ai-chat-panel{position:fixed;bottom:100px;right:28px;width:370px;height:520px;background:rgba(255,255,255,.95);backdrop-filter:blur(24px) saturate(1.4);-webkit-backdrop-filter:blur(24px) saturate(1.4);border-radius:var(--radius-xl);box-shadow:0 24px 80px rgba(0,0,0,.18),0 0 0 1px rgba(0,0,0,.05);z-index:960;display:flex;flex-direction:column;overflow:hidden;opacity:0;visibility:hidden;transform:translateY(10px) scale(.98);transition:opacity .25s ease-out,transform .3s cubic-bezier(.16,1,.3,1),visibility 0s linear .3s;border:1px solid rgba(0,0,0,.06)}
+.ai-chat-panel.open{opacity:1;visibility:visible;transform:translateY(0) scale(1);transition:opacity .25s ease-out,transform .3s cubic-bezier(.16,1,.3,1),visibility 0s linear 0s}
+
+.ai-chat-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background:linear-gradient(135deg,var(--primary),#001faa);color:#fff;flex-shrink:0}
+.ai-chat-header-left{display:flex;align-items:center;gap:12px}
+.ai-chat-avatar{width:38px;height:38px;background:rgba(255,255,255,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;border:1.5px solid rgba(255,255,255,.2)}
+.ai-chat-name{font-family:var(--font-heading);font-weight:700;font-size:.92rem;letter-spacing:-.01em}
+.ai-chat-status{font-size:.7rem;opacity:.8;display:flex;align-items:center;gap:5px}
+.ai-status-dot{width:6px;height:6px;background:#4ade80;border-radius:50%;box-shadow:0 0 6px rgba(74,222,128,.6)}
+.ai-chat-close{background:rgba(255,255,255,.1);border:none;color:#fff;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center;transition:all .3s var(--ease)}
+.ai-chat-close:hover{background:rgba(255,255,255,.2);transform:rotate(90deg)}
+
+.ai-chat-messages{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:12px}
+.ai-chat-messages::-webkit-scrollbar{width:4px}
+.ai-chat-messages::-webkit-scrollbar-thumb{background:rgba(0,0,0,.1);border-radius:4px}
+
+.ai-msg{max-width:85%;padding:12px 16px;border-radius:18px;font-size:.85rem;line-height:1.6;animation:msgSlide .2s ease-out}
+@keyframes msgSlide{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.ai-msg.bot{align-self:flex-start;background:rgba(0,51,255,.06);color:var(--text-body);border-bottom-left-radius:6px;border:1px solid rgba(0,51,255,.08)}
+.ai-msg.user{align-self:flex-end;background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;border-bottom-right-radius:6px;box-shadow:0 4px 16px rgba(0,51,255,.2)}
+.ai-msg.typing{align-self:flex-start;background:rgba(0,51,255,.06);border-bottom-left-radius:6px;border:1px solid rgba(0,51,255,.08);padding:14px 20px}
+.ai-typing-dots{display:flex;gap:4px}
+.ai-typing-dots span{width:7px;height:7px;background:var(--primary);border-radius:50%;animation:typingBounce .6s infinite alternate}
+.ai-typing-dots span:nth-child(2){animation-delay:.15s}
+.ai-typing-dots span:nth-child(3){animation-delay:.3s}
+@keyframes typingBounce{from{opacity:.3;transform:translateY(0)}to{opacity:1;transform:translateY(-5px)}}
+
+.ai-chat-input-wrap{display:flex;gap:0;padding:12px;border-top:1px solid rgba(0,0,0,.06);flex-shrink:0;background:rgba(255,255,255,.5)}
+.ai-chat-input-wrap input{flex:1;padding:12px 16px;border-radius:var(--radius-pill);background:rgba(0,0,0,.03);border:1.5px solid transparent;font-size:.85rem;transition:all .3s var(--ease);color:var(--text-body)}
+.ai-chat-input-wrap input:focus{border-color:var(--primary);background:#fff;box-shadow:0 0 0 4px rgba(0,51,255,.08)}
+.ai-chat-input-wrap button{width:42px;height:42px;background:linear-gradient(135deg,var(--primary),var(--primary-light));color:#fff;border:none;border-radius:50%;margin-left:8px;cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center;transition:all .3s var(--ease-spring);flex-shrink:0}
+.ai-chat-input-wrap button:hover{transform:scale(1.08);box-shadow:0 6px 20px rgba(0,51,255,.3)}
+
+@media(max-width:480px){
+  .ai-chat-panel{width:calc(100vw - 20px);right:10px;bottom:80px;height:70vh}
+  .ai-chat-btn{bottom:80px;right:16px;width:54px;height:54px;font-size:1.2rem}
+}
+</style>
+
+<script>
+/* ===== HERO CAROUSEL ===== */
+(function(){
+  var track=document.getElementById('heroTrack'),
+      dots=document.querySelectorAll('.hero-dot'),
+      total=6,current=0,timer;
+
+  function go(i){
+    current=((i%total)+total)%total;
+    track.style.transform='translateX(-'+current*100+'%)';
+    dots.forEach(function(d,idx){d.classList.toggle('active',idx===current)});
+  }
+  function auto(){timer=setInterval(function(){go(current+1)},5000)}
+  function reset(){clearInterval(timer);auto()}
+
+  document.getElementById('heroNext').addEventListener('click',function(){go(current+1);reset()});
+  document.getElementById('heroPrev').addEventListener('click',function(){go(current-1);reset()});
+  dots.forEach(function(d){d.addEventListener('click',function(){go(+this.dataset.index);reset()})});
+  auto();
+
+  var sx=0;
+  track.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
+  track.addEventListener('touchend',function(e){
+    var d=sx-e.changedTouches[0].clientX;
+    if(Math.abs(d)>50){d>0?go(current+1):go(current-1);reset()}
+  },{passive:true});
+})();
+
+/* ===== PARALLAX-LITE ON HERO ===== */
+(function(){
+  var hero=document.getElementById('hero');
+  var overlay=hero?hero.querySelector('.hero-overlay-content'):null;
+  if(!overlay)return;
+  window.addEventListener('scroll',function(){
+    var st=window.scrollY;
+    if(st<window.innerHeight){
+      overlay.style.transform='translateY('+st*0.15+'px)';
+      overlay.style.opacity=1-(st/(window.innerHeight*1.2));
+    }
+  },{passive:true});
+})();
+
+/* ===== STICKY HEADER ===== */
+(function(){
+  var h=document.getElementById('header');
+  window.addEventListener('scroll',function(){
+    h.classList.toggle('scrolled',window.scrollY>60);
+  },{passive:true});
+})();
+
+/* ===== SMOOTH SCROLL WITH OFFSET ===== */
+(function(){
+  var headerH=70;
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var id=this.getAttribute('href');
+      if(id.length<2)return;
+      var target=document.querySelector(id);
+      if(!target)return;
+      e.preventDefault();
+      var top=target.getBoundingClientRect().top+window.scrollY-headerH;
+      window.scrollTo({top:top,behavior:'smooth'});
+    });
+  });
+})();
+
+/* ===== MOBILE MENU ===== */
+(function(){
+  var btn=document.getElementById('hamburgerBtn'),
+      nav=document.getElementById('mobileNav'),
+      ov=document.getElementById('mobileOverlay');
+
+  function toggle(){
+    var open=nav.classList.toggle('open');
+    btn.classList.toggle('active');
+    ov.style.display=open?'block':'none';
+    document.body.style.overflow=open?'hidden':'';
+  }
+  btn.addEventListener('click',toggle);
+  ov.addEventListener('click',toggle);
+
+  nav.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(){if(nav.classList.contains('open'))toggle()});
+  });
+
+  document.querySelectorAll('.mobile-dropdown-toggle').forEach(function(t){
+    t.addEventListener('click',function(e){
+      e.preventDefault();
+      var sub=document.getElementById(this.dataset.target);
+      var isOpen=sub.classList.toggle('open');
+      this.querySelector('i').style.transform=isOpen?'rotate(180deg)':'';
+    });
+  });
+})();
+
+/* ===== SEARCH ===== */
+(function(){
+  var ov=document.getElementById('searchOverlay');
+  document.getElementById('searchToggle').addEventListener('click',function(){
+    ov.classList.add('active');
+    setTimeout(function(){ov.querySelector('input').focus()},100);
+  });
+  document.getElementById('searchClose').addEventListener('click',function(){ov.classList.remove('active')});
+  ov.addEventListener('click',function(e){if(e.target===ov)ov.classList.remove('active')});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')ov.classList.remove('active')});
+})();
+
+/* ===== SCROLL REVEAL WITH STAGGERED DELAYS ===== */
+(function(){
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  },{threshold:0.08,rootMargin:'0px 0px -60px 0px'});
+
+  document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(function(el){
+    obs.observe(el);
+  });
+
+  // Staggered grid items
+  var gridObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        var items=entry.target.querySelectorAll('.product-card,.banner-card,.catalog-btn');
+        items.forEach(function(item,i){
+          item.style.transitionDelay=(i*0.06)+'s';
+          item.classList.add('visible');
+        });
+        gridObs.unobserve(entry.target);
+      }
+    });
+  },{threshold:0.05});
+  document.querySelectorAll('.products-grid,.banners-grid,.catalogs-grid').forEach(function(g){
+    gridObs.observe(g);
+  });
+})();
+
+/* ===== COUNTER ANIMATION FOR STATS ===== */
+(function(){
+  var counted=false;
+  var statsObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting&&!counted){
+        counted=true;
+        document.querySelectorAll('.stat-number[data-target]').forEach(function(el){
+          var target=parseInt(el.dataset.target);
+          var duration=2000;
+          var start=0;
+          var startTime=null;
+          var suffix=target>=100?'+':'+'
+          function animate(ts){
+            if(!startTime)startTime=ts;
+            var progress=Math.min((ts-startTime)/duration,1);
+            var eased=1-Math.pow(1-progress,3);
+            var val=Math.floor(eased*target);
+            el.textContent=val+suffix;
+            if(progress<1){
+              requestAnimationFrame(animate);
+            }else{
+              el.textContent=target+'+';
+              el.style.animation='countPulse .4s ease';
+            }
+          }
+          requestAnimationFrame(animate);
+        });
+      }
+    });
+  },{threshold:0.3});
+  var statsEl=document.querySelector('.about-stats');
+  if(statsEl)statsObs.observe(statsEl);
+})();
+
+/* ===== BACK TO TOP ===== */
+(function(){
+  var b=document.getElementById('backToTop');
+  window.addEventListener('scroll',function(){b.classList.toggle('visible',window.scrollY>400)},{passive:true});
+  b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
+})();
+
+/* ===== FORM WITH SUCCESS ANIMATION ===== */
+(function(){
+  document.getElementById('quoteForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    var btn=this.querySelector('.btn-submit'),orig=btn.innerHTML;
+    btn.classList.add('success');
+    btn.innerHTML='<i class="fas fa-check-circle"></i> Request Sent Successfully!';
+    btn.style.transform='scale(1.02)';
+    setTimeout(function(){
+      btn.innerHTML=orig;
+      btn.classList.remove('success');
+      btn.style.transform='';
+    },3500);
+  });
+})();
+
+/* ===== AI CHAT WIDGET ===== */
+(function(){
+  var chatBtn=document.getElementById('aiChatBtn');
+  var panel=document.getElementById('aiChatPanel');
+  var closeBtn=document.getElementById('aiChatClose');
+  var msgs=document.getElementById('aiChatMessages');
+  var input=document.getElementById('aiChatInput');
+  var sendBtn=document.getElementById('aiChatSend');
+  var isOpen=false;
+  var data={firstName:'',lastName:'',company:'',email:'',phone:'',products:'',step:0};
+
+  function open(){
+    isOpen=true;
+    panel.classList.add('open');
+    chatBtn.classList.add('hidden');
+    if(msgs.children.length===0){
+      setTimeout(function(){showTyping(function(){
+        addMsg('bot',"Hi! I'm the RP & Associates AI assistant. I can help you request a quote instantly. Just tell me your name to get started!");
+      })},150);
+    }
+    setTimeout(function(){input.focus()},300);
+  }
+  function close(){
+    isOpen=false;
+    panel.classList.remove('open');
+    chatBtn.classList.remove('hidden');
+  }
+
+  chatBtn.addEventListener('click',open);
+  closeBtn.addEventListener('click',close);
+
+  function addMsg(type,text){
+    var el=document.createElement('div');
+    el.className='ai-msg '+type;
+    el.textContent=text;
+    removeTyping();
+    msgs.appendChild(el);
+    msgs.scrollTop=msgs.scrollHeight;
+  }
+
+  function showTyping(cb){
+    var el=document.createElement('div');
+    el.className='ai-msg typing';
+    el.id='aiTyping';
+    el.innerHTML='<div class="ai-typing-dots"><span></span><span></span><span></span></div>';
+    msgs.appendChild(el);
+    msgs.scrollTop=msgs.scrollHeight;
+    setTimeout(function(){if(cb)cb()},500);
+  }
+  function removeTyping(){var t=document.getElementById('aiTyping');if(t)t.remove()}
+
+  function typeInField(fieldId,value){
+    var field=document.getElementById(fieldId);
+    if(!field)return;
+    field.value='';
+    field.style.borderColor='var(--gold)';
+    field.style.boxShadow='0 0 0 4px rgba(212,168,75,.15)';
+    var i=0;
+    var iv=setInterval(function(){
+      if(i<value.length){field.value+=value[i];i++}
+      else{clearInterval(iv);setTimeout(function(){field.style.borderColor='';field.style.boxShadow=''},500)}
+    },25);
+  }
+
+  function fillForm(){
+    document.getElementById('quote').scrollIntoView({behavior:'smooth',block:'center'});
+    setTimeout(function(){
+      if(data.firstName)typeInField('firstName',data.firstName);
+      setTimeout(function(){if(data.lastName)typeInField('lastName',data.lastName)},400);
+      setTimeout(function(){if(data.company)typeInField('company',data.company)},800);
+      setTimeout(function(){if(data.email)typeInField('email',data.email)},1200);
+      setTimeout(function(){if(data.phone)typeInField('phone',data.phone)},1600);
+      setTimeout(function(){if(data.products)typeInField('products',data.products)},2000);
+    },600);
+  }
+
+  function parseEmail(t){var m=t.match(/[\w.-]+@[\w.-]+\.\w{2,}/);return m?m[0]:null}
+  function parsePhone(t){var m=t.match(/[\d()+-][\d()\s.+-]{6,}/);return m?m[0].trim():null}
+
+  function respond(userText){
+    var t=userText.toLowerCase().trim();
+    var email=parseEmail(userText);
+    var phone=parsePhone(userText);
+
+    if(data.step===0){
+      var words=userText.trim().split(/\s+/);
+      if(words.length>=2){data.firstName=words[0];data.lastName=words.slice(1).join(' ')}
+      else{data.firstName=words[0];data.lastName=''}
+      data.step=1;
+      showTyping(function(){addMsg('bot',"Nice to meet you, "+data.firstName+"! What company are you with?")});
+    }else if(data.step===1){
+      data.company=userText.trim();
+      data.step=2;
+      showTyping(function(){addMsg('bot',"Great! "+data.company+" sounds awesome. What's your email address?")});
+    }else if(data.step===2){
+      if(email){data.email=email;data.step=3;showTyping(function(){addMsg('bot',"Got it! And what's the best phone number to reach you?")})}
+      else{showTyping(function(){addMsg('bot',"I need a valid email address (e.g. you@company.com). Could you try again?")})}
+    }else if(data.step===3){
+      if(phone){data.phone=phone;data.step=4;showTyping(function(){addMsg('bot',"Perfect! Now, what products are you interested in? We have barware, beverage bags, drinkware, glacier bags, grub tubs, mule mugs, packaging, and more!")})}
+      else{data.phone=userText.trim();data.step=4;showTyping(function(){addMsg('bot',"Thanks! What products are you interested in? We offer barware, drinkware, beverage bags, glacier bags, mule mugs, grub tubs, and custom packaging.")})}
+    }else if(data.step===4){
+      data.products=userText.trim();
+      data.step=5;
+      showTyping(function(){
+        addMsg('bot',"Excellent choice! Here's what I have:\n\nName: "+data.firstName+" "+data.lastName+"\nCompany: "+data.company+"\nEmail: "+data.email+"\nPhone: "+data.phone+"\nProducts: "+data.products+"\n\nI'll fill out the quote form for you now!");
+        setTimeout(fillForm,1500);
+      });
+    }else{
+      if(t.includes('reset')||t.includes('start over')){
+        data={firstName:'',lastName:'',company:'',email:'',phone:'',products:'',step:0};
+        showTyping(function(){addMsg('bot',"Sure! Let's start over. What's your name?")});
+      }else if(t.includes('thank')){
+        showTyping(function(){addMsg('bot',"You're welcome! The form is ready to submit. Our team will get back to you within 24 hours. Is there anything else I can help with?")});
+      }else{
+        showTyping(function(){addMsg('bot',"The form has been filled out! Just click 'Submit Request' to send it. Say 'start over' if you'd like to fill it again with different info.")});
+      }
+    }
+  }
+
+  function send(){
+    var text=input.value.trim();
+    if(!text)return;
+    addMsg('user',text);
+    input.value='';
+    respond(text);
+  }
+
+  sendBtn.addEventListener('click',send);
+  input.addEventListener('keydown',function(e){if(e.key==='Enter')send()});
+})();
+</script>
+</body>
+</html>
