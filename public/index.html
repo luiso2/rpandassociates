@@ -32,7 +32,8 @@
 /* ===== RESET & BASE ===== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px;scroll-padding-top:var(--header-h)}
-body{font-family:var(--font-body);color:var(--text-body);background:var(--bg-light);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{font-family:var(--font-body);color:var(--text-body);background:var(--bg-light);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;opacity:0;animation:pageLoad .4s ease forwards}
+@keyframes pageLoad{to{opacity:1}}
 h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);font-weight:700;line-height:1.15;letter-spacing:-.03em}
 ::selection{background:rgba(0,51,255,.15);color:var(--primary-dark)}
 ::-webkit-scrollbar{width:8px}
@@ -50,16 +51,14 @@ button,input,textarea,select{font-family:inherit;font-size:inherit;border:none;o
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(0,35,204,.3)}70%{box-shadow:0 0 0 12px rgba(0,35,204,0)}}
 @keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
-@keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
 @keyframes countPulse{0%{transform:scale(1)}50%{transform:scale(1.05)}100%{transform:scale(1)}}
-@keyframes lineGrow{from{width:0}to{width:100%}}
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s var(--ease),transform .65s var(--ease-spring)}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .5s var(--ease),transform .5s var(--ease-spring);will-change:opacity,transform}
 .reveal.visible{opacity:1;transform:translateY(0)}
-.reveal-left{opacity:0;transform:translateX(-40px);transition:opacity .7s var(--ease),transform .7s var(--ease-spring)}
+.reveal-left{opacity:0;transform:translateX(-30px);transition:opacity .5s var(--ease),transform .5s var(--ease-spring);will-change:opacity,transform}
 .reveal-left.visible{opacity:1;transform:translateX(0)}
-.reveal-right{opacity:0;transform:translateX(40px);transition:opacity .7s var(--ease),transform .7s var(--ease-spring)}
+.reveal-right{opacity:0;transform:translateX(30px);transition:opacity .5s var(--ease),transform .5s var(--ease-spring);will-change:opacity,transform}
 .reveal-right.visible{opacity:1;transform:translateX(0)}
-.reveal-scale{opacity:0;transform:scale(.92);transition:opacity .55s var(--ease),transform .55s var(--ease-spring)}
+.reveal-scale{opacity:0;transform:scale(.94);transition:opacity .45s var(--ease),transform .45s var(--ease-spring);will-change:opacity,transform}
 .reveal-scale.visible{opacity:1;transform:scale(1)}
 .stagger-1{transition-delay:.05s}.stagger-2{transition-delay:.1s}.stagger-3{transition-delay:.15s}
 .stagger-4{transition-delay:.2s}.stagger-5{transition-delay:.25s}.stagger-6{transition-delay:.3s}
@@ -83,8 +82,8 @@ button,input,textarea,select{font-family:inherit;font-size:inherit;border:none;o
 /* NAV */
 .main-nav{display:flex;align-items:center;gap:0}
 .main-nav>li{position:relative}
-.main-nav>li>a{display:block;padding:16px 11px;font-size:.78rem;font-weight:600;color:var(--text-body);text-transform:uppercase;letter-spacing:.6px;transition:all .3s var(--ease);position:relative;white-space:nowrap}
-.main-nav>li>a::after{content:'';position:absolute;bottom:8px;left:50%;width:0;height:2.5px;background:linear-gradient(90deg,var(--primary),var(--primary-light));transition:all .3s var(--ease);transform:translateX(-50%);border-radius:2px}
+.main-nav>li>a{display:block;padding:16px 11px;font-size:.78rem;font-weight:600;color:var(--text-body);text-transform:uppercase;letter-spacing:.6px;transition:color .2s var(--ease);position:relative;white-space:nowrap}
+.main-nav>li>a::after{content:'';position:absolute;bottom:8px;left:50%;width:0;height:2.5px;background:linear-gradient(90deg,var(--primary),var(--primary-light));transition:width .25s var(--ease-spring);transform:translateX(-50%);border-radius:2px}
 .main-nav>li:hover>a{color:var(--primary)}
 .main-nav>li:hover>a::after{width:55%}
 .main-nav>li>a .fa-chevron-down{font-size:.55rem;margin-left:3px;transition:transform .3s var(--ease);opacity:.6}
@@ -95,7 +94,7 @@ button,input,textarea,select{font-family:inherit;font-size:inherit;border:none;o
 .dropdown::-webkit-scrollbar{width:5px}
 .dropdown::-webkit-scrollbar-thumb{background:#ccc;border-radius:5px}
 .main-nav>li:hover>.dropdown{opacity:1;visibility:visible;transform:translateY(0)}
-.dropdown li a{display:block;padding:10px 18px;font-size:.8rem;color:#444;transition:all .2s var(--ease);border-bottom:1px solid #f5f5f5}
+.dropdown li a{display:block;padding:10px 18px;font-size:.8rem;color:#444;transition:background .2s var(--ease),color .2s var(--ease),padding-left .2s var(--ease);border-bottom:1px solid #f5f5f5}
 .dropdown li:last-child a{border-bottom:none}
 .dropdown li a:hover{background:linear-gradient(90deg,#eef2ff,#f8f9ff);color:var(--primary);padding-left:24px}
 
@@ -105,12 +104,12 @@ button,input,textarea,select{font-family:inherit;font-size:inherit;border:none;o
 .btn-quote:hover{background:linear-gradient(135deg,var(--gold-light),var(--gold));transform:translateY(-2px);box-shadow:0 10px 28px rgba(212,168,75,.3)}
 .header-phone{font-size:.82rem;font-weight:600;color:var(--text-body);white-space:nowrap}
 .header-phone i{color:var(--primary);margin-right:5px}
-.header-search-btn{background:none;cursor:pointer;font-size:1rem;color:#555;padding:8px;transition:all .3s var(--ease);border:none;border-radius:50%}
+.header-search-btn{background:none;cursor:pointer;font-size:1rem;color:#555;padding:8px;transition:color .2s var(--ease),background .2s var(--ease);border:none;border-radius:50%}
 .header-search-btn:hover{color:var(--primary);background:rgba(0,35,204,.06)}
 
 /* HAMBURGER */
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;z-index:1002;background:none;border:none}
-.hamburger span{display:block;width:24px;height:2.5px;background:var(--text-body);border-radius:3px;transition:all .3s var(--ease)}
+.hamburger span{display:block;width:24px;height:2.5px;background:var(--text-body);border-radius:3px;transition:transform .3s var(--ease),opacity .2s var(--ease)}
 .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
 .hamburger.active span:nth-child(2){opacity:0}
 .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px)}
@@ -133,7 +132,7 @@ button,input,textarea,select{font-family:inherit;font-size:inherit;border:none;o
 .search-overlay.active{display:flex}
 .search-overlay form{width:90%;max-width:700px;position:relative}
 .search-overlay input{width:100%;padding:20px 60px 20px 24px;font-size:1.2rem;border-radius:var(--radius-pill);border:3px solid var(--primary);background:var(--bg-white)}
-.search-overlay button[type="submit"]{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:linear-gradient(135deg,var(--primary),var(--primary-light));color:#fff;width:48px;height:48px;border-radius:50%;cursor:pointer;font-size:1rem;transition:all .3s var(--ease)}
+.search-overlay button[type="submit"]{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:linear-gradient(135deg,var(--primary),var(--primary-light));color:#fff;width:48px;height:48px;border-radius:50%;cursor:pointer;font-size:1rem;transition:transform .2s var(--ease-spring),background .2s var(--ease)}
 .search-overlay button[type="submit"]:hover{background:linear-gradient(135deg,var(--primary-light),var(--primary));transform:translateY(-50%) scale(1.05)}
 .search-close{position:absolute;top:30px;right:40px;color:#fff;font-size:2rem;cursor:pointer;transition:transform .3s var(--ease);background:none;border:none;line-height:1}
 .search-close:hover{transform:rotate(90deg)}
@@ -157,7 +156,7 @@ button,input,textarea,select{font-family:inherit;font-size:inherit;border:none;o
 .hero-arrow{pointer-events:all;width:52px;height:52px;background:rgba(255,255,255,.12);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:#fff;transition:transform .2s var(--ease-spring),background .2s var(--ease);border:2px solid rgba(255,255,255,.25);box-shadow:0 4px 20px rgba(0,0,0,.2);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
 .hero-arrow:hover{background:var(--primary);color:#fff;border-color:var(--primary);transform:scale(1.1)}
 .hero-dots{position:absolute;bottom:22px;width:100%;display:flex;justify-content:center;gap:10px;z-index:10}
-.hero-dot{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;transition:all .35s var(--ease);border:2px solid rgba(255,255,255,.6)}
+.hero-dot{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;transition:background .25s var(--ease),transform .25s var(--ease-spring),box-shadow .25s var(--ease),border-color .25s var(--ease);border:2px solid rgba(255,255,255,.6)}
 .hero-dot.active{background:var(--primary);border-color:#fff;transform:scale(1.25);box-shadow:0 0 12px rgba(0,35,204,.5)}
 
 /* ===== CTA BANNERS ===== */
@@ -201,7 +200,7 @@ button,input,textarea,select{font-family:inherit;font-size:inherit;border:none;o
 .product-card{position:relative;border-radius:var(--radius-lg);overflow:hidden;background:var(--bg-white);box-shadow:var(--shadow-sm);transition:transform .3s var(--ease-spring),box-shadow .3s var(--ease);cursor:pointer;display:block;border:1px solid rgba(0,0,0,.06)}
 .product-card:hover{transform:translateY(-10px);box-shadow:var(--shadow-lg)}
 .product-card-img{position:relative;overflow:hidden;aspect-ratio:4/3;background:#ecedf3}
-.product-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+.product-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .35s var(--ease)}
 .product-card:hover .product-card-img img{transform:scale(1.06)}
 .product-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(4,4,12,.9) 0%,rgba(0,20,100,.25) 45%,transparent 100%);opacity:0;transition:opacity .3s var(--ease);display:flex;align-items:flex-end;justify-content:center;padding:24px}
 .product-card:hover .product-card-overlay{opacity:1}
@@ -219,7 +218,7 @@ button,input,textarea,select{font-family:inherit;font-size:inherit;border:none;o
 .banners-grid{display:grid;grid-template-columns:1fr;gap:20px}
 .banner-card{position:relative;border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .3s var(--ease),box-shadow .3s var(--ease);border:1px solid rgba(0,0,0,.04)}
 .banner-card:hover{transform:scale(1.01);box-shadow:var(--shadow-lg)}
-.banner-card img{width:100%;display:block;transition:transform .6s var(--ease)}
+.banner-card img{width:100%;display:block;transition:transform .35s var(--ease)}
 .banner-card:hover img{transform:scale(1.03)}
 
 /* ===== PROCESS STEPS ===== */
@@ -264,7 +263,7 @@ button,input,textarea,select{font-family:inherit;font-size:inherit;border:none;o
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
 .form-group{display:flex;flex-direction:column;position:relative}
 .form-group.full{grid-column:1/-1}
-.form-group label{font-size:.72rem;font-weight:700;color:var(--text-muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:.7px;transition:all .3s var(--ease)}
+.form-group label{font-size:.72rem;font-weight:700;color:var(--text-muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:.7px;transition:color .2s var(--ease)}
 .form-group input,.form-group textarea{padding:15px 18px;border:1.5px solid #dfe2ea;border-radius:var(--radius-sm);font-size:.9rem;transition:border-color .2s var(--ease),box-shadow .2s var(--ease);background:rgba(248,249,253,.8)}
 .form-group input:focus,.form-group textarea:focus{border-color:var(--primary);background:var(--bg-white);box-shadow:0 0 0 4px rgba(0,41,204,.08)}
 .form-group input:focus+label,.form-group textarea:focus+label{color:var(--primary)}
@@ -276,7 +275,7 @@ button,input,textarea,select{font-family:inherit;font-size:inherit;border:none;o
 .btn-submit.success{background:linear-gradient(135deg,#22c55e,#16a34a) !important}
 .quote-sidebar{color:#fff}
 .quote-sidebar h3{font-size:1.5rem;margin-bottom:30px;font-weight:700}
-.quote-sidebar .contact-item{display:flex;align-items:flex-start;gap:14px;margin-bottom:28px;padding:16px;background:rgba(255,255,255,.06);border-radius:var(--radius-sm);border:1px solid rgba(255,255,255,.08);transition:all .3s var(--ease)}
+.quote-sidebar .contact-item{display:flex;align-items:flex-start;gap:14px;margin-bottom:28px;padding:16px;background:rgba(255,255,255,.06);border-radius:var(--radius-sm);border:1px solid rgba(255,255,255,.08);transition:background .25s var(--ease),transform .25s var(--ease-spring)}
 .quote-sidebar .contact-item:hover{background:rgba(255,255,255,.1);transform:translateX(4px)}
 .quote-sidebar .contact-item i{font-size:1.2rem;margin-top:4px;color:rgba(255,255,255,.7);min-width:20px;text-align:center}
 .quote-sidebar .contact-item p{font-size:.9rem;line-height:1.7;color:rgba(255,255,255,.88)}
@@ -290,7 +289,7 @@ button,input,textarea,select{font-family:inherit;font-size:inherit;border:none;o
 .footer-col h4{color:#fff;font-size:.88rem;font-weight:700;margin-bottom:20px;text-transform:uppercase;letter-spacing:1.5px;position:relative;padding-bottom:12px}
 .footer-col h4::after{content:'';position:absolute;bottom:0;left:0;width:30px;height:2px;background:linear-gradient(90deg,var(--primary),var(--primary-light));border-radius:2px}
 .footer-col p,.footer-col li,.footer-col a{font-size:.85rem;line-height:1.8;color:#888}
-.footer-col a{transition:all .3s var(--ease)}
+.footer-col a{transition:color .2s var(--ease),padding-left .2s var(--ease)}
 .footer-col a:hover{color:#fff;padding-left:2px}
 .footer-col ul li{margin-bottom:4px}
 .footer-logo img{height:48px;margin-bottom:14px;filter:brightness(1.1)}
@@ -300,19 +299,19 @@ button,input,textarea,select{font-family:inherit;font-size:inherit;border:none;o
 .newsletter-form{display:flex;gap:0;margin-top:14px;border-radius:var(--radius-sm);overflow:hidden;border:1px solid rgba(255,255,255,.1)}
 .newsletter-form input{flex:1;padding:12px 14px;border:none;background:rgba(255,255,255,.05);color:#fff;font-size:.82rem}
 .newsletter-form input::placeholder{color:#666}
-.newsletter-form button{padding:12px 20px;background:linear-gradient(135deg,var(--primary),var(--primary-light));color:#fff;font-weight:700;font-size:.78rem;cursor:pointer;transition:all .3s var(--ease);border:none;white-space:nowrap}
+.newsletter-form button{padding:12px 20px;background:linear-gradient(135deg,var(--primary),var(--primary-light));color:#fff;font-weight:700;font-size:.78rem;cursor:pointer;transition:background .2s var(--ease),opacity .2s var(--ease);border:none;white-space:nowrap}
 .newsletter-form button:hover{background:linear-gradient(135deg,var(--primary-light),var(--primary))}
 .footer-bottom{text-align:center;padding:24px 0;font-size:.8rem;color:#555}
 .footer-bottom .powered{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:10px;font-size:.82rem;color:#666;letter-spacing:.5px}
-.footer-bottom .powered a{color:var(--primary-light);font-weight:700;letter-spacing:1px;transition:all .3s var(--ease);position:relative}
+.footer-bottom .powered a{color:var(--primary-light);font-weight:700;letter-spacing:1px;transition:color .2s var(--ease),text-shadow .2s var(--ease);position:relative}
 .footer-bottom .powered a:hover{color:#fff;text-shadow:0 0 20px rgba(77,111,255,.6)}
 .footer-bottom .powered .merktop-logo{display:inline-flex;align-items:center;gap:6px;padding:6px 18px;background:linear-gradient(135deg,rgba(212,168,75,.1),rgba(212,168,75,.05));border:1px solid rgba(212,168,75,.2);border-radius:var(--radius-pill);transition:transform .25s var(--ease-spring),background .25s var(--ease)}
 .footer-bottom .powered .merktop-logo:hover{background:linear-gradient(135deg,rgba(212,168,75,.18),rgba(212,168,75,.1));border-color:rgba(212,168,75,.4);box-shadow:0 0 30px rgba(212,168,75,.15);transform:translateY(-2px)}
 .footer-bottom .powered .merktop-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px rgba(212,168,75,.6);animation:pulse 2s infinite}
 
 /* ===== SMOOTH TRANSITIONS & PERFORMANCE ===== */
-@keyframes borderGlow{0%,100%{border-color:rgba(77,111,255,.08)}50%{border-color:rgba(77,111,255,.18)}}
 .hero-track,.header,.ai-chat-panel,.back-to-top{will-change:transform}
+.product-card,.service-card,.banner-card,.process-step-card{will-change:transform,box-shadow}
 *{-webkit-tap-highlight-color:transparent}
 
 /* CLEAN — subtle header bottom line */
@@ -329,6 +328,8 @@ button,input,textarea,select{font-family:inherit;font-size:inherit;border:none;o
 
 /* SMOOTH — global link & interactive smoothness */
 button,a,.product-card,.service-card,.catalog-btn,.banner-card,.process-step-card,.hero-arrow,.hero-dot,.ai-chat-btn{-webkit-transform:translateZ(0);transform:translateZ(0)}
+:focus-visible{outline:2px solid var(--primary);outline-offset:2px;border-radius:4px}
+img{content-visibility:auto}
 
 /* ===== BACK TO TOP ===== */
 .back-to-top{position:fixed;bottom:28px;right:28px;padding:12px 18px;background:rgba(255,255,255,.7);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);color:var(--text-dark);border-radius:var(--radius-pill);display:flex;align-items:center;gap:6px;font-size:.75rem;font-weight:600;letter-spacing:.5px;cursor:pointer;opacity:0;visibility:hidden;transition:opacity .3s var(--ease),transform .3s var(--ease-spring),visibility .3s;z-index:900;border:1px solid rgba(0,0,0,.06);box-shadow:var(--shadow-md);font-family:var(--font-heading)}
@@ -1546,7 +1547,7 @@ button,a,.product-card,.service-card,.catalog-btn,.banner-card,.process-step-car
       <div class="ai-chat-avatar"><i class="fas fa-robot"></i></div>
       <div>
         <div class="ai-chat-name">RP Assistant</div>
-        <div class="ai-chat-status"><span class="ai-status-dot"></span> Online</div>
+        <div class="ai-chat-status"><span class="ai-status-dot"></span> Powered by AI</div>
       </div>
     </div>
     <button class="ai-chat-close" id="aiChatClose" aria-label="Close chat"><i class="fas fa-times"></i></button>
@@ -1575,7 +1576,7 @@ button,a,.product-card,.service-card,.catalog-btn,.banner-card,.process-step-car
 .ai-chat-name{font-family:var(--font-heading);font-weight:700;font-size:.92rem;letter-spacing:-.01em}
 .ai-chat-status{font-size:.7rem;opacity:.8;display:flex;align-items:center;gap:5px}
 .ai-status-dot{width:6px;height:6px;background:#4ade80;border-radius:50%;box-shadow:0 0 6px rgba(74,222,128,.6)}
-.ai-chat-close{background:rgba(255,255,255,.1);border:none;color:#fff;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center;transition:all .3s var(--ease)}
+.ai-chat-close{background:rgba(255,255,255,.1);border:none;color:#fff;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center;transition:background .2s var(--ease),transform .25s var(--ease-spring)}
 .ai-chat-close:hover{background:rgba(255,255,255,.2);transform:rotate(90deg)}
 
 .ai-chat-messages{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:12px}
@@ -1594,9 +1595,9 @@ button,a,.product-card,.service-card,.catalog-btn,.banner-card,.process-step-car
 @keyframes typingBounce{from{opacity:.3;transform:translateY(0)}to{opacity:1;transform:translateY(-5px)}}
 
 .ai-chat-input-wrap{display:flex;gap:0;padding:12px;border-top:1px solid rgba(0,0,0,.06);flex-shrink:0;background:rgba(255,255,255,.5)}
-.ai-chat-input-wrap input{flex:1;padding:12px 16px;border-radius:var(--radius-pill);background:rgba(0,0,0,.03);border:1.5px solid transparent;font-size:.85rem;transition:all .3s var(--ease);color:var(--text-body)}
+.ai-chat-input-wrap input{flex:1;padding:12px 16px;border-radius:var(--radius-pill);background:rgba(0,0,0,.03);border:1.5px solid transparent;font-size:.85rem;transition:border-color .2s var(--ease),background .2s var(--ease),box-shadow .2s var(--ease);color:var(--text-body)}
 .ai-chat-input-wrap input:focus{border-color:var(--primary);background:#fff;box-shadow:0 0 0 4px rgba(0,51,255,.08)}
-.ai-chat-input-wrap button{width:42px;height:42px;background:linear-gradient(135deg,var(--primary),var(--primary-light));color:#fff;border:none;border-radius:50%;margin-left:8px;cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center;transition:all .3s var(--ease-spring);flex-shrink:0}
+.ai-chat-input-wrap button{width:42px;height:42px;background:linear-gradient(135deg,var(--primary),var(--primary-light));color:#fff;border:none;border-radius:50%;margin-left:8px;cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center;transition:transform .2s var(--ease-spring),box-shadow .2s var(--ease);flex-shrink:0}
 .ai-chat-input-wrap button:hover{transform:scale(1.08);box-shadow:0 6px 20px rgba(0,51,255,.3)}
 
 @media(max-width:480px){
@@ -1803,7 +1804,7 @@ button,a,.product-card,.service-card,.catalog-btn,.banner-card,.process-step-car
   });
 })();
 
-/* ===== AI CHAT WIDGET ===== */
+/* ===== AI CHAT WIDGET (OpenAI Powered) ===== */
 (function(){
   var chatBtn=document.getElementById('aiChatBtn');
   var panel=document.getElementById('aiChatPanel');
@@ -1812,7 +1813,8 @@ button,a,.product-card,.service-card,.catalog-btn,.banner-card,.process-step-car
   var input=document.getElementById('aiChatInput');
   var sendBtn=document.getElementById('aiChatSend');
   var isOpen=false;
-  var data={firstName:'',lastName:'',company:'',email:'',phone:'',products:'',step:0};
+  var sending=false;
+  var history=[];
 
   function open(){
     isOpen=true;
@@ -1820,7 +1822,9 @@ button,a,.product-card,.service-card,.catalog-btn,.banner-card,.process-step-car
     chatBtn.classList.add('hidden');
     if(msgs.children.length===0){
       setTimeout(function(){showTyping(function(){
-        addMsg('bot',"Hi! I'm the RP & Associates AI assistant. I can help you request a quote instantly. Just tell me your name to get started!");
+        var greeting="Hi! I'm the RP & Associates AI assistant. I can answer questions about our products, help you request a quote, or connect you with our team. How can I help you today?";
+        addMsg('bot',greeting);
+        history.push({role:'assistant',content:greeting});
       })},150);
     }
     setTimeout(function(){input.focus()},300);
@@ -1835,12 +1839,32 @@ button,a,.product-card,.service-card,.catalog-btn,.banner-card,.process-step-car
   closeBtn.addEventListener('click',close);
 
   function addMsg(type,text){
+    removeTyping();
     var el=document.createElement('div');
     el.className='ai-msg '+type;
     el.textContent=text;
-    removeTyping();
     msgs.appendChild(el);
     msgs.scrollTop=msgs.scrollHeight;
+  }
+
+  function addStreamMsg(text){
+    removeTyping();
+    var el=document.createElement('div');
+    el.className='ai-msg bot';
+    el.textContent='';
+    msgs.appendChild(el);
+    var i=0;
+    var speed=18;
+    function type(){
+      if(i<text.length){
+        el.textContent+=text[i];
+        i++;
+        msgs.scrollTop=msgs.scrollHeight;
+        setTimeout(type,speed);
+      }
+    }
+    type();
+    return el;
   }
 
   function showTyping(cb){
@@ -1850,7 +1874,7 @@ button,a,.product-card,.service-card,.catalog-btn,.banner-card,.process-step-car
     el.innerHTML='<div class="ai-typing-dots"><span></span><span></span><span></span></div>';
     msgs.appendChild(el);
     msgs.scrollTop=msgs.scrollHeight;
-    setTimeout(function(){if(cb)cb()},500);
+    if(cb)setTimeout(cb,400);
   }
   function removeTyping(){var t=document.getElementById('aiTyping');if(t)t.remove()}
 
@@ -1864,74 +1888,76 @@ button,a,.product-card,.service-card,.catalog-btn,.banner-card,.process-step-car
     var iv=setInterval(function(){
       if(i<value.length){field.value+=value[i];i++}
       else{clearInterval(iv);setTimeout(function(){field.style.borderColor='';field.style.boxShadow=''},500)}
-    },25);
+    },20);
   }
 
-  function fillForm(){
+  function fillForm(data){
     document.getElementById('quote').scrollIntoView({behavior:'smooth',block:'center'});
     setTimeout(function(){
       if(data.firstName)typeInField('firstName',data.firstName);
-      setTimeout(function(){if(data.lastName)typeInField('lastName',data.lastName)},400);
-      setTimeout(function(){if(data.company)typeInField('company',data.company)},800);
-      setTimeout(function(){if(data.email)typeInField('email',data.email)},1200);
-      setTimeout(function(){if(data.phone)typeInField('phone',data.phone)},1600);
-      setTimeout(function(){if(data.products)typeInField('products',data.products)},2000);
-    },600);
+      setTimeout(function(){if(data.lastName)typeInField('lastName',data.lastName)},350);
+      setTimeout(function(){if(data.company)typeInField('company',data.company)},700);
+      setTimeout(function(){if(data.email)typeInField('email',data.email)},1050);
+      setTimeout(function(){if(data.phone)typeInField('phone',data.phone)},1400);
+      setTimeout(function(){if(data.products)typeInField('products',data.products)},1750);
+    },500);
   }
 
-  function parseEmail(t){var m=t.match(/[\w.-]+@[\w.-]+\.\w{2,}/);return m?m[0]:null}
-  function parsePhone(t){var m=t.match(/[\d()+-][\d()\s.+-]{6,}/);return m?m[0].trim():null}
-
-  function respond(userText){
-    var t=userText.toLowerCase().trim();
-    var email=parseEmail(userText);
-    var phone=parsePhone(userText);
-
-    if(data.step===0){
-      var words=userText.trim().split(/\s+/);
-      if(words.length>=2){data.firstName=words[0];data.lastName=words.slice(1).join(' ')}
-      else{data.firstName=words[0];data.lastName=''}
-      data.step=1;
-      showTyping(function(){addMsg('bot',"Nice to meet you, "+data.firstName+"! What company are you with?")});
-    }else if(data.step===1){
-      data.company=userText.trim();
-      data.step=2;
-      showTyping(function(){addMsg('bot',"Great! "+data.company+" sounds awesome. What's your email address?")});
-    }else if(data.step===2){
-      if(email){data.email=email;data.step=3;showTyping(function(){addMsg('bot',"Got it! And what's the best phone number to reach you?")})}
-      else{showTyping(function(){addMsg('bot',"I need a valid email address (e.g. you@company.com). Could you try again?")})}
-    }else if(data.step===3){
-      if(phone){data.phone=phone;data.step=4;showTyping(function(){addMsg('bot',"Perfect! Now, what products are you interested in? We have barware, beverage bags, drinkware, glacier bags, grub tubs, mule mugs, packaging, and more!")})}
-      else{data.phone=userText.trim();data.step=4;showTyping(function(){addMsg('bot',"Thanks! What products are you interested in? We offer barware, drinkware, beverage bags, glacier bags, mule mugs, grub tubs, and custom packaging.")})}
-    }else if(data.step===4){
-      data.products=userText.trim();
-      data.step=5;
-      showTyping(function(){
-        addMsg('bot',"Excellent choice! Here's what I have:\n\nName: "+data.firstName+" "+data.lastName+"\nCompany: "+data.company+"\nEmail: "+data.email+"\nPhone: "+data.phone+"\nProducts: "+data.products+"\n\nI'll fill out the quote form for you now!");
-        setTimeout(fillForm,1500);
-      });
-    }else{
-      if(t.includes('reset')||t.includes('start over')){
-        data={firstName:'',lastName:'',company:'',email:'',phone:'',products:'',step:0};
-        showTyping(function(){addMsg('bot',"Sure! Let's start over. What's your name?")});
-      }else if(t.includes('thank')){
-        showTyping(function(){addMsg('bot',"You're welcome! The form is ready to submit. Our team will get back to you within 24 hours. Is there anything else I can help with?")});
-      }else{
-        showTyping(function(){addMsg('bot',"The form has been filled out! Just click 'Submit Request' to send it. Say 'start over' if you'd like to fill it again with different info.")});
-      }
+  function checkFormFill(text){
+    var match=text.match(/\[FORM_FILL:([^|]*)\|([^|]*)\|([^|]*)\|([^|]*)\|([^|]*)\|([^\]]*)\]/);
+    if(match){
+      fillForm({firstName:match[1],lastName:match[2],company:match[3],email:match[4],phone:match[5],products:match[6]});
+      return text.replace(/\[FORM_FILL:[^\]]*\]/,'').trim();
     }
+    return text;
+  }
+
+  async function respond(userText){
+    if(sending)return;
+    sending=true;
+    sendBtn.style.opacity='.5';
+    input.disabled=true;
+
+    history.push({role:'user',content:userText});
+    showTyping();
+
+    try{
+      var res=await fetch('/api/chat',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({messages:history.slice(-20)})
+      });
+
+      if(!res.ok)throw new Error('API error');
+      var json=await res.json();
+      var reply=json.reply||'Sorry, something went wrong. Please try again.';
+
+      var cleanReply=checkFormFill(reply);
+      if(cleanReply){
+        addStreamMsg(cleanReply);
+        history.push({role:'assistant',content:cleanReply});
+      }
+    }catch(err){
+      removeTyping();
+      addMsg('bot','I\'m having trouble connecting right now. You can reach us directly at (310) 372-9709 or info@rpassociates.us');
+    }
+
+    sending=false;
+    sendBtn.style.opacity='1';
+    input.disabled=false;
+    input.focus();
   }
 
   function send(){
     var text=input.value.trim();
-    if(!text)return;
+    if(!text||sending)return;
     addMsg('user',text);
     input.value='';
     respond(text);
   }
 
   sendBtn.addEventListener('click',send);
-  input.addEventListener('keydown',function(e){if(e.key==='Enter')send()});
+  input.addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey)send()});
 })();
 </script>
 </body>

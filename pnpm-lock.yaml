@@ -11,6 +11,9 @@ importers:
       next:
         specifier: ^14.2.0
         version: 14.2.35(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      openai:
+        specifier: ^6.25.0
+        version: 6.25.0
       react:
         specifier: ^18.3.0
         version: 18.3.1
@@ -146,6 +149,18 @@ packages:
       '@playwright/test':
         optional: true
       sass:
+        optional: true
+
+  openai@6.25.0:
+    resolution: {integrity: sha512-mEh6VZ2ds2AGGokWARo18aPISI1OhlgdEIC1ewhkZr8pSIT31dec0ecr9Nhxx0JlybyOgoAT1sWeKtwPZzJyww==}
+    hasBin: true
+    peerDependencies:
+      ws: ^8.18.0
+      zod: ^3.25 || ^4.0
+    peerDependenciesMeta:
+      ws:
+        optional: true
+      zod:
         optional: true
 
   picocolors@1.1.1:
@@ -292,6 +307,8 @@ snapshots:
     transitivePeerDependencies:
       - '@babel/core'
       - babel-plugin-macros
+
+  openai@6.25.0: {}
 
   picocolors@1.1.1: {}
 
