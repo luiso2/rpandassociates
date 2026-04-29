@@ -96,7 +96,7 @@ export function MobileDrawer({ open, onClose }: MobileDrawerProps) {
                     {subs.map((s) => (
                       <li key={s.slug}>
                         <Link
-                          href={`/products/${cat.slug}?sub=${s.slug}`}
+                          href={`/products/${cat.slug}/sub/${s.slug}`}
                           onClick={onClose}
                           className="block pl-10 pr-6 py-2.5 text-xs text-ink-muted border-b border-white/50 hover:text-primary hover:bg-white transition"
                         >

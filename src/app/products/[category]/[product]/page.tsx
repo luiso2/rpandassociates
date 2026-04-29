@@ -9,9 +9,10 @@ import { industryBySlug } from '@/data/industries'
 import { Container } from '@/components/ui/Container'
 import { Badge } from '@/components/ui/Badge'
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs'
-import { ProductGallery } from '@/components/product/ProductGallery'
+import { ProductDetailGallery } from '@/components/product/ProductDetailGallery'
 import { AddToQuoteButton } from '@/components/product/AddToQuoteButton'
 import { RelatedProducts } from '@/components/product/RelatedProducts'
+import { SpecsBlock } from '@/components/product/SpecsBlock'
 import type { CategorySlug } from '@/types/category'
 
 export const dynamicParams = false
@@ -87,10 +88,7 @@ export default function ProductDetailPage({
       <section className="py-12 bg-white">
         <Container>
           <div className="grid lg:grid-cols-2 gap-12">
-            <ProductGallery
-              images={product.images}
-              productName={product.name}
-            />
+            <ProductDetailGallery product={product} />
             <div>
               <div className="flex flex-wrap items-center gap-2 mb-3">
                 <Badge variant="primary">{category.name}</Badge>
@@ -137,6 +135,12 @@ export default function ProductDetailPage({
               </div>
 
               <AddToQuoteButton product={product} />
+
+              {product.specs && (
+                <div className="mt-8">
+                  <SpecsBlock specs={product.specs} />
+                </div>
+              )}
 
               {(subcategories.length > 0 || productIndustries.length > 0) && (
                 <div className="mt-10 pt-8 border-t border-black/5 space-y-5">

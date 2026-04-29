@@ -2,6 +2,8 @@ import type { MetadataRoute } from 'next'
 import { categories } from '@/data/categories'
 import { products } from '@/data/products'
 import { industries } from '@/data/industries'
+import { subcategories } from '@/data/subcategories'
+import { productsByCategory } from '@/lib/search-index'
 
 const BASE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? 'https://rpandassociates.com'
@@ -26,6 +28,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: 'weekly',
   }))
 
+  // Subcategory pages — only for subs that contain at least one product
+  const subcategoryRoutes: MetadataRoute.Sitemap = subcategories
+    .filter((sub) =>
+      (productsByCategory[sub.categorySlug] ?? []).some((p) =>
+        p.subcategorySlugs.includes(sub.slug),
+      ),
+    )
+    .map((sub) => ({
+      url: `${BASE_URL}/products/${sub.categorySlug}/sub/${sub.slug}`,
+      lastModified: now,
+      priority: 0.75,
+      changeFrequency: 'weekly',
+    }))
+
   const productRoutes: MetadataRoute.Sitemap = products.map((p) => ({
     url: `${BASE_URL}/products/${p.categorySlug}/${p.slug}`,
     lastModified: now,
@@ -43,6 +59,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...staticRoutes,
     ...categoryRoutes,
+    ...subcategoryRoutes,
     ...productRoutes,
     ...industryRoutes,
   ]
