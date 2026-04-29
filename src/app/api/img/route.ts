@@ -37,10 +37,13 @@ export async function GET(req: NextRequest) {
   try {
     const upstream = await fetch(url.toString(), {
       headers: {
-        // Some Magento installs reject default Node UA
+        // Use a real-browser UA — some Cloudflare/WAF rules at the
+        // upstream reject identifiable bot UAs with a 400.
         'User-Agent':
-          'Mozilla/5.0 (compatible; RPACustomizer/1.0; +https://rpandassociates.com)',
+          'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15',
         Accept: 'image/avif,image/webp,image/apng,image/*,*/*;q=0.8',
+        'Accept-Language': 'en-US,en;q=0.9',
+        Referer: 'https://www.rpacatalog.com/',
       },
       cache: 'no-store',
     })
