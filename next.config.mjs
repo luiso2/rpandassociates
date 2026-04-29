@@ -18,7 +18,7 @@ const securityHeaders = [
       "default-src 'self'",
       "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
       "style-src 'self' 'unsafe-inline'",
-      "img-src 'self' data: blob: https:",
+      "img-src 'self' data: blob: https://www.rpacatalog.com https:",
       "font-src 'self' data:",
       "connect-src 'self' https://api.openai.com https://api.resend.com",
       "frame-src https://issuu.com https://e.issuu.com",
@@ -34,7 +34,13 @@ const nextConfig = {
   poweredByHeader: false,
   images: {
     formats: ['image/avif', 'image/webp'],
-    remotePatterns: [],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'www.rpacatalog.com',
+        pathname: '/media/catalog/product/**',
+      },
+    ],
   },
   async headers() {
     return [

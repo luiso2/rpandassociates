@@ -2,10 +2,9 @@
 
 import { useCallback, useEffect, useState } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
 import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
-import { ChevronLeft, ChevronRight, FileText, LayoutGrid } from 'lucide-react'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { heroSlides } from '@/data/hero-slides'
 import { cn } from '@/lib/cn'
 
@@ -52,38 +51,7 @@ export function HeroCarousel() {
                 sizes="100vw"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/20 to-ink/80" />
-              <div className="absolute inset-0 flex items-center justify-center text-center px-6">
-                <div className="max-w-3xl">
-                  <span className="inline-block mb-4 px-3 py-1 rounded-pill text-[10px] font-bold uppercase tracking-[2px] text-gold-light bg-white/10 border border-white/20 backdrop-blur-sm">
-                    {slide.eyebrow}
-                  </span>
-                  <h1 className="font-heading font-extrabold text-[clamp(2rem,5.5vw,3.6rem)] leading-[1.08] mb-6 tracking-[-0.04em] text-gradient-gold drop-shadow-lg">
-                    {slide.title}
-                  </h1>
-                  <p className="text-white/85 text-[clamp(1rem,2vw,1.18rem)] mb-9 max-w-xl mx-auto leading-relaxed font-normal">
-                    {slide.subtitle}
-                  </p>
-                  <div className="flex gap-3 flex-wrap justify-center">
-                    <Link
-                      href={slide.ctaPrimary.href}
-                      className="inline-flex items-center gap-2 px-8 py-3.5 rounded-pill bg-gradient-to-br from-gold to-gold-dark text-white text-sm font-bold uppercase tracking-wider shadow-gold border border-white/15 hover:from-gold-light hover:to-gold hover:-translate-y-1 transition-all"
-                    >
-                      <FileText className="w-4 h-4" />
-                      {slide.ctaPrimary.label}
-                    </Link>
-                    {slide.ctaSecondary && (
-                      <Link
-                        href={slide.ctaSecondary.href}
-                        className="inline-flex items-center gap-2 px-8 py-3.5 rounded-pill bg-white/10 text-white text-sm font-bold uppercase tracking-wider border border-white/30 backdrop-blur-md hover:bg-white/20 hover:border-white/50 hover:-translate-y-1 transition-all"
-                      >
-                        <LayoutGrid className="w-4 h-4" />
-                        {slide.ctaSecondary.label}
-                      </Link>
-                    )}
-                  </div>
-                </div>
-              </div>
+              <div className="absolute inset-0 bg-gradient-to-b from-ink/15 via-transparent to-ink/25 pointer-events-none" />
             </div>
           ))}
         </div>
