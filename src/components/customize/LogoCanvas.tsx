@@ -39,7 +39,13 @@ export function LogoCanvas({
   const [productLoaded, setProductLoaded] = useState(false)
   const [logoLoaded, setLogoLoaded] = useState(false)
 
-  const productSrc = product.images[0]?.src ?? ''
+  const rawSrc = product.images[0]?.src ?? ''
+  // Route external catalog images through our proxy so the canvas isn't
+  // tainted by cross-origin pixels — otherwise toDataURL() fails on
+  // download.
+  const productSrc = rawSrc.startsWith('https://')
+    ? `/api/img?src=${encodeURIComponent(rawSrc)}`
+    : rawSrc
   const zone: LogoZone = product.logoZone ?? {
     centerX: 0.5,
     centerY: 0.55,
