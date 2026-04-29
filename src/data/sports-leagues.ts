@@ -43,8 +43,7 @@ export const sportsLeagues: SportsLeague[] = [
       'From premium suite Moscow Mules to 16 oz tailgate party cups in team colors, we build NFL stadium programs that hold up to fall through the playoffs. Football helmet shakers, foldable yards, and reusable beverage carriers are our most-ordered SKUs in this category.',
     accentGradient: 'from-emerald-700 via-emerald-600 to-emerald-700',
     accentColor: 'rgb(16,185,129)',
-    heroImage: 'https://www.rpacatalog.com/media/catalog/product/cache/e11a83343d9f0597480ee66c9eea9fbe/f/o/football_helmet_shaker_2.jpg',
-    leagueLogo: 'https://a.espncdn.com/i/leaguelogos/sports/500/nfl.png',
+    heroImage: 'https://images.unsplash.com/photo-1566577739112-5180d4bf9390?w=1920&q=85',
     productTags: ['football', 'tailgate', 'stadium', 'sports'],
     preferredSubcategories: [
       'shakers',
@@ -71,8 +70,7 @@ export const sportsLeagues: SportsLeague[] = [
       'Baseball is a marathon, not a sprint — your concession line needs to last 81 home games. Baseball pint glasses, home plate cups, baseball-bat tumblers, and helmet shakers in your team colors are bread-and-butter for MLB clubs. We also stock craft-brewery branded pint glass programs for stadium-adjacent breweries.',
     accentGradient: 'from-blue-700 via-blue-600 to-blue-700',
     accentColor: 'rgb(59,130,246)',
-    heroImage: 'https://www.rpacatalog.com/media/catalog/product/cache/e11a83343d9f0597480ee66c9eea9fbe/b/a/baseball_pint_glass.jpg',
-    leagueLogo: 'https://a.espncdn.com/i/leaguelogos/sports/500/mlb.png',
+    heroImage: 'https://images.unsplash.com/photo-1508344928928-7165b67de128?w=1920&q=85',
     productTags: ['baseball', 'sports', 'stadium'],
     preferredSubcategories: [
       'plastic-drinkware',
@@ -99,8 +97,7 @@ export const sportsLeagues: SportsLeague[] = [
       'NBA arenas blend retail, concession, and luxury suite — and our line covers all three. Premium copper Moscow Mules for VIP suites, party cups in team colorways for the 200 level, and crystal shot glasses for in-arena bars. Basketball-themed shakers also play well as merch giveaways.',
     accentGradient: 'from-orange-600 via-orange-500 to-orange-600',
     accentColor: 'rgb(249,115,22)',
-    heroImage: 'https://www.rpacatalog.com/media/catalog/product/cache/e11a83343d9f0597480ee66c9eea9fbe/b/a/basketball_shaker_2.jpg',
-    leagueLogo: 'https://a.espncdn.com/i/leaguelogos/sports/500/nba.png',
+    heroImage: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=1920&q=85',
     productTags: ['basketball', 'sports', 'stadium', 'premium'],
     preferredSubcategories: [
       'shakers',
@@ -127,8 +124,7 @@ export const sportsLeagues: SportsLeague[] = [
       'NHL arenas need durability and team character. Our goalie mask shakers, jersey-numbered pint glasses, and stainless steel insulated tumblers ship to franchises across both conferences. Hockey-specific novelty drinkware drives stadium retail revenue alongside the standard concession line.',
     accentGradient: 'from-cyan-700 via-cyan-600 to-cyan-700',
     accentColor: 'rgb(6,182,212)',
-    heroImage: 'https://www.rpacatalog.com/media/catalog/product/cache/e11a83343d9f0597480ee66c9eea9fbe/h/o/hockey_helmet_shaker_2.jpg',
-    leagueLogo: 'https://a.espncdn.com/i/leaguelogos/sports/500/nhl.png',
+    heroImage: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=1920&q=85',
     productTags: ['hockey', 'sports', 'stadium'],
     preferredSubcategories: ['shakers', 'glassware', 'plastic-drinkware'],
     caseStudy: {
@@ -149,8 +145,7 @@ export const sportsLeagues: SportsLeague[] = [
       'MLS clubs from Atlanta to LA run end-to-end concession programs with us — pint glasses, party cups, and beverage pouches in club colors, plus club-branded glacier bags for fan retail. Bilingual graphic capabilities (English/Spanish) make us the go-to for Liga MX-affiliated venues too.',
     accentGradient: 'from-pink-600 via-pink-500 to-pink-600',
     accentColor: 'rgb(236,72,153)',
-    heroImage: 'https://www.rpacatalog.com/media/catalog/product/cache/e11a83343d9f0597480ee66c9eea9fbe/f/o/foldable_yards_banner.jpg',
-    leagueLogo: 'https://a.espncdn.com/i/leaguelogos/sports/500/mls.png',
+    heroImage: 'https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=1920&q=85',
     productTags: ['soccer', 'sports', 'stadium'],
     preferredSubcategories: ['plastic-drinkware', 'glassware', 'beverage-pouch', 'foldable-yard'],
     caseStudy: {

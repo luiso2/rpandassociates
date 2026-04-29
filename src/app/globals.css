@@ -40,7 +40,10 @@
     font-weight: 700;
     line-height: 1.15;
     letter-spacing: -0.03em;
-    color: var(--ink);
+    /* Inherit color from the section/parent so dark heroes stay legible.
+       Components that need an explicit color use Tailwind utilities
+       (text-ink / text-white) which win over inheritance. */
+    color: inherit;
   }
   ::selection {
     background: rgba(0, 51, 255, 0.15);
