@@ -34,6 +34,16 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    /* Whole-app subtle entrance — masks any FOUT/CLS jitter on first paint */
+    animation: app-fade-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  }
+  /* Kill the iOS tap-highlight grey on every interactive surface */
+  button, a, [role="button"], summary, label {
+    -webkit-tap-highlight-color: transparent;
+  }
+  /* Native image lazy-fade — modern browsers honor this on <img> rendering */
+  img {
+    content-visibility: auto;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading), system-ui, sans-serif;
@@ -63,10 +73,36 @@
   }
 }
 
+/* ===== VIEW TRANSITIONS — smooth cross-fade between routes (Chrome 111+, Safari 18+) ===== */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 220ms;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 /* ===== KEYFRAMES (defined outside @layer so PostCSS doesn't strip them) ===== */
 @keyframes marquee {
   from { transform: translate3d(0, 0, 0); }
   to   { transform: translate3d(-50%, 0, 0); }
+}
+
+@keyframes slow-zoom {
+  from { transform: scale(1.04); }
+  to   { transform: scale(1.12); }
+}
+
+@keyframes app-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
 }
 
 /* ===== UTILITIES ===== */
@@ -125,50 +161,93 @@
     border-radius: 4px;
   }
 
-  /* Reveal-on-scroll variants */
+  /* Reveal-on-scroll variants — translate3d for GPU compositing,
+     spring easing for natural arrival, longer transform than opacity
+     so the motion lingers a touch (premium feel). */
   .reveal {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translate3d(0, 28px, 0);
     transition:
-      opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-      transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+      opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
     will-change: opacity, transform;
   }
   .reveal.visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
   .reveal-left {
     opacity: 0;
-    transform: translateX(-30px);
+    transform: translate3d(-32px, 0, 0);
     transition:
-      opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-      transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+      opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
   }
   .reveal-left.visible {
     opacity: 1;
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   .reveal-right {
     opacity: 0;
-    transform: translateX(30px);
+    transform: translate3d(32px, 0, 0);
     transition:
-      opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-      transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+      opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
   }
   .reveal-right.visible {
     opacity: 1;
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   .reveal-scale {
     opacity: 0;
-    transform: scale(0.94);
+    transform: scale3d(0.94, 0.94, 1);
     transition:
-      opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1),
-      transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+      opacity 0.55s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
   }
   .reveal-scale.visible {
     opacity: 1;
-    transform: scale(1);
+    transform: scale3d(1, 1, 1);
   }
+
+  /* Slow Ken Burns zoom — used by HeroCarousel active slides */
+  .animate-slow-zoom {
+    animation: slow-zoom 14s cubic-bezier(0.4, 0, 0.2, 1) alternate infinite;
+    will-change: transform;
+  }
+  /* Soft floating utility — for badges, sparkles, decorative chips */
+  .animate-float-soft {
+    animation: float-soft 4.5s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+    will-change: transform;
+  }
+
+  /* Lift-on-hover — premium card / CTA micro-interaction.
+     Use sparingly; pairs well with subtle shadow expansion. */
+  .lift-hover {
+    transition:
+      transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .lift-hover:hover {
+    transform: translate3d(0, -4px, 0);
+  }
+
+  /* Auto-stagger for child list items: parent sets `data-stagger`,
+     children inherit increasing transition-delay via :nth-child.
+     Limit to 12 to keep the math fast. */
+  [data-stagger] > * { transition-delay: calc(var(--stagger, 60ms) * 0); }
+  [data-stagger] > *:nth-child(2)  { transition-delay: calc(var(--stagger, 60ms) * 1); }
+  [data-stagger] > *:nth-child(3)  { transition-delay: calc(var(--stagger, 60ms) * 2); }
+  [data-stagger] > *:nth-child(4)  { transition-delay: calc(var(--stagger, 60ms) * 3); }
+  [data-stagger] > *:nth-child(5)  { transition-delay: calc(var(--stagger, 60ms) * 4); }
+  [data-stagger] > *:nth-child(6)  { transition-delay: calc(var(--stagger, 60ms) * 5); }
+  [data-stagger] > *:nth-child(7)  { transition-delay: calc(var(--stagger, 60ms) * 6); }
+  [data-stagger] > *:nth-child(8)  { transition-delay: calc(var(--stagger, 60ms) * 7); }
+  [data-stagger] > *:nth-child(9)  { transition-delay: calc(var(--stagger, 60ms) * 8); }
+  [data-stagger] > *:nth-child(10) { transition-delay: calc(var(--stagger, 60ms) * 9); }
+  [data-stagger] > *:nth-child(11) { transition-delay: calc(var(--stagger, 60ms) * 10); }
+  [data-stagger] > *:nth-child(12) { transition-delay: calc(var(--stagger, 60ms) * 11); }
 }

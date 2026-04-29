@@ -41,7 +41,7 @@ export function HeroCarousel() {
           {heroSlides.map((slide, idx) => (
             <div
               key={slide.image}
-              className="relative shrink-0 grow-0 basis-full aspect-[16/9] md:aspect-[21/9] lg:aspect-[5/2]"
+              className="relative shrink-0 grow-0 basis-full aspect-[16/9] md:aspect-[21/9] lg:aspect-[5/2] overflow-hidden"
             >
               <Image
                 src={slide.image}
@@ -49,9 +49,14 @@ export function HeroCarousel() {
                 fill
                 priority={idx === 0}
                 sizes="100vw"
-                className="object-cover"
+                /* Ken Burns: subtle slow zoom, only on the active slide
+                   so neighboring slides don't burn CPU pre-rendered. */
+                className={cn(
+                  'object-cover transition-transform',
+                  idx === selectedIndex && 'animate-slow-zoom',
+                )}
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-ink/15 via-transparent to-ink/25 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-b from-ink/15 via-transparent to-ink/30 pointer-events-none" />
             </div>
           ))}
         </div>
