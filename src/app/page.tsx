@@ -1,4 +1,5 @@
 import { HeroCarousel } from '@/components/home/HeroCarousel'
+import { SportsTicker } from '@/components/home/SportsTicker'
 import { CtaBanner } from '@/components/home/CtaBanner'
 import { CatalogsSection } from '@/components/home/CatalogsSection'
 import { ServicesSection } from '@/components/home/ServicesSection'
@@ -14,6 +15,7 @@ export default function HomePage() {
   return (
     <main>
       <HeroCarousel />
+      <SportsTicker />
       <CtaBanner
         variant="red"
         message="Spring promotional cycle is open — lock in stadium-ready stock today"

@@ -102,6 +102,20 @@
     border-radius: 4px;
   }
 
+  /* Marquee animation for the sports ticker — 60s loop, content
+     duplicated so the seam is invisible. Pauses on hover/focus. */
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  .animate-marquee {
+    animation: marquee 60s linear infinite;
+    will-change: transform;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .animate-marquee { animation: none; }
+  }
+
   /* Reveal-on-scroll variants */
   .reveal {
     opacity: 0;
