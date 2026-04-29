@@ -4,6 +4,7 @@ import { products } from '@/data/products'
 import { industries } from '@/data/industries'
 import { subcategories } from '@/data/subcategories'
 import { productsByCategory } from '@/lib/search-index'
+import { sportsLeagues } from '@/data/sports-leagues'
 
 const BASE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? 'https://rpandassociates.com'
@@ -56,11 +57,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: 'monthly',
   }))
 
+  // League-specific industry pages — high SEO value
+  const leagueRoutes: MetadataRoute.Sitemap = sportsLeagues.map((l) => ({
+    url: `${BASE_URL}/industries/sports/${l.slug}`,
+    lastModified: now,
+    priority: 0.8,
+    changeFrequency: 'weekly',
+  }))
+
   return [
     ...staticRoutes,
     ...categoryRoutes,
     ...subcategoryRoutes,
     ...productRoutes,
     ...industryRoutes,
+    ...leagueRoutes,
   ]
 }

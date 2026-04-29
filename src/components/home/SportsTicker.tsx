@@ -2,8 +2,16 @@
 
 import { useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
-import { Trophy, Tv, Clock } from 'lucide-react'
+import { Trophy, Tv, Clock, ArrowUpRight } from 'lucide-react'
 import { cn } from '@/lib/cn'
+
+const LEAGUE_SLUG: Record<string, string> = {
+  MLB: 'mlb',
+  NFL: 'nfl',
+  NBA: 'nba',
+  NHL: 'nhl',
+  MLS: 'mls',
+}
 
 interface NormalizedGame {
   id: string
@@ -136,9 +144,14 @@ function GameChip({ game, now }: { game: NormalizedGame; now: number }) {
   const minsUntil = Math.round((start - now) / 60_000)
   const isLive = game.status === 'in'
   const startLabel = formatStartLabel(game, minsUntil)
+  const leagueSlug = LEAGUE_SLUG[game.league] ?? 'sports'
 
   return (
-    <div className="inline-flex items-center gap-2.5 px-4 mx-2 text-[12px] font-medium border-r border-white/5">
+    <Link
+      href={`/industries/sports/${leagueSlug}`}
+      title={`${game.shortName} — see ${game.league} stadium programs`}
+      className="group inline-flex items-center gap-2.5 px-4 mx-2 text-[12px] font-medium border-r border-white/5 hover:bg-white/[0.04] transition rounded-md"
+    >
       <span
         className={cn(
           'inline-flex items-center px-1.5 py-0.5 rounded text-[9px] font-bold tracking-[1.5px] uppercase border',
@@ -185,7 +198,9 @@ function GameChip({ game, now }: { game: NormalizedGame; now: number }) {
           {game.broadcast}
         </span>
       )}
-    </div>
+
+      <ArrowUpRight className="w-3 h-3 text-white/25 group-hover:text-gold-light group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all" />
+    </Link>
   )
 }
 
