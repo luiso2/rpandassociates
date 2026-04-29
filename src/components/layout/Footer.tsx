@@ -16,9 +16,11 @@ export function Footer() {
               <Image
                 src="/images/RP_Logo_Small.jpg"
                 alt="RP & Associates"
-                width={150}
-                height={50}
-                className="h-12 w-auto object-contain bg-white rounded-lg p-1.5"
+                width={200}
+                height={67}
+                quality={95}
+                className="h-14 w-auto object-contain bg-white rounded-md p-2"
+                sizes="200px"
               />
             </Link>
             <p className="text-white/60 text-sm leading-relaxed mb-5">
@@ -155,11 +157,21 @@ export function Footer() {
           <p>
             © {new Date().getFullYear()} {company.name}. All rights reserved.
           </p>
-          <p>
-            Powered by{' '}
-            <span className="text-gold font-semibold tracking-wider">
+          <p className="flex items-center gap-1.5">
+            <span>Powered by</span>
+            <a
+              href="https://merktop.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gold font-semibold tracking-wider hover:text-gold-light transition-colors inline-flex items-center gap-1 group"
+              aria-label="Merktop — opens in new tab"
+            >
               MERKTOP
-            </span>
+              <span
+                aria-hidden
+                className="inline-block w-1.5 h-1.5 rounded-full bg-gold/50 group-hover:bg-gold-light transition"
+              />
+            </a>
           </p>
         </div>
       </Container>

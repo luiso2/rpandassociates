@@ -128,7 +128,7 @@ function MegaPanel({ category, open }: MegaPanelProps) {
             {subs.map((s) => (
               <li key={s.slug}>
                 <Link
-                  href={`/products/${category.slug}/${s.slug}`}
+                  href={`/products/${category.slug}?sub=${s.slug}`}
                   className="block px-2 py-1.5 text-[12px] font-medium text-ink-muted hover:text-primary hover:bg-primary/5 rounded-md transition normal-case tracking-normal"
                 >
                   {s.name}

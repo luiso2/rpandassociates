@@ -37,19 +37,21 @@ export function HeaderClient() {
           >
             <Link
               href="/"
-              className="shrink-0 transition-transform hover:scale-[1.02]"
+              aria-label="RP & Associates — Home"
+              className={cn(
+                'shrink-0 flex items-center transition-all duration-300',
+                scrolled ? 'h-10' : 'h-12',
+              )}
             >
               <Image
                 src="/images/RP_Logo_Small.jpg"
                 alt="RP & Associates"
-                width={180}
-                height={60}
+                width={220}
+                height={73}
                 priority
-                className={cn(
-                  'object-contain transition-all duration-300 rounded-md',
-                  scrolled ? 'h-9 w-auto' : 'h-11 w-auto',
-                )}
-                style={{ width: 'auto' }}
+                quality={95}
+                className="h-full w-auto object-contain select-none"
+                sizes="220px"
               />
             </Link>
 

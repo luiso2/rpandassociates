@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { categories, categoryBySlug } from '@/data/categories'
+import { subcategoriesByCategory } from '@/data/subcategories'
 import { productsByCategory, allMaterials } from '@/lib/search-index'
 import {
   parseFilters,
@@ -51,6 +52,14 @@ export default function CategoryPage({
   const filtered = applyFilters(allInCategory, filters)
   const sorted = sortProducts(filtered, filters.sort)
 
+  const allSubcategories = subcategoriesByCategory[category.slug] ?? []
+  const availableSubcategories = allSubcategories.map((sub) => ({
+    ...sub,
+    productCount: allInCategory.filter((p) =>
+      p.subcategorySlugs.includes(sub.slug),
+    ).length,
+  }))
+
   const availableMaterials = Array.from(
     new Set(allInCategory.flatMap((p) => p.materials)),
   )
@@ -75,6 +84,7 @@ export default function CategoryPage({
         <Container>
           <div className="grid lg:grid-cols-[260px_1fr] gap-8">
             <FilterSidebar
+              availableSubcategories={availableSubcategories}
               availableMaterials={availableMaterials}
               availableIndustries={availableIndustries}
               totalCount={allInCategory.length}
@@ -120,6 +130,10 @@ export default function CategoryPage({
 
 function applyFilters(input: Product[], f: CategoryFilters): Product[] {
   return input.filter((p) => {
+    if (f.subcategories.length > 0) {
+      if (!p.subcategorySlugs.some((s) => f.subcategories.includes(s)))
+        return false
+    }
     if (f.materials.length > 0) {
       if (!p.materials.some((m) => f.materials.includes(m))) return false
     }

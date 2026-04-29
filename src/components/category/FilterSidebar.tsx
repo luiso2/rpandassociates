@@ -12,10 +12,16 @@ import {
 } from '@/lib/url-state'
 import type { Material } from '@/types/product'
 import type { IndustrySlug } from '@/types/industry'
+import type { Subcategory } from '@/types/category'
 import { industries } from '@/data/industries'
 import { cn } from '@/lib/cn'
 
+interface SubcategoryWithCount extends Subcategory {
+  productCount: number
+}
+
 interface FilterSidebarProps {
+  availableSubcategories: SubcategoryWithCount[]
   availableMaterials: Material[]
   availableIndustries: IndustrySlug[]
   totalCount: number
@@ -38,6 +44,7 @@ const materialLabels: Record<Material, string> = {
 }
 
 export function FilterSidebar({
+  availableSubcategories,
   availableMaterials,
   availableIndustries,
   totalCount,
@@ -61,11 +68,19 @@ export function FilterSidebar({
     arr.includes(v) ? arr.filter((x) => x !== v) : [...arr, v]
 
   const reset = () => update(defaultFilters)
-  const hasActive =
-    filters.materials.length > 0 ||
-    filters.industries.length > 0 ||
-    filters.moq !== 'any' ||
-    filters.customizable
+  const activeCount =
+    filters.subcategories.length +
+    filters.materials.length +
+    filters.industries.length +
+    (filters.moq !== 'any' ? 1 : 0) +
+    (filters.customizable ? 1 : 0)
+  const hasActive = activeCount > 0
+
+  // Sort subcategories: those with products first, alphabetical
+  const sortedSubcategories = [...availableSubcategories].sort((a, b) => {
+    if (a.productCount !== b.productCount) return b.productCount - a.productCount
+    return a.name.localeCompare(b.name)
+  })
 
   return (
     <>
@@ -75,7 +90,7 @@ export function FilterSidebar({
         className="lg:hidden inline-flex items-center gap-2 px-4 py-2.5 rounded-pill bg-ink text-white text-sm font-bold uppercase tracking-wider"
       >
         <Filter className="w-4 h-4" />
-        Filters{hasActive && ` (${filters.materials.length + filters.industries.length + (filters.moq !== 'any' ? 1 : 0) + (filters.customizable ? 1 : 0)})`}
+        Filters{hasActive ? ` (${activeCount})` : ''}
       </button>
 
       <aside
@@ -87,11 +102,12 @@ export function FilterSidebar({
             : '-translate-x-full lg:translate-x-0',
         )}
       >
-        <div className="flex items-center justify-between mb-6 lg:mb-4">
+        <div className="flex items-center justify-between mb-6 lg:mb-4 pb-4 border-b border-black/5">
           <div>
             <h3 className="font-heading text-lg font-bold text-ink">Filters</h3>
             <p className="text-xs text-ink-muted mt-0.5">
-              {filteredCount} of {totalCount} products
+              <strong className="text-ink">{filteredCount}</strong> of{' '}
+              {totalCount} products
             </p>
           </div>
           <div className="flex items-center gap-2">
@@ -115,20 +131,72 @@ export function FilterSidebar({
           </div>
         </div>
 
+        {sortedSubcategories.length > 0 && (
+          <FilterGroup label="Type">
+            <div className="max-h-72 overflow-y-auto pr-1 -mr-1 space-y-1">
+              {sortedSubcategories.map((s) => {
+                const checked = filters.subcategories.includes(s.slug)
+                const empty = s.productCount === 0
+                return (
+                  <label
+                    key={s.slug}
+                    className={cn(
+                      'flex items-center gap-2.5 cursor-pointer text-sm transition py-1 group',
+                      empty && 'opacity-50',
+                      checked
+                        ? 'text-primary font-semibold'
+                        : 'text-ink-body hover:text-ink',
+                    )}
+                  >
+                    <input
+                      type="checkbox"
+                      checked={checked}
+                      onChange={() =>
+                        update({
+                          ...filters,
+                          subcategories: toggleArray(filters.subcategories, s.slug),
+                        })
+                      }
+                      className="w-4 h-4 rounded border-black/15 text-primary focus:ring-primary/30"
+                    />
+                    <span className="flex-1 leading-tight">{s.name}</span>
+                    <span
+                      className={cn(
+                        'text-[10px] font-semibold tabular-nums px-1.5 rounded',
+                        empty
+                          ? 'text-ink-light/60'
+                          : checked
+                            ? 'text-primary bg-primary/10'
+                            : 'text-ink-light bg-surface-section group-hover:bg-primary/10 group-hover:text-primary',
+                      )}
+                    >
+                      {s.productCount}
+                    </span>
+                  </label>
+                )
+              })}
+            </div>
+          </FilterGroup>
+        )}
+
         <FilterGroup label="Material">
-          {availableMaterials.map((m) => (
-            <Checkbox
-              key={m}
-              checked={filters.materials.includes(m)}
-              onChange={() =>
-                update({
-                  ...filters,
-                  materials: toggleArray(filters.materials, m),
-                })
-              }
-              label={materialLabels[m] ?? m}
-            />
-          ))}
+          {availableMaterials.length === 0 ? (
+            <p className="text-xs text-ink-light italic">No materials filtered yet.</p>
+          ) : (
+            availableMaterials.map((m) => (
+              <Checkbox
+                key={m}
+                checked={filters.materials.includes(m)}
+                onChange={() =>
+                  update({
+                    ...filters,
+                    materials: toggleArray(filters.materials, m),
+                  })
+                }
+                label={materialLabels[m] ?? m}
+              />
+            ))
+          )}
         </FilterGroup>
 
         <FilterGroup label="Minimum Order Qty">
@@ -143,25 +211,27 @@ export function FilterSidebar({
           ))}
         </FilterGroup>
 
-        <FilterGroup label="Industry">
-          {availableIndustries.map((slug) => {
-            const ind = industries.find((i) => i.slug === slug)
-            if (!ind) return null
-            return (
-              <Checkbox
-                key={slug}
-                checked={filters.industries.includes(slug)}
-                onChange={() =>
-                  update({
-                    ...filters,
-                    industries: toggleArray(filters.industries, slug),
-                  })
-                }
-                label={ind.name}
-              />
-            )
-          })}
-        </FilterGroup>
+        {availableIndustries.length > 0 && (
+          <FilterGroup label="Industry">
+            {availableIndustries.map((slug) => {
+              const ind = industries.find((i) => i.slug === slug)
+              if (!ind) return null
+              return (
+                <Checkbox
+                  key={slug}
+                  checked={filters.industries.includes(slug)}
+                  onChange={() =>
+                    update({
+                      ...filters,
+                      industries: toggleArray(filters.industries, slug),
+                    })
+                  }
+                  label={ind.name}
+                />
+              )
+            })}
+          </FilterGroup>
+        )}
 
         <FilterGroup label="Customization">
           <Checkbox
@@ -193,7 +263,7 @@ function FilterGroup({
   children: React.ReactNode
 }) {
   return (
-    <div className="border-t border-black/5 py-4">
+    <div className="border-t border-black/5 py-4 first:border-t-0 first:pt-0">
       <h4 className="text-[11px] font-bold uppercase tracking-[1.5px] text-ink-light mb-3">
         {label}
       </h4>

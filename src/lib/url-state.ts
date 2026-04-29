@@ -6,6 +6,7 @@ import type { IndustrySlug } from '@/types/industry'
  * so filters are bookmarkable and shareable.
  */
 export interface CategoryFilters {
+  subcategories: string[]
   materials: Material[]
   industries: IndustrySlug[]
   moq: 'any' | 'lt-500' | '500-1000' | 'gt-1000'
@@ -14,6 +15,7 @@ export interface CategoryFilters {
 }
 
 export const defaultFilters: CategoryFilters = {
+  subcategories: [],
   materials: [],
   industries: [],
   moq: 'any',
@@ -30,6 +32,7 @@ export function parseFilters(
     return Array.isArray(value) ? value[0] : value
   }
 
+  const subcategories = (get('sub')?.split(',') ?? []).filter(Boolean)
   const materials = (get('material')?.split(',') ?? []).filter(Boolean) as Material[]
   const industries = (get('industry')?.split(',') ?? []).filter(
     Boolean,
@@ -48,11 +51,13 @@ export function parseFilters(
       : 'popular'
   ) as CategoryFilters['sort']
 
-  return { materials, industries, moq, customizable, sort }
+  return { subcategories, materials, industries, moq, customizable, sort }
 }
 
 export function stringifyFilters(filters: CategoryFilters): string {
   const params = new URLSearchParams()
+  if (filters.subcategories.length)
+    params.set('sub', filters.subcategories.join(','))
   if (filters.materials.length) params.set('material', filters.materials.join(','))
   if (filters.industries.length) params.set('industry', filters.industries.join(','))
   if (filters.moq !== 'any') params.set('moq', filters.moq)
