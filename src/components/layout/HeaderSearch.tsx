@@ -121,51 +121,59 @@ export function HeaderSearch({ compact = false }: HeaderSearchProps) {
         )}
       >
         {!compact && (
-          <div className="relative shrink-0 hidden md:block">
+          <div className="relative shrink-0">
             <button
               type="button"
               aria-haspopup="listbox"
               aria-expanded={scopeOpen}
               onClick={() => setScopeOpen((v) => !v)}
-              className="h-full px-3.5 text-xs font-bold uppercase tracking-wider text-ink-body bg-surface-section/60 hover:bg-surface-section flex items-center gap-1.5 border-r border-black/5 transition"
+              className="h-full px-2.5 md:px-3.5 text-[10px] md:text-xs font-bold uppercase tracking-wider text-ink-body bg-surface-section/60 hover:bg-surface-section flex items-center gap-1 md:gap-1.5 border-r border-black/5 transition"
             >
-              <span className="max-w-[110px] truncate">{scopeLabel}</span>
+              <span className="max-w-[60px] md:max-w-[110px] truncate">
+                {scopeLabel}
+              </span>
               <ChevronDown
                 className={cn(
-                  'w-3 h-3 text-ink-light transition-transform',
+                  'w-2.5 h-2.5 md:w-3 md:h-3 text-ink-light transition-transform shrink-0',
                   scopeOpen && 'rotate-180',
                 )}
               />
             </button>
             {scopeOpen && (
-              <ul
+              <div
                 role="listbox"
-                className="absolute top-full left-0 mt-1 min-w-[200px] glass-strong rounded-md shadow-soft-lg border border-white/70 overflow-hidden py-1 z-50"
+                className="absolute top-full left-0 mt-2 w-[280px] md:w-[340px] glass-strong rounded-lg shadow-soft-lg border border-white/70 overflow-hidden z-50"
               >
-                <ScopeOption
-                  active={scope === 'all'}
-                  onClick={() => {
-                    setScope('all')
-                    setScopeOpen(false)
-                    inputRef.current?.focus()
-                  }}
-                >
-                  All Products
-                </ScopeOption>
-                {categories.map((c) => (
+                <div className="px-4 py-2 bg-gradient-to-r from-ink to-ink-body text-white text-[10px] font-bold uppercase tracking-[1.5px]">
+                  Search in
+                </div>
+                <ul className="grid grid-cols-2 gap-0.5 p-2">
                   <ScopeOption
-                    key={c.slug}
-                    active={scope === c.slug}
+                    active={scope === 'all'}
+                    fullWidth
                     onClick={() => {
-                      setScope(c.slug)
+                      setScope('all')
                       setScopeOpen(false)
                       inputRef.current?.focus()
                     }}
                   >
-                    {c.name}
+                    <span className="font-bold">All Products</span>
                   </ScopeOption>
-                ))}
-              </ul>
+                  {categories.map((c) => (
+                    <ScopeOption
+                      key={c.slug}
+                      active={scope === c.slug}
+                      onClick={() => {
+                        setScope(c.slug)
+                        setScopeOpen(false)
+                        inputRef.current?.focus()
+                      }}
+                    >
+                      {c.name}
+                    </ScopeOption>
+                  ))}
+                </ul>
+              </div>
             )}
           </div>
         )}
@@ -283,20 +291,21 @@ interface ScopeOptionProps {
   active: boolean
   onClick: () => void
   children: React.ReactNode
+  fullWidth?: boolean
 }
 
-function ScopeOption({ active, onClick, children }: ScopeOptionProps) {
+function ScopeOption({ active, onClick, children, fullWidth }: ScopeOptionProps) {
   return (
-    <li>
+    <li className={cn(fullWidth && 'col-span-2')}>
       <button
         type="button"
         role="option"
         aria-selected={active}
         onClick={onClick}
         className={cn(
-          'w-full text-left px-4 py-2 text-xs font-semibold transition',
+          'w-full text-left px-3 py-2 text-xs font-semibold rounded-md transition',
           active
-            ? 'bg-primary/10 text-primary'
+            ? 'bg-primary text-white shadow-soft-sm'
             : 'text-ink-body hover:bg-primary/5 hover:text-primary',
         )}
       >
