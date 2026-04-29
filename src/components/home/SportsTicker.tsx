@@ -122,7 +122,13 @@ export function SportsTicker() {
         </div>
 
         <div className="flex-1 min-w-0 overflow-hidden py-3">
-          <div className="flex animate-marquee whitespace-nowrap">
+          {/* w-max forces the inner row to size to its actual content width
+              (instead of inheriting the parent's flex-1 width), so the
+              translate(-50%) keyframe moves the full duplicated track and
+              you see a true infinite scroll. Without w-max, -50% of the
+              clipped parent width is a tiny shift and the marquee looks
+              frozen. */}
+          <div className="flex w-max animate-marquee whitespace-nowrap">
             {loopGames.map((g, i) => (
               <GameChip key={`${g.id}-${i}`} game={g} now={now} />
             ))}
