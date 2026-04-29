@@ -29,9 +29,57 @@ export function HeaderClient() {
         )}
       >
         <Container>
+          {/* === MOBILE LAYOUT (< md) — Amazon-style 2 rows === */}
+          <div className="md:hidden">
+            <div className="flex items-center justify-between gap-2 py-2.5">
+              <button
+                type="button"
+                aria-label="Toggle menu"
+                aria-expanded={drawerOpen}
+                onClick={() => setDrawerOpen(true)}
+                className="p-2 -ml-2 rounded-md hover:bg-surface-section/70 transition shrink-0"
+              >
+                <Menu className="w-6 h-6" />
+              </button>
+
+              <Link
+                href="/"
+                aria-label="RP & Associates — Home"
+                className="flex-1 flex items-center justify-center min-w-0"
+              >
+                <Image
+                  src="/images/RP_Logo_Small.jpg"
+                  alt="RP & Associates"
+                  width={180}
+                  height={60}
+                  priority
+                  quality={95}
+                  className="h-8 w-auto object-contain select-none"
+                  sizes="180px"
+                />
+              </Link>
+
+              <div className="flex items-center gap-1 shrink-0">
+                <a
+                  href={`tel:${company.phoneTel}`}
+                  aria-label={`Call ${company.phone}`}
+                  className="p-2 rounded-full hover:bg-primary/5 hover:text-primary text-ink-muted transition"
+                >
+                  <Phone className="w-5 h-5" />
+                </a>
+                <QuoteCartButton onClick={openCartDrawer} />
+              </div>
+            </div>
+            {/* Row 2: full-width search */}
+            <div className="pb-2.5">
+              <HeaderSearch />
+            </div>
+          </div>
+
+          {/* === DESKTOP LAYOUT (≥ md) — single row === */}
           <div
             className={cn(
-              'flex items-center gap-3 md:gap-5 transition-all',
+              'hidden md:flex items-center gap-5 transition-all',
               scrolled ? 'py-2.5' : 'py-3',
             )}
           >
@@ -59,7 +107,7 @@ export function HeaderClient() {
               <HeaderSearch />
             </div>
 
-            <div className="flex items-center gap-1 md:gap-2 shrink-0">
+            <div className="flex items-center gap-2 shrink-0">
               <a
                 href={`tel:${company.phoneTel}`}
                 className="hidden xl:inline-flex items-center gap-1.5 px-3 py-2 rounded-md text-[12px] font-semibold text-ink-body hover:text-primary hover:bg-primary/5 transition whitespace-nowrap"
@@ -70,7 +118,7 @@ export function HeaderClient() {
               <QuoteCartButton onClick={openCartDrawer} />
               <Link
                 href="/quote"
-                className="hidden md:inline-flex items-center gap-1.5 px-4 lg:px-5 py-2.5 rounded-pill text-[11px] lg:text-[12px] font-bold uppercase tracking-wider text-white bg-gradient-to-br from-gold to-gold-dark shadow-gold border border-white/15 hover:from-gold-light hover:to-gold hover:-translate-y-0.5 transition-all whitespace-nowrap"
+                className="inline-flex items-center gap-1.5 px-4 lg:px-5 py-2.5 rounded-pill text-[11px] lg:text-[12px] font-bold uppercase tracking-wider text-white bg-gradient-to-br from-gold to-gold-dark shadow-gold border border-white/15 hover:from-gold-light hover:to-gold hover:-translate-y-0.5 transition-all whitespace-nowrap"
               >
                 <FileText className="w-3.5 h-3.5" />
                 <span className="hidden lg:inline">Request a </span>Quote

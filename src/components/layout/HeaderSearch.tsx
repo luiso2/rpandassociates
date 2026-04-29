@@ -140,40 +140,63 @@ export function HeaderSearch({ compact = false }: HeaderSearchProps) {
               />
             </button>
             {scopeOpen && (
-              <div
-                role="listbox"
-                className="absolute top-full left-0 mt-2 w-[280px] md:w-[340px] glass-strong rounded-lg shadow-soft-lg border border-white/70 overflow-hidden z-50"
-              >
-                <div className="px-4 py-2 bg-gradient-to-r from-ink to-ink-body text-white text-[10px] font-bold uppercase tracking-[1.5px]">
-                  Search in
-                </div>
-                <ul className="grid grid-cols-2 gap-0.5 p-2">
-                  <ScopeOption
-                    active={scope === 'all'}
-                    fullWidth
-                    onClick={() => {
-                      setScope('all')
-                      setScopeOpen(false)
-                      inputRef.current?.focus()
-                    }}
-                  >
-                    <span className="font-bold">All Products</span>
-                  </ScopeOption>
-                  {categories.map((c) => (
+              <>
+                {/* Mobile-only backdrop so the user can tap outside to close */}
+                <button
+                  type="button"
+                  aria-label="Close categories"
+                  onClick={() => setScopeOpen(false)}
+                  className="md:hidden fixed inset-0 z-40 bg-ink/40 backdrop-blur-sm cursor-default"
+                />
+                <div
+                  role="listbox"
+                  className={cn(
+                    'absolute top-[calc(100%+8px)] left-0 z-50 overflow-hidden',
+                    // Mobile: anchored full-width to the search bar, NOT the
+                    // tiny scope button. Achieved with right-0 + max-width.
+                    'w-screen max-w-[calc(100vw-2rem)] sm:max-w-[400px] md:w-[360px]',
+                    'glass-strong rounded-xl shadow-soft-lg border border-white/70',
+                  )}
+                >
+                  <div className="px-4 py-2.5 bg-gradient-to-r from-ink to-ink-body text-white text-[10px] font-bold uppercase tracking-[1.5px] flex items-center justify-between">
+                    <span>Search in</span>
+                    <button
+                      type="button"
+                      onClick={() => setScopeOpen(false)}
+                      className="md:hidden text-white/60 hover:text-white text-[10px]"
+                      aria-label="Close"
+                    >
+                      ✕
+                    </button>
+                  </div>
+                  <ul className="grid grid-cols-2 gap-1 p-2 max-h-[60vh] overflow-y-auto">
                     <ScopeOption
-                      key={c.slug}
-                      active={scope === c.slug}
+                      active={scope === 'all'}
+                      fullWidth
                       onClick={() => {
-                        setScope(c.slug)
+                        setScope('all')
                         setScopeOpen(false)
                         inputRef.current?.focus()
                       }}
                     >
-                      {c.name}
+                      <span className="font-bold">All Products</span>
                     </ScopeOption>
-                  ))}
-                </ul>
-              </div>
+                    {categories.map((c) => (
+                      <ScopeOption
+                        key={c.slug}
+                        active={scope === c.slug}
+                        onClick={() => {
+                          setScope(c.slug)
+                          setScopeOpen(false)
+                          inputRef.current?.focus()
+                        }}
+                      >
+                        {c.name}
+                      </ScopeOption>
+                    ))}
+                  </ul>
+                </div>
+              </>
             )}
           </div>
         )}
