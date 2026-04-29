@@ -7,6 +7,7 @@ import { IndustriesGrid } from '@/components/home/IndustriesGrid'
 import { PopularBanners } from '@/components/home/PopularBanners'
 import { ProcessSteps } from '@/components/home/ProcessSteps'
 import { AboutStats } from '@/components/home/AboutStats'
+import { LogoVisualizerTeaser } from '@/components/home/LogoVisualizerTeaser'
 import { QuoteSection } from '@/components/home/QuoteSection'
 
 export default function HomePage() {
@@ -15,20 +16,21 @@ export default function HomePage() {
       <HeroCarousel />
       <CtaBanner
         variant="red"
-        message="Limited-time pricing on featured stainless steel barware"
-        ctaLabel="Request a Quote"
+        message="Spring promotional cycle is open — lock in stadium-ready stock today"
+        ctaLabel="Talk to a Specialist"
         ctaHref="/quote"
       />
+      <FeaturedProducts />
+      <LogoVisualizerTeaser />
+      <IndustriesGrid />
       <CatalogsSection />
       <CtaBanner
         variant="dark"
-        message="Need it custom? Our designers are standing by."
-        ctaLabel="Talk to a Designer"
+        message="Designers in-house · 35 years vertical integration · One accountable partner"
+        ctaLabel="Start Your Project"
         ctaHref="/quote"
       />
       <ServicesSection />
-      <FeaturedProducts />
-      <IndustriesGrid />
       <PopularBanners />
       <ProcessSteps />
       <AboutStats />

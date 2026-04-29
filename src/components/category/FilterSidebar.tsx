@@ -95,8 +95,12 @@ export function FilterSidebar({
 
       <aside
         className={cn(
-          'lg:block lg:relative lg:translate-x-0',
-          'fixed top-0 left-0 h-full w-[320px] max-w-[85vw] bg-white z-[1003] overflow-y-auto p-6 shadow-soft-lg transition-transform duration-300 ease-spring lg:p-0 lg:shadow-none lg:bg-transparent lg:overflow-visible',
+          'lg:block lg:relative lg:translate-x-0 lg:sticky lg:top-32 lg:self-start',
+          // Mobile: slide-in drawer 320px wide, fixed positioning
+          // Desktop: fills the grid column (lg:w-full overrides the
+          // 320px from mobile so it doesn't overflow into the product grid)
+          'fixed top-0 left-0 h-full w-[320px] max-w-[85vw] bg-white z-[1003] overflow-y-auto p-6 shadow-soft-lg transition-transform duration-300 ease-spring',
+          'lg:w-full lg:max-w-none lg:h-auto lg:max-h-[calc(100vh-9rem)] lg:p-0 lg:pr-2 lg:shadow-none lg:bg-transparent lg:overflow-y-auto',
           mobileOpen
             ? 'translate-x-0'
             : '-translate-x-full lg:translate-x-0',
