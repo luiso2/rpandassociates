@@ -24,20 +24,20 @@ export function CtaBanner({
   return (
     <section
       className={cn(
-        'relative py-12 text-center overflow-hidden',
+        'relative py-10 overflow-hidden',
         variantClasses[variant],
       )}
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] via-transparent to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,255,255,0.08),transparent_60%)] pointer-events-none" />
       <Container>
-        <div className="relative z-10">
-          <p className="text-white text-xl md:text-2xl font-bold mb-5 drop-shadow-md tracking-tight">
+        <div className="relative z-10 flex flex-col md:flex-row items-center justify-center md:justify-between gap-5 text-center md:text-left">
+          <p className="text-white text-lg md:text-xl font-bold drop-shadow-md tracking-tight max-w-3xl">
             {message}
           </p>
           <Link
             href={ctaHref}
             className={cn(
-              'inline-flex items-center gap-2 px-9 py-3.5 rounded-pill bg-white font-bold text-sm uppercase tracking-[0.3px] shadow-soft-md hover:-translate-y-1 transition-all',
+              'inline-flex items-center gap-2 px-7 py-3 rounded-pill bg-white font-bold text-[12px] uppercase tracking-[1px] shadow-soft-md hover:-translate-y-1 hover:shadow-soft-lg transition-all whitespace-nowrap shrink-0',
               ctaTextClass,
             )}
           >

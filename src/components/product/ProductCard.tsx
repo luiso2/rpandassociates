@@ -26,7 +26,8 @@ export function ProductCard({
     <Link
       href={`/products/${product.categorySlug}/${product.slug}`}
       className={cn(
-        'group relative flex flex-col rounded-lg overflow-hidden bg-white border border-black/5 shadow-soft-sm hover:shadow-soft-md hover:-translate-y-1 transition-all duration-300 ease-spring',
+        'group relative flex flex-col rounded-lg overflow-hidden bg-white border border-black/[0.04] shadow-soft-sm transition-all duration-300 ease-spring',
+        'hover:shadow-[0_24px_48px_-12px_rgba(0,41,204,0.18)] hover:border-gold/30 hover:-translate-y-1.5',
         className,
       )}
     >
@@ -51,8 +52,8 @@ export function ProductCard({
             <Badge variant="dark">{category.shortName}</Badge>
           </div>
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-end p-4">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-pill bg-white text-primary text-xs font-bold uppercase tracking-wider">
+        <div className="absolute inset-0 bg-gradient-to-t from-ink/75 via-ink/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 ease-spring flex items-end justify-end p-4">
+          <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-pill bg-gradient-to-br from-gold to-gold-dark text-white text-[10px] font-bold uppercase tracking-[1.5px] shadow-gold translate-y-2 group-hover:translate-y-0 transition-transform duration-400 ease-spring">
             View <ArrowUpRight className="w-3 h-3" />
           </span>
         </div>

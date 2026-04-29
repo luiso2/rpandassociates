@@ -3,12 +3,11 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Search, Phone, FileText, Menu } from 'lucide-react'
+import { Phone, FileText, Menu } from 'lucide-react'
 import { useStickyHeader } from '@/hooks/useStickyHeader'
 import { Container } from '@/components/ui/Container'
-import { MegaMenu } from './MegaMenu'
+import { HeaderSearch } from './HeaderSearch'
 import { MobileDrawer } from './MobileDrawer'
-import { SearchOverlay } from './SearchOverlay'
 import { QuoteCartButton } from '@/components/cart/QuoteCartButton'
 import { useCartDrawer } from '@/components/cart/CartDrawerContext'
 import { company } from '@/data/company'
@@ -17,7 +16,6 @@ import { cn } from '@/lib/cn'
 export function HeaderClient() {
   const scrolled = useStickyHeader(60)
   const [drawerOpen, setDrawerOpen] = useState(false)
-  const [searchOpen, setSearchOpen] = useState(false)
   const { open: openCartDrawer } = useCartDrawer()
 
   return (
@@ -33,11 +31,14 @@ export function HeaderClient() {
         <Container>
           <div
             className={cn(
-              'flex items-center justify-between gap-4 transition-all',
-              scrolled ? 'py-2' : 'py-2.5',
+              'flex items-center gap-3 md:gap-5 transition-all',
+              scrolled ? 'py-2.5' : 'py-3',
             )}
           >
-            <Link href="/" className="shrink-0">
+            <Link
+              href="/"
+              className="shrink-0 transition-transform hover:scale-[1.02]"
+            >
               <Image
                 src="/images/RP_Logo_Small.jpg"
                 alt="RP & Associates"
@@ -45,40 +46,32 @@ export function HeaderClient() {
                 height={60}
                 priority
                 className={cn(
-                  'object-contain transition-all duration-300',
-                  scrolled ? 'h-9' : 'h-12',
+                  'object-contain transition-all duration-300 rounded-md',
+                  scrolled ? 'h-9 w-auto' : 'h-11 w-auto',
                 )}
                 style={{ width: 'auto' }}
               />
             </Link>
 
-            <nav aria-label="Main navigation" className="hidden lg:block">
-              <MegaMenu />
-            </nav>
+            <div className="flex-1 min-w-0 max-w-3xl">
+              <HeaderSearch />
+            </div>
 
-            <div className="flex items-center gap-2 md:gap-3.5">
-              <button
-                type="button"
-                aria-label="Open search"
-                onClick={() => setSearchOpen(true)}
-                className="p-2 rounded-full text-ink-muted hover:text-primary hover:bg-primary/5 transition"
-              >
-                <Search className="w-4 h-4" />
-              </button>
-              <QuoteCartButton onClick={openCartDrawer} />
+            <div className="flex items-center gap-1 md:gap-2 shrink-0">
               <a
                 href={`tel:${company.phoneTel}`}
-                className="hidden lg:inline-flex items-center gap-1.5 text-[13px] font-semibold text-ink-body hover:text-primary transition"
+                className="hidden xl:inline-flex items-center gap-1.5 px-3 py-2 rounded-md text-[12px] font-semibold text-ink-body hover:text-primary hover:bg-primary/5 transition whitespace-nowrap"
               >
                 <Phone className="w-3.5 h-3.5 text-primary" />
                 {company.phone}
               </a>
+              <QuoteCartButton onClick={openCartDrawer} />
               <Link
                 href="/quote"
-                className="hidden md:inline-flex items-center gap-1.5 px-5 py-2.5 rounded-pill text-[12px] font-bold uppercase tracking-wider text-white bg-gradient-to-br from-gold to-gold-dark shadow-gold border border-white/15 hover:from-gold-light hover:to-gold hover:translate-y-[-2px] transition-all"
+                className="hidden md:inline-flex items-center gap-1.5 px-4 lg:px-5 py-2.5 rounded-pill text-[11px] lg:text-[12px] font-bold uppercase tracking-wider text-white bg-gradient-to-br from-gold to-gold-dark shadow-gold border border-white/15 hover:from-gold-light hover:to-gold hover:-translate-y-0.5 transition-all whitespace-nowrap"
               >
                 <FileText className="w-3.5 h-3.5" />
-                Request a Quote
+                <span className="hidden lg:inline">Request a </span>Quote
               </Link>
               <button
                 type="button"
@@ -94,7 +87,6 @@ export function HeaderClient() {
         </Container>
       </header>
 
-      <SearchOverlay open={searchOpen} onClose={() => setSearchOpen(false)} />
       <MobileDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
     </>
   )

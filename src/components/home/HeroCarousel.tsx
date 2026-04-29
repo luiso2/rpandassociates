@@ -108,7 +108,7 @@ export function HeroCarousel() {
         </button>
       </div>
 
-      <div className="absolute bottom-5 left-0 right-0 flex justify-center gap-2.5 z-10">
+      <div className="absolute bottom-5 left-0 right-0 flex justify-center gap-2 z-10 px-4">
         {heroSlides.map((_, i) => (
           <button
             key={i}
@@ -116,10 +116,10 @@ export function HeroCarousel() {
             aria-label={`Go to slide ${i + 1}`}
             onClick={() => scrollTo(i)}
             className={cn(
-              'w-3 h-3 rounded-full border-2 border-white/60 transition-all duration-300',
+              'h-1.5 rounded-full transition-all duration-500 ease-spring',
               i === selectedIndex
-                ? 'bg-primary border-white scale-125 shadow-[0_0_12px_rgba(0,35,204,0.5)]'
-                : 'bg-white/30 hover:bg-white/50',
+                ? 'w-10 bg-gold shadow-[0_0_18px_rgba(201,168,76,0.6)]'
+                : 'w-1.5 bg-white/40 hover:bg-white/70 hover:w-3',
             )}
           />
         ))}
