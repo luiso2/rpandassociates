@@ -25,9 +25,13 @@ export function DepartmentsBar() {
   const [active, setActive] = useState<CategorySlug | null>(null)
 
   return (
-    <div className="hidden md:block bg-gradient-to-b from-ink to-ink-body text-white border-t border-white/5 relative">
+    <div className="block bg-gradient-to-b from-ink to-ink-body text-white border-t border-white/5 relative">
       <Container>
-        <div className="flex items-center gap-1 overflow-x-auto py-1 no-scrollbar text-[11px] font-semibold uppercase tracking-[1px]">
+        {/* Mobile: horizontal scroll (overflow-x-auto + whitespace-nowrap children).
+            Desktop (md+): no overflow so the hover mega-panels can extend below
+            the bar without being clipped — CSS spec resets overflow-y:visible to
+            auto whenever overflow-x is auto/scroll, so we drop overflow-x at md+. */}
+        <div className="flex items-center gap-1 overflow-x-auto md:overflow-visible py-1 no-scrollbar text-[11px] font-semibold uppercase tracking-[1px]">
           <Link
             href="/products"
             className="flex items-center gap-1.5 px-3 py-2.5 rounded-md text-white/85 hover:text-gold-light hover:bg-white/5 transition whitespace-nowrap"
