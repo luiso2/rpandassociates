@@ -1,6 +1,9 @@
 [build]
 builder = "nixpacks"
-buildCommand = "pnpm install --frozen-lockfile=false && pnpm build"
+# Nixpacks already runs `pnpm i --frozen-lockfile` in step 6 with all deps.
+# Re-running install here with NODE_ENV=production prunes devDeps (tsx,
+# tailwind, postcss, etc.) which breaks `pnpm build`. Just build directly.
+buildCommand = "pnpm build"
 
 [deploy]
 startCommand = "pnpm run start:railway"
