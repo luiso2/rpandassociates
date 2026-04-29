@@ -1,0 +1,33 @@
+export const company = {
+  name: 'RP & Associates',
+  legalName: 'RP & Associates',
+  tagline: 'Custom Promotional Products & Marketing Solutions',
+  yearsInBusiness: 35,
+  foundedYear: 1988,
+  productsDesigned: 1000,
+  brandsServed: 500,
+  phone: '(310) 372-9709',
+  phoneTel: '+13103729709',
+  email: 'info@rpassociates.us',
+  quoteEmail: 'info@rpassociates.us',
+  address: {
+    line1: '2205 Pacific Coast Highway',
+    line2: '',
+    city: 'Hermosa Beach',
+    state: 'CA',
+    zip: '90254',
+    country: 'United States',
+    full: '2205 Pacific Coast Highway, Hermosa Beach, CA 90254',
+  },
+  hours: {
+    summary: 'Mon–Fri 9am–5pm PST',
+    days: 'Monday – Friday',
+    times: '9:00 AM – 5:00 PM PST',
+  },
+  social: {
+    twitter: 'https://twitter.com/search?q=grubtubcompany',
+    linkedin: 'https://www.linkedin.com/company/rp-and-associates/',
+    instagram: 'https://www.instagram.com/grubtubcompany/',
+  },
+  domain: 'rpandassociates.com',
+} as const

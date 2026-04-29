@@ -1,7 +1,10 @@
 [build]
 builder = "nixpacks"
+buildCommand = "pnpm install --frozen-lockfile=false && pnpm build"
 
 [deploy]
+startCommand = "pnpm run start:railway"
 healthcheckPath = "/health"
+healthcheckTimeout = 30
 restartPolicyType = "on_failure"
 restartPolicyMaxRetries = 3

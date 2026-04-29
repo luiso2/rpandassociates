@@ -1,0 +1,12 @@
+node_modules/
+.next/
+.git/
+.env*
+*.log
+.DS_Store
+Code-Review-RP-Associates.docx
+public/legacy.html
+.claude/
+.aider*/
+*.swp
+tsconfig.tsbuildinfo
