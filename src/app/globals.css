@@ -60,11 +60,31 @@
   }
 }
 
+/* ===== KEYFRAMES (defined outside @layer so PostCSS doesn't strip them) ===== */
+@keyframes marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+
 /* ===== UTILITIES ===== */
 @layer utilities {
   /* Hide scrollbar but allow scrolling — for horizontal departments bar */
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  /* Marquee — keyframes live above (outside @layer) so PostCSS doesn't
+     strip them. This rule binds the animation. Pauses on hover.   */
+  .animate-marquee {
+    animation: marquee 45s linear infinite;
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .animate-marquee { animation: none; }
+  }
 
   /* Glassmorphism — signature RP visual */
   .glass {
@@ -100,20 +120,6 @@
     height: 3.5px;
     background: linear-gradient(90deg, var(--gold), var(--gold-light));
     border-radius: 4px;
-  }
-
-  /* Marquee animation for the sports ticker — 60s loop, content
-     duplicated so the seam is invisible. Pauses on hover/focus. */
-  @keyframes marquee {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
-  }
-  .animate-marquee {
-    animation: marquee 60s linear infinite;
-    will-change: transform;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .animate-marquee { animation: none; }
   }
 
   /* Reveal-on-scroll variants */

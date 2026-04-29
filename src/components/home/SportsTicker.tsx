@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Trophy, Tv, Clock, ArrowUpRight } from 'lucide-react'
 import { cn } from '@/lib/cn'
 
@@ -111,17 +112,17 @@ export function SportsTicker() {
       />
 
       <div className="flex items-center">
-        <div className="hidden md:flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-gold-dark to-gold text-ink font-bold text-[11px] uppercase tracking-[1.5px] whitespace-nowrap shrink-0 z-20">
+        <div className="hidden md:flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-gold-dark via-gold to-gold-dark text-ink font-bold text-[11px] uppercase tracking-[1.5px] whitespace-nowrap shrink-0 z-20 shadow-[inset_0_-2px_0_rgba(0,0,0,0.18)]">
           <Trophy className="w-3.5 h-3.5" />
           Today&apos;s Lineup
         </div>
-        <div className="md:hidden px-3 py-2 text-gold text-[10px] font-bold uppercase tracking-[1.5px] whitespace-nowrap shrink-0 z-20 flex items-center gap-1.5">
+        <div className="md:hidden px-3 py-3 text-gold text-[10px] font-bold uppercase tracking-[1.5px] whitespace-nowrap shrink-0 z-20 flex items-center gap-1.5 border-r border-white/10">
           <Trophy className="w-3 h-3" />
           Live
         </div>
 
-        <div className="flex-1 min-w-0 overflow-hidden">
-          <div className="flex animate-marquee group-hover:[animation-play-state:paused] whitespace-nowrap py-2.5">
+        <div className="flex-1 min-w-0 overflow-hidden py-3">
+          <div className="flex animate-marquee whitespace-nowrap">
             {loopGames.map((g, i) => (
               <GameChip key={`${g.id}-${i}`} game={g} now={now} />
             ))}
@@ -130,7 +131,7 @@ export function SportsTicker() {
 
         <Link
           href="/industries/sports"
-          className="hidden lg:flex items-center gap-1.5 px-4 py-2.5 text-[11px] font-bold uppercase tracking-[1.5px] text-gold-light hover:text-gold transition whitespace-nowrap shrink-0 z-20"
+          className="hidden lg:flex items-center gap-1.5 px-4 py-3 text-[11px] font-bold uppercase tracking-[1.5px] text-gold-light hover:text-gold hover:bg-white/[0.04] transition whitespace-nowrap shrink-0 z-20 border-l border-white/10"
         >
           Sports Programs <span aria-hidden>→</span>
         </Link>
@@ -150,33 +151,42 @@ function GameChip({ game, now }: { game: NormalizedGame; now: number }) {
     <Link
       href={`/industries/sports/${leagueSlug}`}
       title={`${game.shortName} — see ${game.league} stadium programs`}
-      className="group inline-flex items-center gap-2.5 px-4 mx-2 text-[12px] font-medium border-r border-white/5 hover:bg-white/[0.04] transition rounded-md"
+      className={cn(
+        'group inline-flex items-center gap-3 px-4 mx-1.5 py-1.5 text-[12px] font-medium rounded-lg transition-all duration-300',
+        'bg-white/[0.03] border border-white/[0.07] hover:bg-white/[0.07] hover:border-white/15 hover:-translate-y-0.5',
+        isLive && 'bg-red-500/[0.08] border-red-500/25',
+      )}
     >
       <span
         className={cn(
-          'inline-flex items-center px-1.5 py-0.5 rounded text-[9px] font-bold tracking-[1.5px] uppercase border',
+          'inline-flex items-center px-1.5 py-0.5 rounded text-[9px] font-bold tracking-[1.5px] uppercase border shrink-0',
           LEAGUE_COLORS[game.league],
         )}
       >
         {game.league}
       </span>
 
-      <span className="text-white/95 font-semibold">
-        <span className="text-white/60">{game.awayTeam.abbr || game.awayTeam.name}</span>
-        {isLive && game.awayTeam.score != null && (
-          <span className="ml-1.5 font-mono text-gold-light">{game.awayTeam.score}</span>
-        )}
-        <span className="text-white/40 mx-1.5">@</span>
-        <span>{game.homeTeam.abbr || game.homeTeam.name}</span>
-        {isLive && game.homeTeam.score != null && (
-          <span className="ml-1.5 font-mono text-gold-light">{game.homeTeam.score}</span>
-        )}
-      </span>
+      <TeamSide team={game.awayTeam} isLive={isLive} align="right" />
 
       <span
         className={cn(
-          'inline-flex items-center gap-1 text-[11px] font-mono',
-          isLive ? 'text-red-400' : 'text-white/55',
+          'inline-flex items-center justify-center w-7 h-5 rounded-md text-[9px] font-extrabold tracking-[1px] uppercase shrink-0',
+          isLive
+            ? 'bg-red-500/20 text-red-300 border border-red-500/30'
+            : 'bg-gold/15 text-gold-light border border-gold/30',
+        )}
+      >
+        vs
+      </span>
+
+      <TeamSide team={game.homeTeam} isLive={isLive} align="left" />
+
+      <span className="w-px h-4 bg-white/10 shrink-0" aria-hidden />
+
+      <span
+        className={cn(
+          'inline-flex items-center gap-1 text-[11px] font-mono shrink-0',
+          isLive ? 'text-red-400 font-bold' : 'text-white/55',
         )}
       >
         {isLive ? (
@@ -193,14 +203,55 @@ function GameChip({ game, now }: { game: NormalizedGame; now: number }) {
       </span>
 
       {game.broadcast && (
-        <span className="hidden md:inline-flex items-center gap-1 text-[10px] uppercase tracking-[1px] text-white/45">
+        <span className="hidden md:inline-flex items-center gap-1 text-[10px] uppercase tracking-[1px] text-white/45 shrink-0">
           <Tv className="w-2.5 h-2.5" />
           {game.broadcast}
         </span>
       )}
 
-      <ArrowUpRight className="w-3 h-3 text-white/25 group-hover:text-gold-light group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all" />
+      <ArrowUpRight className="w-3 h-3 text-white/25 group-hover:text-gold-light group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all shrink-0" />
     </Link>
+  )
+}
+
+function TeamSide({
+  team,
+  isLive,
+  align,
+}: {
+  team: NormalizedGame['homeTeam']
+  isLive: boolean
+  align: 'left' | 'right'
+}) {
+  return (
+    <span
+      className={cn(
+        'inline-flex items-center gap-1.5 shrink-0',
+        align === 'right' ? 'flex-row-reverse' : 'flex-row',
+      )}
+    >
+      {team.logo ? (
+        <span className="relative w-5 h-5 shrink-0">
+          <Image
+            src={team.logo}
+            alt={`${team.name} logo`}
+            fill
+            sizes="20px"
+            className="object-contain drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]"
+          />
+        </span>
+      ) : (
+        <span className="w-5 h-5 rounded-full bg-white/10 shrink-0" aria-hidden />
+      )}
+      <span className="font-heading font-bold text-white text-[13px] tracking-tight">
+        {team.abbr || team.name}
+      </span>
+      {isLive && team.score != null && (
+        <span className="font-mono text-gold-light font-bold text-[13px] tabular-nums">
+          {team.score}
+        </span>
+      )}
+    </span>
   )
 }
 

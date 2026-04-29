@@ -93,6 +93,10 @@ const config: Config = {
         pageLoad: {
           to: { opacity: '1' },
         },
+        marquee: {
+          from: { transform: 'translate3d(0, 0, 0)' },
+          to: { transform: 'translate3d(-50%, 0, 0)' },
+        },
       },
       animation: {
         'fade-in-up': 'fadeInUp 0.5s cubic-bezier(.22,1,.36,1) forwards',
@@ -101,6 +105,7 @@ const config: Config = {
         shimmer: 'shimmer 2s linear infinite',
         'count-pulse': 'countPulse 0.6s ease',
         'page-load': 'pageLoad 0.4s ease forwards',
+        marquee: 'marquee 45s linear infinite',
       },
       backdropBlur: {
         glass: '24px',
