@@ -49,13 +49,7 @@ export function HeroCarousel() {
                 fill
                 priority={idx === 0}
                 sizes="100vw"
-                /* Ken Burns: subtle slow zoom, only on the active slide.
-                   No transition-transform here — it would interpolate
-                   between animation keyframes and produce jitter. */
-                className={cn(
-                  'object-cover',
-                  idx === selectedIndex && 'animate-slow-zoom',
-                )}
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-b from-ink/15 via-transparent to-ink/30 pointer-events-none" />
             </div>
