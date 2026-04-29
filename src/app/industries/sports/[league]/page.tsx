@@ -1,6 +1,7 @@
 import { Suspense } from 'react'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 import type { Metadata } from 'next'
 import { Trophy, Calendar, Building2, ArrowRight } from 'lucide-react'
 import {
@@ -54,23 +55,39 @@ export default function LeagueIndustryPage({
         ]}
       />
 
-      {/* League hero */}
+      {/* League hero — sport-themed product image as backdrop, league
+          logo prominent, gradient overlay for legibility */}
       <section
         className={`relative overflow-hidden bg-gradient-to-br ${league.accentGradient} text-white`}
       >
+        {/* Backdrop product image (representative of the sport) */}
+        <div className="absolute inset-0">
+          <Image
+            src={league.heroImage}
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover opacity-25"
+          />
+        </div>
         <div
           aria-hidden
-          className="absolute inset-0 pointer-events-none opacity-50"
+          className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/40 to-transparent pointer-events-none"
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 pointer-events-none opacity-40"
           style={{
             backgroundImage:
-              'radial-gradient(circle at 25% 20%, rgba(255,255,255,0.18), transparent 55%), radial-gradient(circle at 80% 70%, rgba(0,0,0,0.25), transparent 60%)',
+              'radial-gradient(circle at 25% 20%, rgba(255,255,255,0.15), transparent 55%), radial-gradient(circle at 80% 70%, rgba(0,0,0,0.35), transparent 60%)',
           }}
         />
         <Container>
-          <div className="relative z-10 py-16 md:py-24 max-w-3xl">
+          <div className="relative z-10 py-14 md:py-20 max-w-3xl">
             <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-pill bg-white/15 border border-white/25 backdrop-blur-sm text-[10px] font-bold uppercase tracking-[2px]">
               <Trophy className="w-3 h-3 text-gold" />
-              {league.shortName} Programs
+              {league.shortName} Programs · Stadium-Tested
             </div>
             <h1 className="font-heading font-extrabold text-[clamp(2.2rem,5.5vw,3.8rem)] leading-tight mb-4 tracking-tight drop-shadow-md">
               {league.fullName}

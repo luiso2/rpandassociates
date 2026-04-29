@@ -43,12 +43,12 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'a.espncdn.com',
-        pathname: '/i/teamlogos/**',
+        pathname: '/i/**',
       },
       {
         protocol: 'https',
         hostname: 'b.espncdn.com',
-        pathname: '/i/teamlogos/**',
+        pathname: '/i/**',
       },
     ],
   },

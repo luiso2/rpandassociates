@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
+import Image from 'next/image'
 import { Clock, Tv } from 'lucide-react'
 import { cn } from '@/lib/cn'
 
@@ -173,13 +174,33 @@ function TeamRow({
   accent: boolean
 }) {
   return (
-    <div className="flex items-center justify-between text-sm">
-      <span className="font-semibold text-white/90 truncate">
-        <span className="text-white/55 mr-2">{team.abbr}</span>
-        {team.name}
+    <div className="flex items-center justify-between text-sm gap-3">
+      <span className="flex items-center gap-2.5 font-semibold text-white/95 truncate min-w-0">
+        {team.logo ? (
+          <span className="relative w-7 h-7 shrink-0">
+            <Image
+              src={team.logo}
+              alt={`${team.name} logo`}
+              fill
+              sizes="28px"
+              className="object-contain drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]"
+            />
+          </span>
+        ) : (
+          <span
+            aria-hidden
+            className="w-7 h-7 rounded-full bg-white/10 shrink-0"
+          />
+        )}
+        <span className="text-white/55 font-mono text-[11px] tabular-nums shrink-0">
+          {team.abbr}
+        </span>
+        <span className="truncate">{team.name}</span>
       </span>
       {accent && team.score != null && (
-        <span className="font-mono font-bold text-gold-light">{team.score}</span>
+        <span className="font-mono font-extrabold text-gold-light text-base tabular-nums shrink-0">
+          {team.score}
+        </span>
       )}
     </div>
   )
