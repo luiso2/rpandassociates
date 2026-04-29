@@ -49,10 +49,11 @@ export function HeroCarousel() {
                 fill
                 priority={idx === 0}
                 sizes="100vw"
-                /* Ken Burns: subtle slow zoom, only on the active slide
-                   so neighboring slides don't burn CPU pre-rendered. */
+                /* Ken Burns: subtle slow zoom, only on the active slide.
+                   No transition-transform here — it would interpolate
+                   between animation keyframes and produce jitter. */
                 className={cn(
-                  'object-cover transition-transform',
+                  'object-cover',
                   idx === selectedIndex && 'animate-slow-zoom',
                 )}
               />

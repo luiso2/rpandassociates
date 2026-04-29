@@ -91,8 +91,8 @@
 }
 
 @keyframes slow-zoom {
-  from { transform: scale(1.04); }
-  to   { transform: scale(1.12); }
+  from { transform: scale3d(1, 1, 1); }
+  to   { transform: scale3d(1.05, 1.05, 1); }
 }
 
 @keyframes app-fade-in {
@@ -213,10 +213,17 @@
     transform: scale3d(1, 1, 1);
   }
 
-  /* Slow Ken Burns zoom — used by HeroCarousel active slides */
+  /* Slow Ken Burns zoom — used by HeroCarousel active slides.
+     Linear easing + 20s duration + alternate keeps motion perceptually
+     constant; cubic-bezier with alternate caused a "pulse" at each
+     direction flip. transition: none on this class prevents Tailwind's
+     transition-transform utility from interpolating between animation
+     frames (which previously caused visible jitter). */
   .animate-slow-zoom {
-    animation: slow-zoom 14s cubic-bezier(0.4, 0, 0.2, 1) alternate infinite;
+    animation: slow-zoom 20s linear alternate infinite;
+    transition: none;
     will-change: transform;
+    backface-visibility: hidden;
   }
   /* Soft floating utility — for badges, sparkles, decorative chips */
   .animate-float-soft {
