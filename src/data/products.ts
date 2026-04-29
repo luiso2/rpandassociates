@@ -21,6 +21,7 @@ export const products: Product[] = [
     tags: ['best-seller', 'classic'],
     featured: true,
     popular: true,
+    logoZone: { centerX: 0.5, centerY: 0.55, maxWidth: 0.3, maxHeight: 0.18, surface: 'cylinder', curve: 0.18 },
     seo: {
       title: 'Custom 3-Piece Cocktail Shakers',
       description: 'Premium 3-piece stainless steel cocktail shakers with custom branding for hospitality and beverage brands.',
@@ -118,6 +119,7 @@ export const products: Product[] = [
     tags: ['eco-friendly', 'reusable'],
     featured: true,
     popular: true,
+    logoZone: { centerX: 0.5, centerY: 0.55, maxWidth: 0.4, maxHeight: 0.25, surface: 'fabric' },
     seo: {
       title: '6-Pack Glacier Bag — Insulated Beverage Carrier',
       description: 'Reusable insulated 6-pack glacier bag for beverage brands and retail programs.',
@@ -177,6 +179,7 @@ export const products: Product[] = [
     tags: ['events', 'to-go'],
     featured: true,
     popular: true,
+    logoZone: { centerX: 0.5, centerY: 0.45, maxWidth: 0.45, maxHeight: 0.25, surface: 'flat' },
     seo: {
       title: 'Custom Beverage Pouches',
       description: 'Re-sealable custom beverage pouches for events and on-the-go programs.',
@@ -236,6 +239,7 @@ export const products: Product[] = [
     tags: ['themed', 'tiki'],
     featured: true,
     popular: false,
+    logoZone: { centerX: 0.5, centerY: 0.55, maxWidth: 0.25, maxHeight: 0.15, surface: 'sphere', curve: 0.25 },
     seo: {
       title: 'Custom Pineapple Mugs',
       description: 'Tropical pineapple-themed drinkware for tiki bars and hospitality.',
@@ -504,6 +508,7 @@ export const products: Product[] = [
     tags: ['signature', 'best-seller', 'patented'],
     featured: true,
     popular: true,
+    logoZone: { centerX: 0.5, centerY: 0.55, maxWidth: 0.35, maxHeight: 0.18, surface: 'cylinder', curve: 0.15 },
     seo: {
       title: 'Grub Tubs — Signature Snack & Beverage Tubs',
       description: 'The signature Grub Tub line in acrylic styrene, bamboo, and clear plastic.',
@@ -525,6 +530,7 @@ export const products: Product[] = [
     tags: ['classic', 'best-seller'],
     featured: true,
     popular: true,
+    logoZone: { centerX: 0.5, centerY: 0.55, maxWidth: 0.32, maxHeight: 0.16, surface: 'cylinder', curve: 0.2 },
     seo: {
       title: 'Classic Moscow Mule Mug',
       description: 'The original copper Moscow Mule mug for craft cocktail programs.',
@@ -544,6 +550,7 @@ export const products: Product[] = [
     tags: ['premium', 'artisan'],
     featured: true,
     popular: false,
+    logoZone: { centerX: 0.5, centerY: 0.5, maxWidth: 0.3, maxHeight: 0.18, surface: 'cylinder', curve: 0.22 },
     seo: {
       title: 'Artisan Moscow Mule Mugs',
       description: 'Hand-crafted artisan Moscow Mule mugs for upscale bars.',

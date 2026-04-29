@@ -38,32 +38,43 @@ export function AddToQuoteButton({ product }: AddToQuoteButtonProps) {
   }
 
   return (
-    <div className="flex flex-col sm:flex-row gap-3">
-      <button
-        type="button"
-        onClick={handleAddToCart}
-        className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-pill bg-gradient-to-br from-primary to-primary-light text-white text-sm font-bold uppercase tracking-wider shadow-primary hover:from-primary-light hover:to-primary hover:-translate-y-1 transition-all"
+    <div className="space-y-3">
+      <div className="flex flex-col sm:flex-row gap-3">
+        <button
+          type="button"
+          onClick={handleAddToCart}
+          className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-pill bg-gradient-to-br from-primary to-primary-light text-white text-sm font-bold uppercase tracking-wider shadow-primary hover:from-primary-light hover:to-primary hover:-translate-y-1 transition-all"
+        >
+          {justAdded ? (
+            <>
+              <Check className="w-4 h-4" />
+              Added
+            </>
+          ) : (
+            <>
+              <Plus className="w-4 h-4" />
+              Add to Quote
+            </>
+          )}
+        </button>
+        <button
+          type="button"
+          onClick={handleQuickQuote}
+          className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-pill bg-white border border-black/10 text-ink text-sm font-bold uppercase tracking-wider hover:border-primary/30 hover:text-primary transition-all"
+        >
+          <FileText className="w-4 h-4" />
+          Quick Quote
+        </button>
+      </div>
+      <a
+        href={`/customize?p=${product.slug}`}
+        className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-gold-dark hover:text-gold-light transition group"
       >
-        {justAdded ? (
-          <>
-            <Check className="w-4 h-4" />
-            Added
-          </>
-        ) : (
-          <>
-            <Plus className="w-4 h-4" />
-            Add to Quote
-          </>
-        )}
-      </button>
-      <button
-        type="button"
-        onClick={handleQuickQuote}
-        className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-pill bg-white border border-black/10 text-ink text-sm font-bold uppercase tracking-wider hover:border-primary/30 hover:text-primary transition-all"
-      >
-        <FileText className="w-4 h-4" />
-        Quick Quote
-      </button>
+        <span className="w-7 h-7 rounded-full bg-gradient-to-br from-gold to-gold-dark text-white flex items-center justify-center shadow-gold group-hover:scale-110 transition-transform">
+          ✦
+        </span>
+        Try Your Logo on This Product
+      </a>
     </div>
   )
 }

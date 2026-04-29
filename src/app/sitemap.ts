@@ -16,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/catalogs`, lastModified: now, priority: 0.7, changeFrequency: 'monthly' },
     { url: `${BASE_URL}/about`, lastModified: now, priority: 0.6, changeFrequency: 'monthly' },
     { url: `${BASE_URL}/quote`, lastModified: now, priority: 0.7, changeFrequency: 'monthly' },
+    { url: `${BASE_URL}/customize`, lastModified: now, priority: 0.85, changeFrequency: 'monthly' },
   ]
 
   const categoryRoutes: MetadataRoute.Sitemap = categories.map((cat) => ({

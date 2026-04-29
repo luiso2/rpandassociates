@@ -81,10 +81,10 @@ export function DepartmentsBar() {
             <FileText className="w-3.5 h-3.5" /> Catalogs
           </Link>
           <Link
-            href="/products?filter=new"
-            className="flex items-center gap-1.5 px-3 py-2.5 rounded-md text-gold hover:text-gold-light hover:bg-white/5 transition whitespace-nowrap"
+            href="/customize"
+            className="flex items-center gap-1.5 px-3 py-2.5 rounded-md text-gold hover:text-gold-light hover:bg-white/5 transition whitespace-nowrap font-bold"
           >
-            <Sparkles className="w-3.5 h-3.5" /> New Arrivals
+            <Sparkles className="w-3.5 h-3.5" /> Try Your Logo
           </Link>
         </div>
       </Container>

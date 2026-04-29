@@ -111,6 +111,15 @@ export function MobileDrawer({ open, onClose }: MobileDrawerProps) {
           })}
           <li>
             <Link
+              href="/customize"
+              onClick={onClose}
+              className="flex items-center gap-2 px-6 py-3.5 text-sm font-bold text-gold-dark border-b border-surface-light hover:bg-gold/5 transition"
+            >
+              ✦ Try Your Logo Live
+            </Link>
+          </li>
+          <li>
+            <Link
               href="/industries"
               onClick={onClose}
               className="block px-6 py-3.5 text-sm font-semibold border-b border-surface-light hover:bg-surface-section hover:text-primary transition"
