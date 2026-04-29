@@ -1,10 +1,16 @@
 import type { Product } from '@/types/product'
+import { catalogProducts } from './products-catalog'
 
 /**
- * Featured product catalog. Phase 5 expands to full catalog (~150 SKUs).
- * Each product can belong to multiple subcategories and serve multiple industries.
+ * Hand-curated hero entries (earliest LogoZone calibrations + premium
+ * descriptions). The bulk catalog import lives in `products-catalog.ts`
+ * and is appended at the bottom of this file via `...catalogProducts`.
+ *
+ * Each product can belong to multiple subcategories and serve multiple
+ * industries. The build-time validator (`pnpm validate:data`) verifies
+ * every cross-reference resolves.
  */
-export const products: Product[] = [
+const heroProducts: Product[] = [
   // ===== BARWARE =====
   {
     slug: '3-piece-shaker',
@@ -692,6 +698,12 @@ export const products: Product[] = [
     },
   },
 ]
+
+/**
+ * Public products array — hero entries (with hand-tuned copy and the
+ * earliest LogoZone calibrations) followed by the bulk catalog import.
+ */
+export const products: Product[] = [...heroProducts, ...catalogProducts]
 
 export const productBySlug = Object.fromEntries(
   products.map((p) => [p.slug, p]),
