@@ -1,0 +1,18 @@
+# Custom Nixpacks config for Railway.
+#
+# Why we override the install phase:
+# Railway sets NODE_ENV=production at build time. The default Nixpacks
+# install command is `pnpm i --frozen-lockfile`, which under
+# NODE_ENV=production skips devDependencies. But Next.js needs
+# tailwindcss, postcss, autoprefixer, typescript at build time — they're
+# devDeps in package.json. The previous deploy cycle was flaky: when the
+# pnpm-store cache layer had been warmed by an earlier build, devDeps
+# came along; when the cache key invalidated (e.g. after a package.json
+# change), they were missing → `Cannot find module 'tailwindcss'`.
+#
+# `--prod=false` explicitly overrides NODE_ENV=production and forces
+# pnpm to install both production and dev dependencies. This makes
+# every build deterministic regardless of cache state.
+
+[phases.install]
+cmds = ["pnpm install --frozen-lockfile --prod=false"]
