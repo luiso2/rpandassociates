@@ -41,10 +41,6 @@
   button, a, [role="button"], summary, label {
     -webkit-tap-highlight-color: transparent;
   }
-  /* Native image lazy-fade — modern browsers honor this on <img> rendering */
-  img {
-    content-visibility: auto;
-  }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading), system-ui, sans-serif;
     font-weight: 700;
