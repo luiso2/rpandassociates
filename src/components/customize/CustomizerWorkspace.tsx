@@ -1,8 +1,7 @@
 'use client'
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import Link from 'next/link'
-import { useSearchParams } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { Download, FileText, Sparkles } from 'lucide-react'
 import { products as allProducts, featuredProducts, productBySlug } from '@/data/products'
 import type { Product } from '@/types/product'
@@ -21,7 +20,11 @@ const fallbackProduct: Product =
   featuredProducts[0] ??
   customizableProducts[0]
 
+/** sessionStorage key used to hand the rendered canvas off to /quote. */
+const CUSTOM_DESIGN_KEY = 'rp.customDesign'
+
 export function CustomizerWorkspace() {
+  const router = useRouter()
   const searchParams = useSearchParams()
   const requestedSlug = searchParams.get('p')
   const initialProduct =
@@ -70,12 +73,42 @@ export function CustomizerWorkspace() {
     link.click()
   }, [product.slug])
 
-  const quoteLink = useMemo(() => {
+  const quoteSearch = useMemo(() => {
     const params = new URLSearchParams({
       products: `${product.name} — custom-branded with my logo (qty ~${(product.minOrderQuantity ?? 250).toLocaleString()})`,
+      design: '1',
     })
-    return `/quote?${params.toString()}`
+    return params.toString()
   }, [product])
+
+  /**
+   * Capture the rendered canvas (product + logo composite) and stash it
+   * in sessionStorage so /quote can read it on the next page. We can't
+   * pass the data URL via the URL itself (URLs cap at ~2KB and a PNG
+   * is much bigger), and a server round-trip would be wasteful.
+   */
+  const handleQuoteWithDesign = useCallback(() => {
+    const canvas = canvasRef.current
+    if (canvas && logoUrl) {
+      try {
+        const dataUrl = canvas.toDataURL('image/png')
+        sessionStorage.setItem(
+          CUSTOM_DESIGN_KEY,
+          JSON.stringify({
+            productSlug: product.slug,
+            productName: product.name,
+            dataUrl,
+            savedAt: Date.now(),
+          }),
+        )
+      } catch {
+        // toDataURL throws on cross-origin tainted canvases; we proxy
+        // upstream images via /api/img specifically to avoid this, but
+        // if it ever fails we just fall back to a design-less quote.
+      }
+    }
+    router.push(`/quote?${quoteSearch}`)
+  }, [logoUrl, product.slug, product.name, quoteSearch, router])
 
   const ready = Boolean(logoUrl)
 
@@ -112,13 +145,15 @@ export function CustomizerWorkspace() {
             <Download className="w-4 h-4" />
             Download Preview
           </button>
-          <Link
-            href={quoteLink}
-            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-pill bg-gradient-to-br from-gold to-gold-dark text-white text-sm font-bold uppercase tracking-wider shadow-gold hover:from-gold-light hover:to-gold hover:-translate-y-0.5 transition-all"
+          <button
+            type="button"
+            onClick={handleQuoteWithDesign}
+            disabled={!ready}
+            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-pill bg-gradient-to-br from-gold to-gold-dark text-white text-sm font-bold uppercase tracking-wider shadow-gold hover:from-gold-light hover:to-gold hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 transition-all"
           >
             <FileText className="w-4 h-4" />
             Quote with this Design
-          </Link>
+          </button>
         </div>
 
         <div className="text-center text-xs text-ink-light">

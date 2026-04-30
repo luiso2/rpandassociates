@@ -16,6 +16,22 @@ const cartItemSchema = z.object({
   addedAt: z.number().int().nonnegative(),
 })
 
+/**
+ * Custom design produced by /customize. The dataUrl is a base64 PNG
+ * snapshot of the canvas — capped at ~7M chars (≈5MB binary after
+ * base64 overhead) so an attacker can't fill the body with megabytes
+ * of arbitrary content. Real customizer outputs are typically ~150KB.
+ */
+const customDesignSchema = z.object({
+  productSlug: z.string().min(1).max(120),
+  productName: z.string().min(1).max(200),
+  dataUrl: z
+    .string()
+    .min(64)
+    .max(7_000_000)
+    .regex(/^data:image\/(png|jpeg|webp);base64,/, 'Unsupported image format'),
+})
+
 const payloadSchema = z.object({
   firstName: z.string().trim().min(1).max(80),
   lastName: z.string().trim().min(1).max(80),
@@ -25,6 +41,7 @@ const payloadSchema = z.object({
   phone: z.string().trim().min(7).max(40),
   productsOfInterest: z.string().trim().max(2000).optional().or(z.literal('')),
   cartItems: z.array(cartItemSchema).max(50).optional(),
+  customDesign: customDesignSchema.optional(),
   source: z.enum([
     'homepage',
     'quote-page',

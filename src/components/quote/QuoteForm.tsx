@@ -1,11 +1,13 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
-import { CheckCircle2, AlertCircle, Send, ShoppingBag, X } from 'lucide-react'
-import type { QuoteSource } from '@/types/quote'
+import { CheckCircle2, AlertCircle, Send, ShoppingBag, Sparkles, X } from 'lucide-react'
+import type { CustomDesign, QuoteSource } from '@/types/quote'
 import { useQuoteCart } from '@/components/cart/QuoteCartProvider'
 import { cn } from '@/lib/cn'
+
+const CUSTOM_DESIGN_KEY = 'rp.customDesign'
 
 interface QuoteFormProps {
   source?: QuoteSource
@@ -26,6 +28,35 @@ export function QuoteForm({
   const cart = useQuoteCart()
   const cartItems = includeCart ? cart.items : []
 
+  // Pick up a custom design handed off from /customize via sessionStorage.
+  // Stored as { productSlug, productName, dataUrl, savedAt }; we hold it
+  // in component state so the preview is reactive and so we can clear it
+  // on remove or on successful submit.
+  const [customDesign, setCustomDesign] = useState<CustomDesign | null>(null)
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    try {
+      const raw = sessionStorage.getItem(CUSTOM_DESIGN_KEY)
+      if (!raw) return
+      const parsed = JSON.parse(raw) as CustomDesign & { savedAt?: number }
+      if (parsed.dataUrl?.startsWith('data:image/') && parsed.productName) {
+        setCustomDesign({
+          productSlug: parsed.productSlug,
+          productName: parsed.productName,
+          dataUrl: parsed.dataUrl,
+        })
+      }
+    } catch {
+      // Corrupt entry — drop it silently.
+      sessionStorage.removeItem(CUSTOM_DESIGN_KEY)
+    }
+  }, [])
+
+  const removeCustomDesign = () => {
+    setCustomDesign(null)
+    if (typeof window !== 'undefined') sessionStorage.removeItem(CUSTOM_DESIGN_KEY)
+  }
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (state === 'submitting') return
@@ -41,6 +72,7 @@ export function QuoteForm({
       phone: String(fd.get('phone') ?? '').trim(),
       productsOfInterest: String(fd.get('productsOfInterest') ?? '').trim(),
       ...(cartItems.length > 0 ? { cartItems } : {}),
+      ...(customDesign ? { customDesign } : {}),
       source,
     }
     setState('submitting')
@@ -58,6 +90,7 @@ export function QuoteForm({
       setState('success')
       ;(e.target as HTMLFormElement).reset()
       if (includeCart && cartItems.length > 0) cart.clear()
+      if (customDesign) removeCustomDesign()
     } catch (err) {
       setState('error')
       setErrorMsg(err instanceof Error ? err.message : 'Submission failed')
@@ -93,6 +126,44 @@ export function QuoteForm({
       onSubmit={handleSubmit}
       className="glass rounded-xl p-7 md:p-9 shadow-soft-md border border-white/70 space-y-5"
     >
+      {customDesign && (
+        <div className="rounded-lg bg-gold/8 border border-gold/30 p-4 mb-2">
+          <div className="flex items-center gap-2 mb-3">
+            <Sparkles className="w-4 h-4 text-gold-dark" />
+            <h3 className="text-sm font-bold text-ink">
+              Your custom design will be attached to this quote
+            </h3>
+          </div>
+          <div className="flex items-start gap-3">
+            <div className="relative w-20 h-20 rounded-md overflow-hidden bg-white border border-black/10 shrink-0">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={customDesign.dataUrl}
+                alt={`Your custom ${customDesign.productName}`}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            </div>
+            <div className="flex-1 text-xs text-ink-body">
+              <div className="font-semibold mb-0.5">
+                {customDesign.productName}
+              </div>
+              <div className="text-ink-muted leading-relaxed">
+                Rendered from your visualizer. We&apos;ll include this preview
+                in the quote email.
+              </div>
+            </div>
+            <button
+              type="button"
+              aria-label="Remove custom design"
+              onClick={removeCustomDesign}
+              className="text-ink-light hover:text-accent-red transition shrink-0"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+      )}
+
       {includeCart && cartItems.length > 0 && (
         <div className="rounded-lg bg-primary/5 border border-primary/20 p-4 mb-2">
           <div className="flex items-center gap-2 mb-3">
