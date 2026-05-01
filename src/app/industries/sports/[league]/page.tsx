@@ -15,6 +15,7 @@ import { Container } from '@/components/ui/Container'
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs'
 import { ProductCard } from '@/components/product/ProductCard'
 import { LeagueScheduleStrip } from '@/components/sports/LeagueScheduleStrip'
+import { ReplicateProgramButton } from '@/components/sports/ReplicateProgramButton'
 
 export const dynamicParams = false
 
@@ -191,12 +192,16 @@ export default function LeagueIndustryPage({
                   {league.caseStudy.metric}
                 </div>
               </div>
-              <Link
-                href={`/quote?products=${encodeURIComponent(`${league.shortName} stadium / concession program — looking for similar SKUs`)}`}
-                className="block w-full text-center px-7 py-3.5 rounded-pill bg-ink text-white text-sm font-bold uppercase tracking-wider hover:bg-primary transition"
+              <ReplicateProgramButton
+                products={curated}
+                programLabel={`${league.shortName} stadium / concession program`}
+                className="block w-full text-center px-7 py-3.5 rounded-pill bg-ink text-white text-sm font-bold uppercase tracking-wider hover:bg-primary disabled:opacity-50 disabled:cursor-not-allowed transition"
               >
                 Replicate this program →
-              </Link>
+              </ReplicateProgramButton>
+              <p className="text-[11px] text-ink-light text-center leading-relaxed">
+                Loads the {curated.length} curated SKU{curated.length === 1 ? '' : 's'} into your quote cart with stadium-typical quantities. Edit anything before submitting.
+              </p>
             </div>
           </div>
         </Container>
