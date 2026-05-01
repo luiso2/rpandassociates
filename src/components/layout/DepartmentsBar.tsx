@@ -7,7 +7,6 @@ import {
   Menu,
   FileText,
   Building2,
-  Sparkles,
   ChevronDown,
   ArrowRight,
 } from 'lucide-react'
@@ -83,12 +82,6 @@ export function DepartmentsBar() {
             className="flex items-center gap-1.5 px-3 py-2.5 rounded-md text-white/85 hover:text-gold-light hover:bg-white/5 transition whitespace-nowrap"
           >
             <FileText className="w-3.5 h-3.5" /> Catalogs
-          </Link>
-          <Link
-            href="/customize"
-            className="flex items-center gap-1.5 px-3 py-2.5 rounded-md text-gold hover:text-gold-light hover:bg-white/5 transition whitespace-nowrap font-bold"
-          >
-            <Sparkles className="w-3.5 h-3.5" /> Try Your Logo
           </Link>
         </div>
       </Container>
