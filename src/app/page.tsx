@@ -8,7 +8,6 @@ import { IndustriesGrid } from '@/components/home/IndustriesGrid'
 import { PopularBanners } from '@/components/home/PopularBanners'
 import { ProcessSteps } from '@/components/home/ProcessSteps'
 import { AboutStats } from '@/components/home/AboutStats'
-import { LogoVisualizerTeaser } from '@/components/home/LogoVisualizerTeaser'
 import { QuoteSection } from '@/components/home/QuoteSection'
 
 export default function HomePage() {
@@ -23,7 +22,6 @@ export default function HomePage() {
         ctaHref="/quote"
       />
       <FeaturedProducts />
-      <LogoVisualizerTeaser />
       <IndustriesGrid />
       <CatalogsSection />
       <CtaBanner

@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Phone, FileText, Menu } from 'lucide-react'
+import { Phone, FileText, Menu, Sparkles } from 'lucide-react'
 import { useStickyHeader } from '@/hooks/useStickyHeader'
 import { Container } from '@/components/ui/Container'
 import { HeaderSearch } from './HeaderSearch'
@@ -122,6 +122,13 @@ export function HeaderClient() {
               >
                 <FileText className="w-3.5 h-3.5" />
                 <span className="hidden lg:inline">Request a </span>Quote
+              </Link>
+              <Link
+                href="/customize"
+                className="hidden md:inline-flex items-center gap-1.5 px-4 lg:px-5 py-2.5 rounded-pill text-[11px] lg:text-[12px] font-bold uppercase tracking-wider text-ink bg-white border border-ink/15 hover:border-gold hover:text-gold-dark hover:-translate-y-0.5 hover:shadow-soft-sm transition-all whitespace-nowrap"
+              >
+                <Sparkles className="w-3.5 h-3.5 text-gold" />
+                <span className="hidden lg:inline">Try Your </span>Logo
               </Link>
               <button
                 type="button"
